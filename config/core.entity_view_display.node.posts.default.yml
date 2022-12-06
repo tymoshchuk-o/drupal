@@ -1,0 +1,65 @@
+uuid: e72ee3fd-2725-4a5c-97b0-0ea28c27b829
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.posts.body
+    - field.field.node.posts.field_add_media
+    - field.field.node.posts.field_add_subtitle
+    - field.field.node.posts.field_post_type
+    - field.field.node.posts.field_tag
+    - node.type.posts
+  module:
+    - text
+    - user
+id: node.posts.default
+targetEntityType: node
+bundle: posts
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_add_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_add_subtitle:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_post_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_tag:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

@@ -1,0 +1,17 @@
+uuid: 9bca91fc-c6e1-4108-8657-9fdefba0f00f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Posts
+type: posts
+description: ''
+help: ''
+new_revision: true
+preview_mode: 2
+display_submitted: true

@@ -1,0 +1,21 @@
+uuid: 4d9a6337-14a0-45a8-9786-ea2c36817855
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.posttype
+  module:
+    - text
+id: taxonomy_term.posttype.default
+targetEntityType: taxonomy_term
+bundle: posttype
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
