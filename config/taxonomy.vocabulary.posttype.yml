@@ -1,0 +1,8 @@
+uuid: 961a1dc3-3314-41cb-bb8e-3fecd245e42c
+langcode: en
+status: true
+dependencies: {  }
+name: PostType
+vid: posttype
+description: 'The type of post being created'
+weight: 0
