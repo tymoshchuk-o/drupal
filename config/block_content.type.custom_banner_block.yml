@@ -1,0 +1,8 @@
+uuid: 77d191d0-ed6b-4826-9bad-783383e9ef03
+langcode: en
+status: true
+dependencies: {  }
+id: custom_banner_block
+label: 'Custom Banner block'
+revision: 0
+description: ''
