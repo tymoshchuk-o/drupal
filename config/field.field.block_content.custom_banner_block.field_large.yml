@@ -1,0 +1,23 @@
+uuid: 87f40f76-29d5-4d52-a7ad-889f785eafd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.custom_banner_block
+    - field.storage.block_content.field_large
+id: block_content.custom_banner_block.field_large
+field_name: field_large
+entity_type: block_content
+bundle: custom_banner_block
+label: Large
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

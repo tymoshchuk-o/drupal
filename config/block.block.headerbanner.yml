@@ -1,0 +1,25 @@
+uuid: 10485873-61f7-4362-a482-f921433d504f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:custom_banner_block:b908c311-5cad-4483-98ed-382128a7a89d'
+  module:
+    - block_content
+  theme:
+    - olivero
+id: headerbanner
+theme: olivero
+region: hero
+weight: -10
+provider: null
+plugin: 'block_content:b908c311-5cad-4483-98ed-382128a7a89d'
+settings:
+  id: 'block_content:b908c311-5cad-4483-98ed-382128a7a89d'
+  label: 'Header banner'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
