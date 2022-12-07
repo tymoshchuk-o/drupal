@@ -1,0 +1,37 @@
+uuid: 922b15d9-86e4-4dff-9f43-42f1b0596ea8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_button
+    - field.field.block_content.social_button.field_icon_image
+    - field.field.block_content.social_button.field_social_link
+  module:
+    - link
+id: block_content.social_button.default
+targetEntityType: block_content
+bundle: social_button
+mode: default
+content:
+  field_icon_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_social_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

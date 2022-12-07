@@ -1,0 +1,8 @@
+uuid: 20861a6f-3a26-4bf1-a3a4-0d696632a596
+langcode: en
+status: true
+dependencies: {  }
+id: show_date_time
+label: 'Show Date Time'
+revision: 0
+description: ''

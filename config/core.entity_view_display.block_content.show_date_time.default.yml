@@ -1,0 +1,21 @@
+uuid: 534e4ff5-44e3-4183-9019-886cc347c252
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.show_date_time
+    - field.field.block_content.show_date_time.field_add_day_name_month_name_da
+id: block_content.show_date_time.default
+targetEntityType: block_content
+bundle: show_date_time
+mode: default
+content:
+  field_add_day_name_month_name_da:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

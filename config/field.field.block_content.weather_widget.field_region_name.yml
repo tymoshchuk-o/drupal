@@ -1,0 +1,19 @@
+uuid: fd472beb-7a03-4a93-a437-721b3257a0c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.weather_widget
+    - field.storage.block_content.field_region_name
+id: block_content.weather_widget.field_region_name
+field_name: field_region_name
+entity_type: block_content
+bundle: weather_widget
+label: 'City Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

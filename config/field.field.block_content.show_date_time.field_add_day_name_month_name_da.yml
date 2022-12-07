@@ -1,0 +1,19 @@
+uuid: 4a467121-aba4-4a26-9447-12e36110747b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.show_date_time
+    - field.storage.block_content.field_add_day_name_month_name_da
+id: block_content.show_date_time.field_add_day_name_month_name_da
+field_name: field_add_day_name_month_name_da
+entity_type: block_content
+bundle: show_date_time
+label: 'Add day name,  month name day, year'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

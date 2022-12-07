@@ -1,0 +1,21 @@
+uuid: 6e4b3bef-b822-4d50-ab2d-45ab8b6796d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.weather_widget
+    - field.field.block_content.weather_widget.field_region_name
+id: block_content.weather_widget.default
+targetEntityType: block_content
+bundle: weather_widget
+mode: default
+content:
+  field_region_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

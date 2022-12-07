@@ -1,0 +1,34 @@
+uuid: f7aa5b6f-7e08-4b11-8cdf-636d36c88e06
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.topnav
+  module:
+    - system
+    - user
+  theme:
+    - olivero
+id: topnav
+theme: olivero
+region: header
+weight: -8
+provider: null
+plugin: 'system_menu_block:topnav'
+settings:
+  id: 'system_menu_block:topnav'
+  label: TopNav
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
+      administrator: administrator
