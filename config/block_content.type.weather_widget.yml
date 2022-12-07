@@ -1,0 +1,8 @@
+uuid: 4582c487-d985-4a95-a1d3-1d210ca97e65
+langcode: en
+status: true
+dependencies: {  }
+id: weather_widget
+label: 'Weather widget'
+revision: 0
+description: ''

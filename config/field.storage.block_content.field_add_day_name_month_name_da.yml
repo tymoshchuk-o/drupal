@@ -1,0 +1,21 @@
+uuid: 0e422d6a-ba9f-4ed6-8a1d-1e8ad7dc7feb
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_add_day_name_month_name_da
+field_name: field_add_day_name_month_name_da
+entity_type: block_content
+type: string
+settings:
+  max_length: 100
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

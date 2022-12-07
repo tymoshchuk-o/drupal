@@ -1,0 +1,29 @@
+uuid: 37eb28d2-9f68-4abb-843d-c87d7d8e1569
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.show_date_time
+    - field.field.block_content.show_date_time.field_add_day_name_month_name_da
+id: block_content.show_date_time.default
+targetEntityType: block_content
+bundle: show_date_time
+mode: default
+content:
+  field_add_day_name_month_name_da:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,8 @@
+uuid: 1a4811a9-080f-460d-b32b-7992c1c16523
+langcode: en
+status: true
+dependencies: {  }
+id: social_button
+label: 'Social Button'
+revision: 0
+description: ''

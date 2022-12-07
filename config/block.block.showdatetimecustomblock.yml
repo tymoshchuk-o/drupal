@@ -1,0 +1,25 @@
+uuid: b99db227-0066-40ab-beea-115eb83a39d5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:show_date_time:3035ad85-8c21-445d-ac32-69acb106d3da'
+  module:
+    - block_content
+  theme:
+    - olivero
+id: showdatetimecustomblock
+theme: olivero
+region: header
+weight: -9
+provider: null
+plugin: 'block_content:3035ad85-8c21-445d-ac32-69acb106d3da'
+settings:
+  id: 'block_content:3035ad85-8c21-445d-ac32-69acb106d3da'
+  label: 'Show Date Time custom block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

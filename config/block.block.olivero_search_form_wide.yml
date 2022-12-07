@@ -1,6 +1,6 @@
 uuid: 925938de-46e6-4d66-bb71-20c5b4ad9ea4
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - search
@@ -10,8 +10,8 @@ _core:
   default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
 id: olivero_search_form_wide
 theme: olivero
-region: secondary_menu
-weight: -5
+region: header
+weight: -3
 provider: null
 plugin: search_form_block
 settings:

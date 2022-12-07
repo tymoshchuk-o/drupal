@@ -10,8 +10,8 @@ _core:
   default_config_hash: yEBET0cqDbk8dkWzaJw-8CKft0961VBflsISoSR6Lj8
 id: olivero_search_form_narrow
 theme: olivero
-region: primary_menu
-weight: -4
+region: hero
+weight: -5
 provider: null
 plugin: search_form_block
 settings:
