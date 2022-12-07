@@ -2,13 +2,13 @@ _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
 uuid: 94dc7687-d5f6-4d0c-a398-16cdc85d2c13
-name: DrupalSite
+name: News12Paper
 mail: o.tymoshchuk@dev-branch.com
-slogan: ''
+slogan: 'the art of publishing'
 page:
   403: ''
   404: ''
-  front: /node
+  front: /news
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en
