@@ -1,12 +1,15 @@
-uuid: d54d8e1f-1c01-47fd-8b10-e15e1cf42d11
+uuid: 7ac51a9f-1d4a-457a-90a7-f40aa4a87759
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.page.body
+    - field.field.node.page.layout_builder__layout
     - node.type.page
   module:
     - layout_builder
+    - layout_discovery
     - text
     - user
 third_party_settings:
@@ -19,8 +22,8 @@ third_party_settings:
         layout_settings:
           label: ''
         components:
-          52423493-ef03-4f14-adb8-fd36585d236b:
-            uuid: 52423493-ef03-4f14-adb8-fd36585d236b
+          b39d4f6e-360e-4805-840a-57f84d189efe:
+            uuid: b39d4f6e-360e-4805-840a-57f84d189efe
             region: content
             configuration:
               id: 'field_block:node:page:body'
@@ -34,8 +37,8 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          5fd97650-8b53-4a33-8298-011fa2cfcd40:
-            uuid: 5fd97650-8b53-4a33-8298-011fa2cfcd40
+          6559524d-ba34-45c0-85c6-499e615bde1b:
+            uuid: 6559524d-ba34-45c0-85c6-499e615bde1b
             region: content
             configuration:
               id: 'extra_field_block:node:page:links'
@@ -47,10 +50,10 @@ third_party_settings:
         third_party_settings: {  }
 _core:
   default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
-id: node.page.default
+id: node.page.full
 targetEntityType: node
 bundle: page
-mode: default
+mode: full
 content:
   body:
     type: text_default
