@@ -8,7 +8,7 @@ slogan: 'the art of publishing'
 page:
   403: ''
   404: ''
-  front: /node/20
+  front: /news
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en
