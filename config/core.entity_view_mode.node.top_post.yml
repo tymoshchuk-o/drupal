@@ -1,0 +1,10 @@
+uuid: 64460cc0-a7d3-486a-84ed-4b43487a1b48
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.top_post
+label: 'Top Post'
+targetEntityType: node
+cache: true
