@@ -1,8 +1,10 @@
-uuid: f7916e25-ff2d-4b03-b644-8d1d7726d04c
+uuid: 93f2c7bf-9502-41c2-bc55-069fe2d1ac57
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.post_banner
+    - node.type.posts
     - core.entity_view_mode.node.full
     - core.entity_view_mode.node.teaser
     - core.entity_view_mode.node.without_body
@@ -14,8 +16,8 @@ dependencies:
     - node
     - statistics
     - user
-id: news
-label: News
+id: last_four_posts
+label: 'Last four posts'
 module: views
 description: ''
 tag: ''
@@ -28,7 +30,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Last Articles'
+      title: 'Last four posts'
       fields:
         title:
           id: title
@@ -37,19 +39,35 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: title
           plugin_id: field
           label: ''
           exclude: false
           alter:
             alter_text: false
+            text: ''
             make_link: false
+            path: ''
             absolute: false
-            word_boundary: false
-            ellipsis: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
             strip_tags: false
             trim: false
+            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
@@ -78,23 +96,10 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: mini
+        type: some
         options:
           offset: 0
-          items_per_page: 8
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
+          items_per_page: 4
       exposed_form:
         type: basic
         options:
@@ -156,24 +161,12 @@ display:
           id: type
           table: node_field_data
           field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          operator: 'not in'
           value:
-            article: article
-            page: page
-          group: 1
-          exposed: false
+            posts: posts
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
             operator_limit_selection: false
             operator_list: {  }
             identifier: ''
@@ -208,8 +201,8 @@ display:
       style:
         type: grid
         options:
-          uses_fields: false
-          columns: 1
+          grouping: {  }
+          columns: 2
           automatic_width: true
           alignment: horizontal
           row_class_custom: ''
@@ -220,7 +213,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: full
+          view_mode: post_banner
       query:
         type: views_query
         options:
@@ -238,7 +231,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -794,7 +786,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
