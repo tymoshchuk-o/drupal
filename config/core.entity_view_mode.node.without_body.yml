@@ -1,0 +1,10 @@
+uuid: 2e0e8847-2c32-4385-8116-05a4688f4b2e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.without_body
+label: 'Without Body'
+targetEntityType: node
+cache: true
