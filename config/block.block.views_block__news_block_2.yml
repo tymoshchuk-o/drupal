@@ -1,0 +1,24 @@
+uuid: e4eb5ac1-fd9b-417e-b8a7-a00d6babea78
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - views
+  theme:
+    - olivero
+id: views_block__news_block_2
+theme: olivero
+region: footer_top
+weight: 0
+provider: null
+plugin: 'views_block:news-block_2'
+settings:
+  id: 'views_block:news-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }
