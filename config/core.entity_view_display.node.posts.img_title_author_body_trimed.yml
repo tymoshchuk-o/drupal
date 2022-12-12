@@ -1,0 +1,55 @@
+uuid: 2c796c65-d9d6-4e94-89c6-e569f5ec2379
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.img_title_author_body_trimed
+    - field.field.node.posts.body
+    - field.field.node.posts.field_add_media
+    - field.field.node.posts.field_add_subtitle
+    - field.field.node.posts.field_post_type
+    - field.field.node.posts.field_tag
+    - image.style.large
+    - node.type.posts
+  module:
+    - layout_builder
+    - media
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.posts.img_title_author_body_trimed
+targetEntityType: node
+bundle: posts
+mode: img_title_author_body_trimed
+content:
+  body:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 400
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_add_media:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: content
+      image_style: large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_add_subtitle: true
+  field_post_type: true
+  field_tag: true
