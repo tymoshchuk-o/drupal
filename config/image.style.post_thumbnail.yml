@@ -1,0 +1,15 @@
+uuid: 84505fb3-4a63-43e8-9b2a-bc1eaa59641e
+langcode: en
+status: true
+dependencies: {  }
+name: post_thumbnail
+label: Thumbnail
+effects:
+  cc9df557-87ce-4ac1-825e-6c51ef479ad5:
+    uuid: cc9df557-87ce-4ac1-825e-6c51ef479ad5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 600
+      anchor: center-center
