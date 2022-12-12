@@ -1,0 +1,21 @@
+uuid: 57d47491-54dd-48e7-9781-a193d28dec6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_statistics
+field_name: field_statistics
+entity_type: block_content
+type: string
+settings:
+  max_length: 100
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

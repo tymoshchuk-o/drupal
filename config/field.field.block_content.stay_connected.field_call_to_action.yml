@@ -1,0 +1,19 @@
+uuid: 62c3c951-8ccc-4720-9ef9-9b96f7d65694
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.stay_connected
+    - field.storage.block_content.field_call_to_action
+id: block_content.stay_connected.field_call_to_action
+field_name: field_call_to_action
+entity_type: block_content
+bundle: stay_connected
+label: 'Call to action'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
