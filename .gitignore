@@ -28,7 +28,8 @@ web/sites/*/private
 
 # Ignore SimpleTest multi-site environment.
 web/sites/simpletest
-
+web/libraries
+web/modules/contrib
 
 # If you prefer to store your .gitignore file in the sites/ folder, comment
 # or delete the previous settings and uncomment the following ones, instead.
