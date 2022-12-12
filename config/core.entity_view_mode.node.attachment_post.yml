@@ -1,0 +1,10 @@
+uuid: 4651de6f-a6dc-47e9-aef4-550f50f87e72
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.attachment_post
+label: 'Attachment Post'
+targetEntityType: node
+cache: true
