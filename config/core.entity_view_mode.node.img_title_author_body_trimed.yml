@@ -1,0 +1,10 @@
+uuid: 2185957d-396c-4be4-8965-50a3c196c42a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.img_title_author_body_trimed
+label: 'IMG-Title-Author-Body Trimed'
+targetEntityType: node
+cache: true
