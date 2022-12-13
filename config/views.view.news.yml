@@ -8,7 +8,6 @@ dependencies:
     - core.entity_view_mode.node.without_body
     - node.type.article
     - node.type.page
-    - system.menu.main
     - system.menu.topnav
   module:
     - node
@@ -230,6 +229,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header: {  }
       footer: {  }
       display_extenders: {  }
