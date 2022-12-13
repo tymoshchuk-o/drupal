@@ -9,10 +9,10 @@ label: 'Taxonomy Path'
 type: 'canonical_entities:taxonomy_term'
 pattern: '[term:name]'
 selection_criteria:
-  bee411a5-4203-484f-bb18-24668d3f52c2:
+  ff8c42e0-97a8-4c16-b0cd-b52ac80333c4:
     id: 'entity_bundle:taxonomy_term'
     negate: false
-    uuid: bee411a5-4203-484f-bb18-24668d3f52c2
+    uuid: ff8c42e0-97a8-4c16-b0cd-b52ac80333c4
     context_mapping:
       taxonomy_term: taxonomy_term
     bundles:

@@ -1,12 +1,12 @@
-uuid: 4d9a6337-14a0-45a8-9786-ea2c36817855
+uuid: c9eef0fe-ade3-49e4-92b7-a69809a9cd71
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.posttype
-id: taxonomy_term.posttype.default
+    - taxonomy.vocabulary.tags
+id: taxonomy_term.tags.default
 targetEntityType: taxonomy_term
-bundle: posttype
+bundle: tags
 mode: default
 content: {  }
 hidden:
