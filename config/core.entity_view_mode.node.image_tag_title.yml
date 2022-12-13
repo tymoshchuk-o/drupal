@@ -1,0 +1,10 @@
+uuid: 8dd7033d-a0b9-4cac-a538-2d1510635c8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.image_tag_title
+label: Image-Tag-Title
+targetEntityType: node
+cache: true
