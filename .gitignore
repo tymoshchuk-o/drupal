@@ -28,8 +28,9 @@ web/sites/*/private
 
 # Ignore SimpleTest multi-site environment.
 web/sites/simpletest
-web/modules/contrib
 web/libraries
+web/modules/contrib
+
 
 
 # If you prefer to store your .gitignore file in the sites/ folder, comment
