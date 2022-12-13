@@ -222,6 +222,7 @@ display:
           admin_label: node
           plugin_id: standard
           required: true
+      use_ajax: true
       group_by: true
       header: {  }
       footer: {  }
