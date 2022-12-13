@@ -1,20 +1,20 @@
-uuid: 6aae3de8-faa2-4a82-99af-5e2f177908d2
+uuid: cf2d3dd2-2b0b-442c-9fd7-2e619da4e97a
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.tags
+    - node.type.posts
   module:
+    - comment
     - node
-    - taxonomy
     - user
-id: popular_category
-label: 'Popular Category'
+id: recent_comments_posts
+label: 'Recent Comments Posts'
 module: views
 description: ''
 tag: ''
-base_table: taxonomy_term_field_data
-base_field: tid
+base_table: node_field_data
+base_field: nid
 display:
   default:
     id: default
@@ -22,66 +22,16 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Popular Category'
+      title: 'Recent Comments Posts'
       fields:
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
+        last_comment_name:
+          id: last_comment_name
+          table: comment_entity_statistics
+          field: last_comment_name
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: term_name
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            trim: false
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          convert_spaces: false
-        name_1:
-          id: name_1
-          table: taxonomy_term_field_data
-          field: name
-          relationship: none
-          group_type: count
-          admin_label: ''
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: term_name
+          plugin_id: comment_ces_last_comment_name
           label: ''
           exclude: false
           alter:
@@ -123,9 +73,60 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          link_to_user: true
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
           click_sort_column: value
           type: string
-          settings: {  }
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -134,21 +135,13 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ','
+          separator: ', '
           field_api_classes: false
-          convert_spaces: false
-          set_precision: false
-          precision: 0
-          decimal: .
-          format_plural: 0
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
       pager:
         type: some
         options:
           offset: 0
-          items_per_page: 6
+          items_per_page: 3
       exposed_form:
         type: basic
         options:
@@ -168,28 +161,56 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
+        last_comment_timestamp:
+          id: last_comment_timestamp
+          table: comment_entity_statistics
+          field: last_comment_timestamp
           relationship: none
-          group_type: count
+          group_type: group
           admin_label: ''
-          entity_type: taxonomy_term
-          entity_field: name
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
+        comment_count:
+          id: comment_count
+          table: comment_entity_statistics
+          field: comment_count
+          relationship: none
+          group_type: group
+          admin_label: ''
           plugin_id: standard
           order: DESC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
       arguments: {  }
       filters:
         status:
           id: status
-          table: taxonomy_term_field_data
+          table: node_field_data
           field: status
-          entity_type: taxonomy_term
+          entity_type: node
           entity_field: status
           plugin_id: boolean
           value: '1'
@@ -198,15 +219,15 @@ display:
             operator: ''
             operator_limit_selection: false
             operator_list: {  }
-        vid:
-          id: vid
-          table: taxonomy_term_field_data
-          field: vid
-          entity_type: taxonomy_term
-          entity_field: vid
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
           plugin_id: bundle
           value:
-            tags: tags
+            posts: posts
           expose:
             operator_limit_selection: false
             operator_list: {  }
@@ -214,11 +235,6 @@ display:
         type: default
       row:
         type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
       query:
         type: views_query
         options:
@@ -227,18 +243,7 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships:
-        nid:
-          id: nid
-          table: taxonomy_index
-          field: nid
-          relationship: none
-          group_type: group
-          admin_label: node
-          plugin_id: standard
-          required: true
-      use_ajax: true
-      group_by: true
+      relationships: {  }
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -247,6 +252,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
         - user.permissions
       tags: {  }
   block_1:
@@ -261,5 +267,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
         - user.permissions
       tags: {  }

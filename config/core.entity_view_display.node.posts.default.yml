@@ -3,13 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
     - field.field.node.posts.body
     - field.field.node.posts.field_add_media
     - field.field.node.posts.field_add_subtitle
+    - field.field.node.posts.field_comments
     - field.field.node.posts.field_post_type
     - field.field.node.posts.field_tag
     - node.type.posts
   module:
+    - comment
     - text
     - user
 id: node.posts.default
@@ -40,6 +43,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_comments:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_post_type:
     type: entity_reference_label

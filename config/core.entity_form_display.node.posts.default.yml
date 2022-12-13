@@ -6,10 +6,12 @@ dependencies:
     - field.field.node.posts.body
     - field.field.node.posts.field_add_media
     - field.field.node.posts.field_add_subtitle
+    - field.field.node.posts.field_comments
     - field.field.node.posts.field_post_type
     - field.field.node.posts.field_tag
     - node.type.posts
   module:
+    - comment
     - media_library
     - path
     - text
@@ -48,6 +50,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_comments:
+    type: comment_default
+    weight: 26
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_post_type:
     type: options_select
