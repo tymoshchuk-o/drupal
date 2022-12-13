@@ -1,0 +1,29 @@
+uuid: 824ed34c-7f82-41d2-93b5-4bed0710e125
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.toppageblock
+    - field.storage.block_content.field_full_page_image
+    - media.type.image
+id: block_content.toppageblock.field_full_page_image
+field_name: field_full_page_image
+entity_type: block_content
+bundle: toppageblock
+label: 'Full Page Image'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

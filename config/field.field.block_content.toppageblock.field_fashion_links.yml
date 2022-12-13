@@ -1,0 +1,23 @@
+uuid: 259b16e9-c595-45d0-8211-58bc4e77143e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.toppageblock
+    - field.storage.block_content.field_fashion_links
+  module:
+    - link
+id: block_content.toppageblock.field_fashion_links
+field_name: field_fashion_links
+entity_type: block_content
+bundle: toppageblock
+label: 'Fashion Links'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 1
+field_type: link

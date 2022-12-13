@@ -1,0 +1,19 @@
+uuid: b6c508e3-93e8-4c4b-937a-72e1c9f1d796
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.toppageblock
+    - field.storage.block_content.field_title_text
+id: block_content.toppageblock.field_title_text
+field_name: field_title_text
+entity_type: block_content
+bundle: toppageblock
+label: 'Title text'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -21,6 +21,7 @@
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/dynamic_breadcrumb": "^1.4",
+        "drupal/paragraphs": "^1.15",
         "drupal/pathauto": "^1.11",
         "drupal/views_bootstrap": "^5.4"
     },

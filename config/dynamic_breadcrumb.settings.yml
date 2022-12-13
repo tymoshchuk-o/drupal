@@ -1,0 +1,63 @@
+block_content:
+  basic:
+    checkbox: 0
+    value: '[current-page:title]'
+  custom-banner-block:
+    checkbox: 0
+    value: ''
+  show-date-time:
+    checkbox: 0
+    value: ''
+  social-button:
+    checkbox: 0
+    value: ''
+  stay-connected:
+    checkbox: 0
+    value: ''
+  weather-widget:
+    checkbox: 0
+    value: ''
+media:
+  audio:
+    checkbox: 0
+    value: ''
+  document:
+    checkbox: 0
+    value: ''
+  image:
+    checkbox: 0
+    value: ''
+  remote-video:
+    checkbox: 0
+    value: ''
+  video:
+    checkbox: 0
+    value: ''
+menu_link_content:
+  menu-link-content:
+    checkbox: 0
+    value: '[current-page:title]'
+node:
+  article:
+    checkbox: 0
+    value: '[current-page:title]'
+  home-page:
+    checkbox: 0
+    value: ''
+  page:
+    checkbox: 1
+    value: '[current-page:title]'
+  posts:
+    checkbox: 1
+    value: '[node:title]'
+term:
+  posttype:
+    checkbox: 1
+    value: '[current-page:title]'
+  tags:
+    checkbox: 0
+    value: ''
+user:
+  user:
+    checkbox: 0
+    value: ''
