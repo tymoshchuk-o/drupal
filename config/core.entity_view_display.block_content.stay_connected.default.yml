@@ -1,0 +1,59 @@
+uuid: 28650514-b3df-4b2e-8f5a-7149d95dafad
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.stay_connected
+    - field.field.block_content.stay_connected.field_call_to_action
+    - field.field.block_content.stay_connected.field_link
+    - field.field.block_content.stay_connected.field_social_image
+    - field.field.block_content.stay_connected.field_statistics
+    - image.style.thumbnail
+  module:
+    - link
+    - media
+id: block_content.stay_connected.default
+targetEntityType: block_content
+bundle: stay_connected
+mode: default
+content:
+  field_call_to_action:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_social_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: thumbnail
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_statistics:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }
