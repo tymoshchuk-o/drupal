@@ -11,7 +11,7 @@ dependencies:
 id: footer
 theme: olivero
 region: footer_bottom
-weight: -14
+weight: -11
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
