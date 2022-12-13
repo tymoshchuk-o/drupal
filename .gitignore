@@ -28,6 +28,7 @@ web/sites/*/private
 
 # Ignore SimpleTest multi-site environment.
 web/sites/simpletest
+
 web/libraries
 web/modules/contrib
 
