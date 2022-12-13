@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.posts.field_add_subtitle
     - field.field.node.posts.field_post_type
     - field.field.node.posts.field_tag
+    - image.style.post_thumbnail
     - node.type.posts
   module:
     - media
@@ -22,8 +23,8 @@ content:
     type: media_thumbnail
     label: hidden
     settings:
-      image_link: ''
-      image_style: ''
+      image_link: content
+      image_style: post_thumbnail
       image_loading:
         attribute: lazy
     third_party_settings: {  }

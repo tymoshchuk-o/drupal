@@ -1,4 +1,4 @@
-uuid: 6eabd3c7-48e4-45f3-b781-9f50119486dd
+uuid: 70c3e685-8fef-4995-b088-4df50175d5f2
 langcode: en
 status: true
 dependencies:
@@ -18,8 +18,8 @@ dependencies:
     - taxonomy
     - text
     - user
-id: don_t_miss
-label: 'Don`t Miss'
+id: lifestyle_news
+label: 'Lifestyle News'
 module: views
 description: ''
 tag: ''
@@ -141,7 +141,7 @@ display:
       pager:
         type: some
         options:
-          offset: 1
+          offset: 2
           items_per_page: 4
       exposed_form:
         type: bef
@@ -323,7 +323,7 @@ display:
     display_plugin: attachment
     position: 2
     display_options:
-      title: 'Don`t Miss Attachment'
+      title: 'Lifestyle News Attachment'
       fields:
         field_add_media:
           id: field_add_media
@@ -751,7 +751,7 @@ display:
         type: some
         options:
           offset: 0
-          items_per_page: 1
+          items_per_page: 2
       filters:
         status:
           id: status
@@ -837,7 +837,7 @@ display:
         type: grid
         options:
           grouping: {  }
-          columns: 1
+          columns: 2
           automatic_width: true
           alignment: horizontal
           row_class_custom: ''
@@ -876,15 +876,16 @@ display:
         - 'config:field.storage.node.field_add_media'
   block_1:
     id: block_1
-    display_title: 'Don`t Miss All'
+    display_title: 'Lifestyle News Block'
     display_plugin: block
     position: 1
     display_options:
+      title: 'Lifestyle News'
       style:
         type: grid
         options:
           uses_fields: false
-          columns: 1
+          columns: 2
           automatic_width: true
           alignment: horizontal
           row_class_custom: ''
@@ -896,6 +897,7 @@ display:
         options:
           view_mode: teaser
       defaults:
+        title: false
         style: false
         row: false
       display_description: ''
