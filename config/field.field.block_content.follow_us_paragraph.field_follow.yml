@@ -1,0 +1,34 @@
+uuid: 332096c7-73ac-41da-8630-1a3aac02b59e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.follow_us_paragraph
+    - field.storage.block_content.field_follow
+    - paragraphs.paragraphs_type.follow_us_icons_wrapper
+  module:
+    - entity_reference_revisions
+id: block_content.follow_us_paragraph.field_follow
+field_name: field_follow
+entity_type: block_content
+bundle: follow_us_paragraph
+label: 'Follow Us'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      follow_us_icons_wrapper: follow_us_icons_wrapper
+    negate: 0
+    target_bundles_drag_drop:
+      follow_us_icons_wrapper:
+        weight: 3
+        enabled: true
+      follow_us_item_block:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

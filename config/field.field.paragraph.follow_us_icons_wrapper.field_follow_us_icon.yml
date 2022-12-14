@@ -1,0 +1,34 @@
+uuid: 5848e6e2-a3ae-4966-b996-fe4050252f45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_follow_us_icon
+    - paragraphs.paragraphs_type.follow_us_icons_wrapper
+    - paragraphs.paragraphs_type.follow_us_item_block
+  module:
+    - entity_reference_revisions
+id: paragraph.follow_us_icons_wrapper.field_follow_us_icon
+field_name: field_follow_us_icon
+entity_type: paragraph
+bundle: follow_us_icons_wrapper
+label: 'Follow Us icon'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      follow_us_item_block: follow_us_item_block
+    negate: 0
+    target_bundles_drag_drop:
+      follow_us_icons_wrapper:
+        weight: 3
+        enabled: false
+      follow_us_item_block:
+        weight: 4
+        enabled: true
+field_type: entity_reference_revisions

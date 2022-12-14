@@ -1,24 +1,24 @@
-uuid: 41a36dfc-52e9-473d-bca3-e75e652760c0
+uuid: 97ba1dce-b3eb-45c5-b9d4-274e385056aa
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:custom_banner_block:9712a40c-5316-49a1-a375-43f1440d21f7'
+    - 'block_content:follow_us_paragraph:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
   module:
     - block_content
     - system
   theme:
     - olivero
-id: sidebarbuynow
+id: followusparagraph
 theme: olivero
 region: sidebar
-weight: -19
+weight: -18
 provider: null
-plugin: 'block_content:9712a40c-5316-49a1-a375-43f1440d21f7'
+plugin: 'block_content:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
 settings:
-  id: 'block_content:9712a40c-5316-49a1-a375-43f1440d21f7'
-  label: 'Sidebar Buy Now'
-  label_display: '0'
+  id: 'block_content:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
+  label: 'Follow US'
+  label_display: visible
   provider: block_content
   status: true
   info: ''

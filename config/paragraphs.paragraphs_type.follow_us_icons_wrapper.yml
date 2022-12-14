@@ -1,0 +1,10 @@
+uuid: 8bd97b4d-6b65-4b13-a492-11e283d2dfea
+langcode: en
+status: true
+dependencies: {  }
+id: follow_us_icons_wrapper
+label: 'Follow Us Icons Wrapper'
+icon_uuid: null
+icon_default: null
+description: 'Contains Follow us Icons block'
+behavior_plugins: {  }

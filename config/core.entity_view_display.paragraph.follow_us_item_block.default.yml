@@ -1,0 +1,59 @@
+uuid: 08292c1a-90be-44b3-a0df-1cc8ef308f98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.follow_us_item_block.field_followers_count
+    - field.field.paragraph.follow_us_item_block.field_icon_image
+    - field.field.paragraph.follow_us_item_block.field_icon_link
+    - field.field.paragraph.follow_us_item_block.field_icon_text
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.follow_us_item_block
+  module:
+    - link
+    - media
+id: paragraph.follow_us_item_block.default
+targetEntityType: paragraph
+bundle: follow_us_item_block
+mode: default
+content:
+  field_followers_count:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_icon_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: thumbnail
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_icon_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_icon_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

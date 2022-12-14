@@ -1,0 +1,21 @@
+uuid: 12e22dd3-2817-48b2-8a7f-c0492df6455f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_followers_count
+field_name: field_followers_count
+entity_type: paragraph
+type: string
+settings:
+  max_length: 10
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
