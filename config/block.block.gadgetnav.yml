@@ -1,0 +1,29 @@
+uuid: 7a639006-64c8-4e4e-a149-878724930be1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.gadget-nav
+  module:
+    - system
+  theme:
+    - olivero
+id: gadgetnav
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:gadget-nav'
+settings:
+  id: 'system_menu_block:gadget-nav'
+  label: 'Gadget Nav'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/gadgets-page\r\n/mobile-phones\r\n/photography\r\n/reviews"
