@@ -53,12 +53,8 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
   field_add_subtitle: true
   field_comments: true
   field_tag: true
+  links: true
