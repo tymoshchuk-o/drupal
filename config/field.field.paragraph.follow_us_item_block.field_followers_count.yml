@@ -1,0 +1,19 @@
+uuid: fc51dcb1-7673-42be-af7e-8f2707fa4b44
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_followers_count
+    - paragraphs.paragraphs_type.follow_us_item_block
+id: paragraph.follow_us_item_block.field_followers_count
+field_name: field_followers_count
+entity_type: paragraph
+bundle: follow_us_item_block
+label: 'Followers count'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

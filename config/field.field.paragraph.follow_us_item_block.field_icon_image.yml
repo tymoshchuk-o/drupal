@@ -1,0 +1,29 @@
+uuid: 409c25a8-ee0d-41ee-8af4-b4cbbab1f6ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_image
+    - media.type.image
+    - paragraphs.paragraphs_type.follow_us_item_block
+id: paragraph.follow_us_item_block.field_icon_image
+field_name: field_icon_image
+entity_type: paragraph
+bundle: follow_us_item_block
+label: 'Icon image'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

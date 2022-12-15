@@ -1,0 +1,24 @@
+uuid: 99707280-99fa-4fa6-abd0-5326c3826dc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.follow_us_paragraph
+    - field.field.block_content.follow_us_paragraph.field_follow
+  module:
+    - entity_reference_revisions
+id: block_content.follow_us_paragraph.default
+targetEntityType: block_content
+bundle: follow_us_paragraph
+mode: default
+content:
+  field_follow:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

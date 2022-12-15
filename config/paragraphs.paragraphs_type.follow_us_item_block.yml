@@ -1,0 +1,10 @@
+uuid: 4f4bdf54-d98b-4373-8768-c5e5180d57d0
+langcode: en
+status: true
+dependencies: {  }
+id: follow_us_item_block
+label: 'Follow Us Item Block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
