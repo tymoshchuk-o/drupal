@@ -1,0 +1,8 @@
+uuid: 8a7f6976-7123-480f-bc01-6e6e1334fa4b
+langcode: en
+status: true
+dependencies: {  }
+id: gadget-nav
+label: 'Gadget Nav'
+description: 'Sub Navigation shoved in Gadget taxonomy page'
+locked: false
