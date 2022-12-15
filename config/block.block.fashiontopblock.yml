@@ -1,0 +1,30 @@
+uuid: b682f99c-a5da-4130-a589-24ca04db73c3
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:toppageblock:db47ea43-df1e-499e-8a05-3243abd1a3f0'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: fashiontopblock
+theme: olivero
+region: content_above
+weight: 0
+provider: null
+plugin: 'block_content:db47ea43-df1e-499e-8a05-3243abd1a3f0'
+settings:
+  id: 'block_content:db47ea43-df1e-499e-8a05-3243abd1a3f0'
+  label: 'Fashion Top Block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /fashion
