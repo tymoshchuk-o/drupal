@@ -12,7 +12,7 @@ dependencies:
 id: sidebarbuynow
 theme: olivero
 region: sidebar
-weight: -20
+weight: -21
 provider: null
 plugin: 'block_content:9712a40c-5316-49a1-a375-43f1440d21f7'
 settings:
