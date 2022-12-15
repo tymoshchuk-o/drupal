@@ -6,7 +6,7 @@ dependencies:
     - 'block_content:custom_banner_block:9712a40c-5316-49a1-a375-43f1440d21f7'
   module:
     - block_content
-    - taxonomy
+    - system
   theme:
     - olivero
 id: sidebarbuynow
@@ -24,10 +24,7 @@ settings:
   info: ''
   view_mode: full
 visibility:
-  'entity_bundle:taxonomy_term':
-    id: 'entity_bundle:taxonomy_term'
-    negate: false
-    context_mapping:
-      taxonomy_term: '@taxonomy_term.taxonomy_term_route_context:taxonomy_term'
-    bundles:
-      tags: tags
+  request_path:
+    id: request_path
+    negate: true
+    pages: /news
