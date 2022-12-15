@@ -1,0 +1,30 @@
+uuid: 4356d520-2557-41f6-a355-0bb47150c08a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:toppageblock:2ea22234-1fec-4839-9066-1e11bf9259db'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: fashionnewlook
+theme: olivero
+region: content_above
+weight: 0
+provider: null
+plugin: 'block_content:2ea22234-1fec-4839-9066-1e11bf9259db'
+settings:
+  id: 'block_content:2ea22234-1fec-4839-9066-1e11bf9259db'
+  label: 'Fashion New Look'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /new-look
