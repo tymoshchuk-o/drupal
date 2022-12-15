@@ -1,0 +1,10 @@
+uuid: 75293d38-e085-46e1-9f22-6c0009c32337
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.img_tag_author_time
+label: IMG-TAG-Author-TIME
+targetEntityType: node
+cache: true

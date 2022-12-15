@@ -1,0 +1,48 @@
+uuid: 0250e65a-cf6b-448f-b620-f96e9adb1e43
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.img_tag_author_time
+    - field.field.node.posts.body
+    - field.field.node.posts.field_add_media
+    - field.field.node.posts.field_add_subtitle
+    - field.field.node.posts.field_comments
+    - field.field.node.posts.field_post_type
+    - field.field.node.posts.field_tag
+    - node.type.posts
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.posts.img_tag_author_time
+targetEntityType: node
+bundle: posts
+mode: img_tag_author_time
+content:
+  field_add_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_tag:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_add_subtitle: true
+  field_comments: true
+  field_post_type: true
+  links: true

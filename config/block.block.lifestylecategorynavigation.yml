@@ -1,0 +1,29 @@
+uuid: bec0f38f-c388-4a0e-91ee-0c7cbf5a3f20
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.lifestyle-category-navigation
+  module:
+    - system
+  theme:
+    - olivero
+id: lifestylecategorynavigation
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:lifestyle-category-navigation'
+settings:
+  id: 'system_menu_block:lifestyle-category-navigation'
+  label: 'Lifestyle Category Navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/lifestyle\r\n/business\r\n/health-fitness\r\n/recipes\r\n/travel"

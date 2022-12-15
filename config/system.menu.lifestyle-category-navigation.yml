@@ -1,0 +1,8 @@
+uuid: c996c505-c765-4994-b6f6-b85d427b1026
+langcode: en
+status: true
+dependencies: {  }
+id: lifestyle-category-navigation
+label: 'Lifestyle Category Navigation'
+description: 'Lifestyle sub Category Navigation'
+locked: false
