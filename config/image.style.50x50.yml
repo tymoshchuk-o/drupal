@@ -1,0 +1,15 @@
+uuid: c61ed1e8-7366-4ed2-8588-cba9fd9d6fe9
+langcode: en
+status: true
+dependencies: {  }
+name: 50x50
+label: 50x50
+effects:
+  e1ae930e-7b7a-4317-8659-4904549336a3:
+    uuid: e1ae930e-7b7a-4317-8659-4904549336a3
+    id: image_scale
+    weight: 1
+    data:
+      width: 50
+      height: 50
+      upscale: false
