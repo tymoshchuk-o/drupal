@@ -67,6 +67,15 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/persistence" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kint-php/kint" />
+      <excludeFolder url="file://$MODULE_DIR$/web/modules/contrib" />
+      <excludeFolder url="file://$MODULE_DIR$/web/sites/default/files/2022-12" />
+      <excludeFolder url="file://$MODULE_DIR$/web/sites/default/files/inline-images" />
+      <excludeFolder url="file://$MODULE_DIR$/web/sites/default/files/media-icons" />
+      <excludeFolder url="file://$MODULE_DIR$/web/sites/default/files/paragraphs_type_icon" />
+      <excludeFolder url="file://$MODULE_DIR$/web/sites/default/files/pictures" />
+      <excludeFolder url="file://$MODULE_DIR$/web/sites/default/files/styles" />
+      <excludeFolder url="file://$MODULE_DIR$/web/libraries" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
