@@ -19,8 +19,8 @@
 /vendor/
 
 # Ignore configuration files that may contain sensitive information.
-sites/*/settings*.php
-sites/*/services*.yml
+web/sites/*/settings*.php
+web/sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
 web/sites/*/files
@@ -31,7 +31,7 @@ web/sites/simpletest
 web/libraries
 web/modules/contrib
 
-
+.idea/
 node_modules
 # If you prefer to store your .gitignore file in the sites/ folder, comment
 # or delete the previous settings and uncomment the following ones, instead.
