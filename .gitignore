@@ -17,20 +17,33 @@
 # custom module, theme, etc., are not ignored unless you purposely do so.
 *.sql
 /vendor/
+/drush/contrib/
+
 
 # Ignore configuration files that may contain sensitive information.
-sites/*/settings*.php
-sites/*/services*.yml
+/sites/*/settings*.php
+/sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
-web/sites/*/files
-web/sites/*/private
+/web/core/
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/default/settings.php
+/web/themes/contrib/
+/web/sites/simpletest/
+/web/libraries/
+/web/modules/contrib/
+/.idea/
+/.vscode/
+*.iml
+*.code-workspace
+/.editorconfig
 
-# Ignore SimpleTest multi-site environment.
-web/sites/simpletest
-web/libraries
-web/modules/contrib
+/.gitattributes
 
+*.log
+
+node_modules/
 
 
 # If you prefer to store your .gitignore file in the sites/ folder, comment
