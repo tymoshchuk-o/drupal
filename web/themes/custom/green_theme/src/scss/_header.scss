@@ -1,1 +1,13 @@
+header#header{
+  background-color: transparent;
+  background-image: none;
+}
 
+.green-header {
+  @include block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}

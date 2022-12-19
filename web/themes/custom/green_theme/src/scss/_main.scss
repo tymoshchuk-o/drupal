@@ -1,5 +1,12 @@
+:root{
+  --color-dark: #000;
+  --color-light: #fff;
+  --hover-color: #0693e3;
+}
+
+
 html{
-  font-size: 19px;
+  font-size: 10px;
 }
 
 *, *::before, *::after{
@@ -7,4 +14,9 @@ html{
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+}
+
+body{
+  font-size: 1.4rem;
+  line-height: 1.5;
 }

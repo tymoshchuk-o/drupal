@@ -312,8 +312,14 @@ template {
   display: none;
 }
 
+:root {
+  --color-dark: #000;
+  --color-light: #fff;
+  --hover-color: #0693e3;
+}
+
 html {
-  font-size: 19px;
+  font-size: 10px;
 }
 
 *, *::before, *::after {
@@ -321,6 +327,32 @@ html {
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+}
+
+body {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+header#header {
+  background-color: transparent;
+  background-image: none;
+}
+
+.green-header {
+  position: relative;
+  max-width: 1100px;
+  height: auto;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000;
+  background-color: var(--color-dark);
+  color: #fff;
+  color: var(--color-light);
 }
 
 /*# sourceMappingURL=main.css.map*/

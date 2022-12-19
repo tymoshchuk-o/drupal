@@ -5,7 +5,8 @@
 function green_theme_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
   if($hook == 'node'){
     $suggestions[] = 'node_green_theme';
-  }elseif ($hook == 'region'){
+  }
+  if ($hook == 'region'){
     $suggestions[] = 'region_green_theme';
   }
 }
