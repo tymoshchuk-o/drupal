@@ -3,11 +3,23 @@ header#header{
   background-image: none;
 }
 
-.green-header {
+.green-top-block {
   @include block;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-dark);
   color: var(--color-light);
+}
+
+.region-header-top-left{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+
+  & div{
+    margin: 5px;
+  }
 }
