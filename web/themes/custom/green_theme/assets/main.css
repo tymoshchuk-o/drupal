@@ -357,6 +357,7 @@ header#header {
 
 .region-header-top-left {
   position: relative;
+  padding: 5px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -364,6 +365,47 @@ header#header {
 }
 .region-header-top-left div {
   margin: 5px;
+}
+
+.region-header-top-center {
+  padding: 5px;
+}
+
+.region-header-top-right {
+  max-width: 40%;
+  margin-left: auto;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.region-header-top-right .social-link-item {
+  display: block;
+  position: relative;
+  width: 70px;
+  flex-grow: 0;
+  margin: 5px;
+  padding: 0;
+  overflow: hidden;
+}
+.region-header-top-right .social-link-item img {
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: grayscale(100%);
+}
+.region-header-top-right .social-link-item .field--name-field-social-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=main.css.map*/
