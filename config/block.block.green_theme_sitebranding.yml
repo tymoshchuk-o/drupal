@@ -1,0 +1,23 @@
+uuid: 5acdae98-3268-41d4-a1e8-1058bcc0b99a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - green_theme
+id: green_theme_sitebranding
+theme: green_theme
+region: footer_bottom
+weight: -14
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

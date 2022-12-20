@@ -1,0 +1,23 @@
+uuid: 6cadcd28-1de6-43c5-8432-49deb1fe2ea2
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+  theme:
+    - green_theme
+_core:
+  default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
+id: green_theme_syndicate
+theme: green_theme
+region: social
+weight: -18
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 6e6aa65c-7f30-4d58-b251-5a27ee1111b4
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - green_theme
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: green_theme_search_form_wide
+theme: green_theme
+region: header
+weight: -19
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

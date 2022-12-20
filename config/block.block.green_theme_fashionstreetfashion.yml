@@ -1,0 +1,30 @@
+uuid: a605598b-ea80-4ad7-be6e-1a467277cb89
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:toppageblock:7b55cd15-b2a5-4a01-b37c-7d35396dd8dc'
+  module:
+    - block_content
+    - system
+  theme:
+    - green_theme
+id: green_theme_fashionstreetfashion
+theme: green_theme
+region: content_above
+weight: 0
+provider: null
+plugin: 'block_content:7b55cd15-b2a5-4a01-b37c-7d35396dd8dc'
+settings:
+  id: 'block_content:7b55cd15-b2a5-4a01-b37c-7d35396dd8dc'
+  label: 'Fashion Street Fashion'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /street-fashion

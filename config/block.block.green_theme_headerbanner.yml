@@ -1,0 +1,25 @@
+uuid: aab42921-46a0-4575-8a67-76b391a8106e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:custom_banner_block:b908c311-5cad-4483-98ed-382128a7a89d'
+  module:
+    - block_content
+  theme:
+    - green_theme
+id: green_theme_headerbanner
+theme: green_theme
+region: header
+weight: -20
+provider: null
+plugin: 'block_content:b908c311-5cad-4483-98ed-382128a7a89d'
+settings:
+  id: 'block_content:b908c311-5cad-4483-98ed-382128a7a89d'
+  label: 'Header banner'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

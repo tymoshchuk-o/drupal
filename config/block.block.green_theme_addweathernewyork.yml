@@ -1,0 +1,25 @@
+uuid: 89163e91-0d18-4139-bbec-a0b62a1ad1ea
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:weather_widget:f8eaa27c-679f-4bf4-802a-0b38d9218818'
+  module:
+    - block_content
+  theme:
+    - green_theme
+id: green_theme_addweathernewyork
+theme: green_theme
+region: header_top_left
+weight: -20
+provider: null
+plugin: 'block_content:f8eaa27c-679f-4bf4-802a-0b38d9218818'
+settings:
+  id: 'block_content:f8eaa27c-679f-4bf4-802a-0b38d9218818'
+  label: 'Add Weather New York'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

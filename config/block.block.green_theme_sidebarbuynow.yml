@@ -1,0 +1,30 @@
+uuid: 001fa5c2-30d8-4919-85f8-2c29ba9df3e7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:custom_banner_block:9712a40c-5316-49a1-a375-43f1440d21f7'
+  module:
+    - block_content
+    - system
+  theme:
+    - green_theme
+id: green_theme_sidebarbuynow
+theme: green_theme
+region: sidebar
+weight: -19
+provider: null
+plugin: 'block_content:9712a40c-5316-49a1-a375-43f1440d21f7'
+settings:
+  id: 'block_content:9712a40c-5316-49a1-a375-43f1440d21f7'
+  label: 'Sidebar Buy Now'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: /news

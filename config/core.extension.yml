@@ -14,6 +14,7 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
+  devel: 0
   dynamic_breadcrumb: 0
   dynamic_page_cache: 0
   editor: 0
@@ -63,4 +64,6 @@ module:
 theme:
   olivero: 0
   claro: 0
+  bartik: 0
+  green_theme: 0
 profile: standard
