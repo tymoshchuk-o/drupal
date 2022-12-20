@@ -57,13 +57,17 @@
         {{ page.secondary_menu }}
         <div class="green-top">
           <div class="green-top-block">
-          <div class="green-top-block__left">{{ page.header_top_left }}</div>
+            <div class="green-top-block__left">{{ page.header_top_left }}</div>
             <div class="green-top-block__center">{{ page.header_top_center }}</div>
             <div class="green-top-block__right">{{ page.header_top_right }}</div>
           </div>
-        {{ page.header }}
+          <div class="header__content">
+            {{ page.header }}
+          </div>
         </div>
-        {{ page.primary_menu }}
+        <div class="header_nav">
+          {{ page.primary_menu }}
+        </div>
       </div>
     </header>
     {% if page.highlighted %}

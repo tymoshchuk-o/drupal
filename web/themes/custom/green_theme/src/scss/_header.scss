@@ -2,10 +2,12 @@ header#header{
   background-color: transparent;
   background-image: none;
 }
+//==== Header top block ===
 
 .green-top-block {
   @include block;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-dark);
@@ -82,3 +84,43 @@ header#header{
 
   }
 }
+
+//=== Header content ===
+
+.green-header.region.region-header{
+  @include block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.site-branding__logo{
+  display: block;
+ width: 220px;
+}
+
+.green-banner{
+  position: relative;
+  width: 60%;
+  min-width: 470px;
+  flex-shrink: 1;
+  & .green-banner__text{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    max-width: 60%;
+  }
+   & img{
+    display: block;
+    width: 100%;
+     height: auto;
+     object-fit: contain;
+
+  }
+}
+
