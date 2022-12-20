@@ -1,0 +1,32 @@
+uuid: 1c279cc6-1e13-4c6f-8791-3aa70716ead3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.recent_comments_posts
+  module:
+    - node
+    - views
+  theme:
+    - olivero
+id: views_block__recent_comments_posts_block_1
+theme: olivero
+region: sidebar
+weight: -19
+provider: null
+plugin: 'views_block:recent_comments_posts-block_1'
+settings:
+  id: 'views_block:recent_comments_posts-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      posts: posts
