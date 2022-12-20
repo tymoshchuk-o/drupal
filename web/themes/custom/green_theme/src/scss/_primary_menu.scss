@@ -1,3 +1,9 @@
+.header_nav{
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 5px 15px rgba(0,0,0,.4);
+}
+
 .region.region-primary-menu {
   @include block;
   display: flex;
