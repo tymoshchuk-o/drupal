@@ -1,6 +1,11 @@
 /*!************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/group-css-media-queries-loader/lib/index.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/styles.scss ***!
   \************************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap);
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/group-css-media-queries-loader/lib/index.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/styles.scss (1) ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -316,6 +321,7 @@ template {
   --color-dark: #000;
   --color-light: #fff;
   --hover-color: #0693e3;
+  --font-family: "Roboto", sans-serif;
 }
 
 html {
@@ -326,10 +332,11 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 body {
+  font-family: "Roboto", sans-serif;
+  font-family: var(--font-family);
   font-size: 1.4rem;
   line-height: 1.5;
 }
@@ -358,7 +365,7 @@ header#header {
 
 .region-header-top-left {
   position: relative;
-  padding: 5px;
+  padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -366,6 +373,22 @@ header#header {
 }
 .region-header-top-left div {
   margin: 5px;
+}
+
+#block-green-theme-addweathernewyork {
+  display: block;
+  position: relative;
+  font-weight: 700;
+}
+#block-green-theme-addweathernewyork::before {
+  display: block;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  transform: translateY(-50%);
+  content: "🌤";
+  overflow: hidden;
 }
 
 .region-header-top-center {
@@ -471,6 +494,51 @@ header#header {
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.region.region-primary-menu {
+  position: relative;
+  max-width: 1100px;
+  height: auto;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.navigation.menu--main .menu {
+  width: 70%;
+  min-width: 550px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+nav.navigation.menu--main .menu .menu-item a {
+  display: block;
+  position: relative;
+}
+nav.navigation.menu--main .menu .menu-item a::before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  height: 3px;
+  background-color: #0693e3;
+  background-color: var(--hover-color);
+  transition: all 0.4s ease-in-out;
+}
+nav.navigation.menu--main .menu .menu-item a:hover::before {
+  left: 0;
+  right: 0;
 }
 
 /*# sourceMappingURL=main.css.map*/

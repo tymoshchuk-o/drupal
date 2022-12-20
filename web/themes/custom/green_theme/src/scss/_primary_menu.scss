@@ -1,0 +1,44 @@
+.region.region-primary-menu {
+  @include block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.navigation.menu--main .menu {
+  width: 70%;
+  min-width: 550px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  & .menu-item a{
+    display: block;
+    position: relative;
+
+
+    &::before {
+      display: block;
+      position: absolute;
+      content: "";
+      left: 50%;
+      right: 50%;
+      bottom: 0;
+      height: 3px;
+      background-color: var(--hover-color);
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  & .menu-item a:hover{
+    &::before {
+      left: 0;
+      right: 0;
+    }
+  }
+}
