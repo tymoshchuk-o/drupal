@@ -1,0 +1,29 @@
+uuid: 343ef5c2-294a-41ca-8956-5fd42c724477
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.lifestyle-category-navigation
+  module:
+    - system
+  theme:
+    - green_theme
+id: green_theme_lifestylecategorynavigation
+theme: green_theme
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:lifestyle-category-navigation'
+settings:
+  id: 'system_menu_block:lifestyle-category-navigation'
+  label: 'Lifestyle Category Navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/lifestyle\r\n/business\r\n/health-fitness\r\n/recipes\r\n/travel"

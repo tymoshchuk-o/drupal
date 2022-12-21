@@ -1,0 +1,25 @@
+uuid: 2e4806d9-8d86-4dd9-b8d5-f916ffccc88c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - green_theme
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: green_theme_site_branding
+theme: green_theme
+region: header
+weight: -21
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,30 @@
+uuid: a18f1876-f516-421d-b9b8-6e4c601869ef
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:follow_us_paragraph:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
+  module:
+    - block_content
+    - system
+  theme:
+    - green_theme
+id: green_theme_followusparagraph
+theme: green_theme
+region: sidebar
+weight: -18
+provider: null
+plugin: 'block_content:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
+settings:
+  id: 'block_content:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
+  label: 'Follow US'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: /news

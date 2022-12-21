@@ -1,0 +1,25 @@
+uuid: 32ba4f61-c37a-4372-8177-f6cb7b62bd33
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:show_date_time:3035ad85-8c21-445d-ac32-69acb106d3da'
+  module:
+    - block_content
+  theme:
+    - green_theme
+id: green_theme_showdatetimecustomblock
+theme: green_theme
+region: header_top_left
+weight: -19
+provider: null
+plugin: 'block_content:3035ad85-8c21-445d-ac32-69acb106d3da'
+settings:
+  id: 'block_content:3035ad85-8c21-445d-ac32-69acb106d3da'
+  label: 'Show Date Time custom block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

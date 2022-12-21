@@ -1,0 +1,22 @@
+uuid: 2befa4c0-93b1-4098-8cab-545303cb3b02
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - green_theme
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: green_theme_help
+theme: green_theme
+region: content_above
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

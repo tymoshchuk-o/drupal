@@ -7,6 +7,9 @@ libraries:
   - green_theme/global-scripts
 base theme: bartik
 regions:
+  header_top_left: 'Header top left'
+  header_top_center: 'Header top center'
+  header_top_right: 'Header top right'
   header: Header
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'

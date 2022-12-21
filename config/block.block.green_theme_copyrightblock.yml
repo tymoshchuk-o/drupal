@@ -1,0 +1,25 @@
+uuid: 2b3d673f-b95f-4d22-b126-22c837649bf9
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c1951845-6fd1-4c67-ae49-f9c8de6c9eb2'
+  module:
+    - block_content
+  theme:
+    - green_theme
+id: green_theme_copyrightblock
+theme: green_theme
+region: footer_bottom
+weight: -12
+provider: null
+plugin: 'block_content:c1951845-6fd1-4c67-ae49-f9c8de6c9eb2'
+settings:
+  id: 'block_content:c1951845-6fd1-4c67-ae49-f9c8de6c9eb2'
+  label: 'Copyright Block'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

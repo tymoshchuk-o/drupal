@@ -1,0 +1,30 @@
+uuid: 11b5d8f3-3b4f-45ff-b6d9-81b3a2db0a56
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:toppageblock:89830647-85fa-4ec9-996c-f3482c1d3ea9'
+  module:
+    - block_content
+    - system
+  theme:
+    - green_theme
+id: green_theme_fashionvogue
+theme: green_theme
+region: content_above
+weight: 0
+provider: null
+plugin: 'block_content:89830647-85fa-4ec9-996c-f3482c1d3ea9'
+settings:
+  id: 'block_content:89830647-85fa-4ec9-996c-f3482c1d3ea9'
+  label: 'Fashion Vogue'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /vogue
