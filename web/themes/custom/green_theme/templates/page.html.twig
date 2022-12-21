@@ -130,12 +130,18 @@
             {{ page.footer_bottom }}
           </div>
         {% endif %}
-        {% if page.footer_copy %}
-          <div class="site-footer__copy clearfix">
-            {{ page.footer_copy }}
-          </div>
-        {% endif %}
       </div>
+
     </footer>
+    {% if page.footer_copy %}
+      <div class="site-footer__copy">
+        {{ page.footer_copy }}
+      </div>
+    {% endif %}
+
+
   </div>
-</div>
+
+ </div>
+
+

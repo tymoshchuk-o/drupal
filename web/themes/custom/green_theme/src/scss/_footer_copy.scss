@@ -1,0 +1,38 @@
+.site-footer__copy {
+  max-width: initial;
+  background-color: #000;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
+
+  & .region.region-footer-copy {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #ccc;
+
+    & p{
+      margin-bottom: 0;
+    }
+
+    & .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      gap: 5px;
+
+      & .menu-item a{
+        color: inherit;
+        border-bottom: none;
+
+        &:hover{
+          color: var(--hover-color);
+        }
+      }
+
+    }
+  }
+}

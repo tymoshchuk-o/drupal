@@ -17,6 +17,7 @@
 
 .site-footer__top h2 {
   border: none;
+  margin-bottom: 10px;
 }
 
 .views-view-grid.horizontal .views-row {
@@ -74,6 +75,7 @@
   }
 
   .view-popular-category .view-content{
+    width: 250px;
     & .views-row{
       font-size: 1.3rem;
       display: flex;
