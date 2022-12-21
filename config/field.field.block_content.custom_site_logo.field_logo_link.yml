@@ -1,0 +1,28 @@
+uuid: 84565725-ade1-4c0b-9c50-c174ff897779
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.custom_site_logo
+    - field.storage.block_content.field_logo_link
+  module:
+    - link
+id: block_content.custom_site_logo.field_logo_link
+field_name: field_logo_link
+entity_type: block_content
+bundle: custom_site_logo
+label: 'Logo Link'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'internal:/'
+    title: ''
+    options: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 1
+field_type: link

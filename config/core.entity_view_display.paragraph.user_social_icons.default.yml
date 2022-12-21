@@ -1,0 +1,41 @@
+uuid: aea67229-507c-4f86-a2be-a089dcce7038
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.user_social_icons.field_icon_soc_image
+    - field.field.paragraph.user_social_icons.field_icon_soc_link
+    - image.style.50x50
+    - paragraphs.paragraphs_type.user_social_icons
+  module:
+    - link
+    - media
+id: paragraph.user_social_icons.default
+targetEntityType: paragraph
+bundle: user_social_icons
+mode: default
+content:
+  field_icon_soc_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: 50x50
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_icon_soc_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

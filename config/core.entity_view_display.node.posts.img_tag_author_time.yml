@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.posts.field_add_subtitle
     - field.field.node.posts.field_comments
     - field.field.node.posts.field_post_type
+    - field.field.node.posts.field_social_links
     - field.field.node.posts.field_tag
     - node.type.posts
   module:
@@ -45,4 +46,5 @@ hidden:
   field_add_subtitle: true
   field_comments: true
   field_post_type: true
+  field_social_links: true
   links: true

@@ -10,8 +10,8 @@ dependencies:
     - green_theme
 id: green_theme_footer
 theme: green_theme
-region: footer_bottom
-weight: -11
+region: footer_copy
+weight: -19
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

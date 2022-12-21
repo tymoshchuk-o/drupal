@@ -29,4 +29,7 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  field_about_user: true
+  field_link_to_account: true
+  field_social_links: true

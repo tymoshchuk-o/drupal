@@ -11,7 +11,7 @@ dependencies:
 id: gadgetnav
 theme: olivero
 region: content
-weight: 0
+weight: -21
 provider: null
 plugin: 'system_menu_block:gadget-nav'
 settings:
