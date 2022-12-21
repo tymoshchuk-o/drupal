@@ -779,4 +779,76 @@ footer.site-footer {
   color: var(--hover-color);
 }
 
+.node__content .layout--onecol .views-element-container.contextual-region.block-views.block-views-blocktrending-now-block-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.node__content .layout--onecol .views-element-container.contextual-region.block-views.block-views-blocktrending-now-block-1:hover h2 {
+  background-color: #0693e3;
+  background-color: var(--hover-color);
+}
+.node__content .layout--onecol .views-element-container.contextual-region.block-views.block-views-blocktrending-now-block-1 h2 {
+  transition: all 0.4s ease-in-out;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #fff;
+  color: var(--color-light);
+  background-color: #222;
+  padding: 0 10px;
+}
+.node__content .layout--onecol .views-element-container.contextual-region.block-views.block-views-blocktrending-now-block-1 .views-field.views-field-title a {
+  color: #111;
+  font-size: 1.3rem;
+  border-bottom: none;
+}
+.node__content .layout--onecol .view-trending-now.view-id-trending_now.view-display-id-block_1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45vw;
+  min-width: 500px;
+  max-width: 800px;
+}
+.node__content .layout--onecol .pager__items.js-pager__items {
+  display: flex;
+}
+.node__content .layout--onecol .pager__items.js-pager__items .pager__item.is-active {
+  display: none;
+}
+.node__content .layout--onecol .pager__items.js-pager__items .pager__item.pager__item--next, .node__content .layout--onecol .pager__items.js-pager__items .pager__item.pager__item--previous {
+  padding: 5px;
+}
+.node__content .layout--onecol .pager__items.js-pager__items .pager__item.pager__item--next a, .node__content .layout--onecol .pager__items.js-pager__items .pager__item.pager__item--previous a {
+  display: block;
+  position: relative;
+  border-bottom: none;
+  font-size: 5px;
+  color: transparent;
+  width: 40px;
+  height: 40px;
+}
+.node__content .layout--onecol .pager__items.js-pager__items .pager__item.pager__item--next a::before, .node__content .layout--onecol .pager__items.js-pager__items .pager__item.pager__item--previous a::before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ccc;
+}
+.node__content .layout--onecol .pager__items.js-pager__items .pager__item.pager__item--next a::before {
+  content: ">";
+}
+.node__content .layout--onecol .pager__items.js-pager__items .pager__item.pager__item--previous a::before {
+  content: "<";
+}
+
 /*# sourceMappingURL=main.css.map*/

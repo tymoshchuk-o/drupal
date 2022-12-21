@@ -19,3 +19,7 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+@mixin transition{
+  transition: all 0.4s ease-in-out;
+}
