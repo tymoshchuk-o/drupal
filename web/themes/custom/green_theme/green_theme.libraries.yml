@@ -1,0 +1,10 @@
+global-styling:
+  css:
+    theme:
+      assets/main.css: {}
+
+global-scripts:
+  js:
+    assets/script.js: {}
+  dependencies:
+    - core/jquery

@@ -1,0 +1,10 @@
+uuid: 0b3a2832-ff3f-45ae-a690-c74bef735171
+langcode: en
+status: true
+dependencies: {  }
+id: user_social_links_wrap
+label: 'User Social Links Wrap'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
