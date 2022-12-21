@@ -1,0 +1,29 @@
+uuid: e8d5d153-70ca-4b25-9be8-74d074f39ede
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_soc_image
+    - media.type.image
+    - paragraphs.paragraphs_type.user_social_icons
+id: paragraph.user_social_icons.field_icon_soc_image
+field_name: field_icon_soc_image
+entity_type: paragraph
+bundle: user_social_icons
+label: 'Icon Image'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

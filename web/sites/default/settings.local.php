@@ -106,7 +106,7 @@ $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
  * During development it can be useful to install test extensions for debugging
  * purposes.
  */
-$settings['extension_discovery_scan_tests'] = TRUE;
+ $settings['extension_discovery_scan_tests'] = TRUE;
 
 /**
  * Enable access to rebuild.php.
@@ -152,4 +152,4 @@ $settings['skip_permissions_hardening'] = TRUE;
  * to use this feature with modules that affect Drupal in a major way such as
  * the language or field module.
  */
-$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+ $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
