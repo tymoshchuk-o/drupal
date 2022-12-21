@@ -34,6 +34,11 @@
 
   }
 
+  & .views-row{
+    padding: 0;
+    margin-bottom: 5px;
+  }
+
   article.node.node--type-posts.node--view-mode-without-body {
 
     display: flex;
@@ -80,6 +85,8 @@
           color: var(--hover-color);
         }
       }
+
+
 
       & .views-field.views-field-name span a{
         border-bottom: none;
