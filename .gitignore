@@ -17,8 +17,6 @@
 # custom module, theme, etc., are not ignored unless you purposely do so.
 *.sql
 /vendor/
-/drush/contrib/
-
 
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
@@ -39,18 +37,18 @@ sites/*/services*.yml
 *.code-workspace
 /.editorconfig
 
-/.gitattributes
+# Ignore SimpleTest multi-site environment.
+web/sites/simpletest
+web/libraries
+web/modules/contrib
 
-*.log
-
-node_modules/
 
 
 # If you prefer to store your .gitignore file in the sites/ folder, comment
 # or delete the previous settings and uncomment the following ones, instead.
 
 # Ignore configuration files that may contain sensitive information.
- */settings*.php
+# */settings*.php
 
 # Ignore paths that contain user-generated content.
 # */files
