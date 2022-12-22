@@ -11,7 +11,7 @@ _core:
 id: green_theme_powered
 theme: green_theme
 region: footer_bottom
-weight: -10
+weight: -17
 provider: null
 plugin: system_powered_by_block
 settings:

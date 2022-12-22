@@ -1,0 +1,8 @@
+uuid: ad8d8089-b93d-4b4e-a09b-3072c9122817
+langcode: en
+status: true
+dependencies: {  }
+id: custom_site_logo
+label: 'Custom Site Logo'
+revision: 0
+description: ''

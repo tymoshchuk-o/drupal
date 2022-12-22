@@ -11,7 +11,7 @@ entity_type: paragraph
 bundle: follow_us_item_block
 label: 'Icon text'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

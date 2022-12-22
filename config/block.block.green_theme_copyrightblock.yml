@@ -10,8 +10,8 @@ dependencies:
     - green_theme
 id: green_theme_copyrightblock
 theme: green_theme
-region: footer_bottom
-weight: -12
+region: footer_copy
+weight: -20
 provider: null
 plugin: 'block_content:c1951845-6fd1-4c67-ae49-f9c8de6c9eb2'
 settings:

@@ -1,0 +1,25 @@
+uuid: c4d8c873-33b2-408e-bbad-56bb7364de21
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:follow_us_paragraph:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
+  module:
+    - block_content
+  theme:
+    - green_theme
+id: followusfooter
+theme: green_theme
+region: footer_bottom
+weight: -18
+provider: null
+plugin: 'block_content:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
+settings:
+  id: 'block_content:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
+  label: 'FOLLOW US'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

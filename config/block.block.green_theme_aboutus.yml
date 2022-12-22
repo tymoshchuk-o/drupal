@@ -11,12 +11,12 @@ dependencies:
 id: green_theme_aboutus
 theme: green_theme
 region: footer_bottom
-weight: -13
+weight: -19
 provider: null
 plugin: 'block_content:f5f78e1e-aaaa-457d-92af-dd1bfa4656c3'
 settings:
   id: 'block_content:f5f78e1e-aaaa-457d-92af-dd1bfa4656c3'
-  label: 'About Us'
+  label: 'ABOUT US'
   label_display: visible
   provider: block_content
   status: true
