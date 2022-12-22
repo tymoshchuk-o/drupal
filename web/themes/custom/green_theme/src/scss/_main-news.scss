@@ -1,0 +1,105 @@
+// Styles top news News page
+
+.view.view-fixed-top.view-display-id-block_1 .item-list {
+
+  @media (max-width: 580px) {
+    & ul{
+      display: flex;
+      flex-wrap: wrap;
+
+      & li{
+        width: 100%;
+        height: 60vw;
+      }
+    }
+  }
+  & ul {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 5px;
+
+
+    & li{
+      background-color: black;
+    }
+
+    li .field__item img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+
+
+    & li {
+      display: block;
+      position: relative;
+    }
+
+    & li:first-child {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    & li:nth-child(2) {
+      grid-column-start: 3;
+      grid-column-end: 5;
+    }
+  }
+
+
+  article.node--view-mode-top-post header {
+    position: absolute;
+    z-index: 5;
+    left: 15px;
+    bottom: 20px;
+
+
+    .field--name-field-post-type.field--type-entity-reference{
+      margin-bottom: 5px;
+    }
+    .field--name-field-post-type.field--type-entity-reference a {
+      display: inline-block;
+      padding: 5px;
+      margin-bottom: 0px;
+      background-color: var(--color-dark);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    h2.node__title a {
+      color: var(--color-light);
+      font-size: 2.2rem;
+      line-height: 1.2;
+      font-weight: 500;
+      border-bottom: none;
+    }
+
+    .node__meta .field--name-uid {
+      color: var(--color-light);
+      font-weight: 700;
+    }
+
+    .field--name-created {
+      color: var(--color-light);
+    }
+
+  }
+
+  li:nth-child(3), & li:nth-child(4) {
+    article.node--view-mode-top-post header h2.node__title a {
+      font-size: 1.4rem;
+    }
+  }
+
+
+}

@@ -1,5 +1,5 @@
 .node__content .layout--onecol{
- & .views-element-container.contextual-region.block-views.block-views-blocktrending-now-block-1{
+ & .views-element-container.block-views-blocktrending-now-block-1{
    display: flex;
    flex-wrap: wrap;
    justify-content: flex-start;
@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: space-between;
     width: 45vw;
-    min-width: 500px;
+    min-width: 300px;
     max-width: 800px;
   }
 

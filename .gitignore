@@ -42,6 +42,7 @@ sites/*/services*.yml
 /.gitattributes
 
 *.log
+*.map
 
 node_modules/
 
