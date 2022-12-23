@@ -2,8 +2,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 
-function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id)
-{
+function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $vocabulary_id = 'tags';
 // Get this from your view object's contextual argument, e.g. $view->args[0], etc
   $parent_id = 11;
@@ -18,7 +17,6 @@ function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterf
   foreach ($child_terms as $term) {
     $child_term_options[$term->tid] = $term->name;
   }
-
 
 // Next update your filter options with only the child terms:
   $form['dont_miss_filter']['#options'] = $child_term_options;
