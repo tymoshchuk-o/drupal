@@ -1,0 +1,27 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $vocabulary_id = 'tags';
+  $dont_miss_parent_id = 11;
+  $lifestyle_parent_id = 17;
+
+  $form['dont_miss_filter']['#options'] = green_view_getFiltredTags($vocabulary_id, $dont_miss_parent_id);
+  $form['lifestyle_filter_id']['#options'] = green_view_getFiltredTags($vocabulary_id, $lifestyle_parent_id);
+}
+
+function green_view_getFiltredTags($vocabulary_id, $parent_id) {
+
+  $child_terms = \Drupal::entityTypeManager()
+    ->getStorage('taxonomy_term')
+    ->loadTree($vocabulary_id, $parent_id);
+
+// Next build an options array of the child terms.
+  $child_term_options = [];
+// Maybe you want an Any option
+  foreach ($child_terms as $term) {
+    $child_term_options[$term->tid] = $term->name;
+  }
+  return $child_term_options;
+}
