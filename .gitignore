@@ -42,6 +42,8 @@ web/sites/simpletest
 web/libraries
 web/modules/contrib
 
+node_modules
+*.map
 
 
 # If you prefer to store your .gitignore file in the sites/ folder, comment
