@@ -847,4 +847,38 @@ footer.site-footer {
   margin-top: 0;
 }
 
+.pager .pager__item.is-active {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.pager .pager__item {
+  border: 1px solid rgb(220, 220, 220);
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+}
+.pager .pager__item--disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.pager .pager__item:active {
+  background-color: #5d7987;
+}
+.pager .pager__item a {
+  color: rgb(220, 220, 220);
+  border-bottom: none;
+  font-size: 1.5rem;
+}
+.pager .pager__item--previous {
+  margin-right: 5px;
+}
+
 /*# sourceMappingURL=main.css.map*/

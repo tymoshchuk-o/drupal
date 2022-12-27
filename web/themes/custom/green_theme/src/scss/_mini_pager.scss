@@ -1,0 +1,33 @@
+.pager {
+  .pager__item.is-active {
+    @include visually-hidden;
+  }
+
+  .pager__item {
+    border: 1px solid rgb(220, 220, 220);
+    padding: 5px 10px;
+    transition: all .3s ease-in-out;
+    &--disabled{
+      pointer-events: none;
+      opacity: .6;
+    }
+    &:active {
+      background-color: #5d7987;
+    }
+
+    a {
+      color: rgb(220, 220, 220);
+      border-bottom: none;
+      font-size: 1.5rem;
+    }
+  }
+
+  //  End .pager__item.
+
+  .pager__item--previous {
+    margin-right: 5px;
+  }
+
+}
+
+// End .pager.
