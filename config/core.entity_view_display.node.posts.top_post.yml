@@ -31,7 +31,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_post_type:
     type: entity_reference_label
@@ -39,7 +39,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   body: true

@@ -780,6 +780,117 @@ footer.site-footer {
   color: var(--hover-color);
 }
 
+.top-post__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5px;
+}
+.top-post__list li {
+  width: 30%;
+  min-width: 200px;
+}
+.top-post__list li header {
+  position: relative;
+}
+.top-post__list li header .field--name-field-post-type {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  padding: 0px 10px 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 0;
+}
+.top-post__list li header .field--name-field-post-type:hover {
+  background-color: #5d7987;
+}
+.top-post__list li header .field--name-field-post-type a {
+  font-size: 1rem;
+  border-bottom: none;
+  color: #fff;
+  color: var(--color-light);
+}
+.top-post__list li article .node__title {
+  margin-top: 0;
+}
+.top-post__list li article .node__title a {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: rgb(17, 17, 17);
+  transition: all 0.3s ease-in-out;
+  border-bottom: none;
+}
+.top-post__list li article .node__title a:hover {
+  color: rgba(17, 17, 17, 0.6);
+}
+.top-post__list li article .field--type-image {
+  margin: 0;
+}
+.top-post__list li article .field__item img {
+  margin: 0;
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.views-element-container.block-views-blockhouse-design-block-1 > h2 {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  color: var(--color-light);
+  background-color: rgb(93, 121, 135);
+  padding: 5px 10px;
+  margin-bottom: 0;
+}
+.views-element-container.block-views-blockhouse-design-block-1 ul {
+  padding: 0;
+}
+.views-element-container.block-views-blockhouse-design-block-1 .content {
+  border-top: 2px solid rgb(93, 121, 135);
+  margin-top: 0;
+}
+
+.pager .pager__item.is-active {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.pager .pager__items {
+  text-align: left;
+}
+.pager .pager__item {
+  border: 1px solid rgb(220, 220, 220);
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+}
+.pager .pager__item--disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.pager .pager__item:active {
+  background-color: #5d7987;
+}
+.pager .pager__item a {
+  color: rgb(220, 220, 220);
+  border-bottom: none;
+  font-size: 1.5rem;
+}
+.pager .pager__item--previous {
+  margin-right: 5px;
+}
+
 .views-element-container.block-views-blocklifestyle-news-block-1 .content {
   position: relative;
   display: flex;

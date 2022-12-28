@@ -1,0 +1,19 @@
+.views-element-container.block-views-blockhouse-design-block-1 {
+  & > h2 {
+    display: inline-block;
+    position: relative;
+    color: var(--color-light);
+    background-color: rgb(93, 121, 135);
+    padding: 5px 10px;
+    margin-bottom: 0;
+   }
+
+  ul{
+    padding: 0;
+  }
+
+  .content{
+    border-top: 2px solid rgb(93, 121, 135);
+    margin-top: 0;
+  }
+}
