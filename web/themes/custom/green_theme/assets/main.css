@@ -780,6 +780,173 @@ footer.site-footer {
   color: var(--hover-color);
 }
 
+.views-element-container.block-views-blocklifestyle-news-block-1 .content {
+  position: relative;
+  display: flex;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .content > h2 {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  color: var(--color-light);
+  padding: 5px 10px;
+  min-width: 125px;
+  background-color: #3a863d;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .content .view-filters ul {
+  border-bottom: 2px solid #3a863d;
+  list-style: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 20px;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-left: 180px;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .content .view-filters ul a {
+  border-bottom: none;
+  color: #767676;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .content .view-filters ul a:hover {
+  color: #3a863d;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content > div {
+  width: 45%;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content article a img {
+  display: block;
+  width: 30%;
+  height: 90px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content article .green_post_media {
+  position: relative;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content article .green_post_media:hover .field--name-field-post-type.field--type-entity-reference {
+  background-color: #3a863d;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content article .green_post_media .field--name-field-post-type.field--type-entity-reference {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0px 25px 5px;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content article .green_post_media .field--name-field-post-type.field--type-entity-reference a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  color: var(--color-light);
+  border-bottom: none;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article a img, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article a img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article .node__content .green_title_block .node__title, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article .node__content .green_title_block .node__title {
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-top: 14px;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article .green_post_media .field--name-field-post-type.field--type-entity-reference, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article .green_post_media .field--name-field-post-type.field--type-entity-reference {
+  display: block;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article .node__meta span a, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article .node__meta span a {
+  display: inline-block;
+  color: #000;
+  color: var(--color-dark);
+  border-bottom: none;
+  font-weight: 700;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article .green_content_body, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article .green_content_body {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgb(118, 118, 118);
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article .green_content_body p, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article .green_content_body p {
+  margin-bottom: 0;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article .green_content_body p strong, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article .green_content_body p strong {
+  font-weight: inherit;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div .green_content_body {
+  display: none;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .node__content .green_title_block .node__title {
+  margin-bottom: 6px;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .node__content .green_title_block .node__title a {
+  color: #111;
+  border-bottom: none;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .node__content .green_title_block .node__title a:hover {
+  color: #3a863d;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .node__meta span {
+  font-size: 1.1rem;
+  line-height: 1em;
+  color: rgb(118, 118, 118);
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .node__meta span a {
+  display: none;
+  color: inherit;
+  border-bottom: none;
+  font-weight: 700;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .green_content_body {
+  margin-top: 16px;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .green_content_body a {
+  color: rgb(118, 118, 118);
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div article .node__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div article .node__content .green_title_block {
+  width: 40%;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div article .node__content .node__title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 0;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div article .node__content .green_post_media .field.field--name-field-add-media {
+  margin-bottom: 0;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div article .node__content .green_post_media .field.field--name-field-add-media img {
+  width: 100%;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article .node__content, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article .node__content {
+  display: block;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(2) article .node__content .green_title_block, .views-element-container.block-views-blocklifestyle-news-block-1 .view-content div:nth-child(1) article .node__content .green_title_block {
+  width: 100%;
+}
+
 .views-element-container.block-views-blockdon-t-miss-block-1 .content {
   position: relative;
 }
