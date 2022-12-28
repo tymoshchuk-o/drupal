@@ -802,6 +802,9 @@ footer.site-footer {
   background-color: rgba(0, 0, 0, 0.7);
   margin-bottom: 0;
 }
+.top-post__list li header .field--name-field-post-type:hover {
+  background-color: #5d7987;
+}
 .top-post__list li header .field--name-field-post-type a {
   font-size: 1rem;
   border-bottom: none;
@@ -842,6 +845,9 @@ footer.site-footer {
   padding: 5px 10px;
   margin-bottom: 0;
 }
+.views-element-container.block-views-blockhouse-design-block-1 ul {
+  padding: 0;
+}
 .views-element-container.block-views-blockhouse-design-block-1 .content {
   border-top: 2px solid rgb(93, 121, 135);
   margin-top: 0;
@@ -859,6 +865,9 @@ footer.site-footer {
           clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+.pager .pager__items {
+  text-align: left;
 }
 .pager .pager__item {
   border: 1px solid rgb(220, 220, 220);
