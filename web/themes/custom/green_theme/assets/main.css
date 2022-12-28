@@ -1080,16 +1080,22 @@ footer.site-footer {
   min-width: 125px;
   background-color: #3a863d;
 }
+.views-element-container.block-views-blocklifestyle-news-block-1 .form-item {
+  margin-top: 0;
+}
+.views-element-container.block-views-blocklifestyle-news-block-1 .form-actions.js-form-wrapper.form-wrapper {
+  border-top: 2px solid #3a863d;
+}
 .views-element-container.block-views-blocklifestyle-news-block-1 .content .view-filters ul {
-  border-bottom: 2px solid #3a863d;
   list-style: none;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   gap: 20px;
-  padding-top: 20px;
+  margin-bottom: -10px;
+  padding-top: 30px;
   padding-right: 10px;
-  padding-left: 180px;
+  padding-left: 24vw;
 }
 .views-element-container.block-views-blocklifestyle-news-block-1 .content .view-filters ul a {
   border-bottom: none;

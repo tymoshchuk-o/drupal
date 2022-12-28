@@ -1,5 +1,4 @@
 .views-element-container.block-views-blocklifestyle-news-block-1 {
-  
   .content {
     position: relative;
     display: flex;
@@ -16,16 +15,22 @@
     background-color: #3a863d;
   }
 
+  .form-item{
+    margin-top: 0;
+  }
+ .form-actions.js-form-wrapper.form-wrapper{
+    border-top: 2px solid #3a863d;
+  }
   .content .view-filters ul {
-    border-bottom: 2px solid #3a863d;
     list-style: none;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     gap: 20px;
-    padding-top: 20px;
+    margin-bottom: -10px;
+    padding-top: 30px;
     padding-right: 10px;
-    padding-left: 180px;
+    padding-left: 24vw;
 
     a {
       border-bottom: none;
@@ -189,10 +194,9 @@
     }
 
     .green_post_media {
-      .field.field--name-field-add-media {
+      .field.field--name-field-add-media{
         margin-bottom: 0;
       }
-
       .field.field--name-field-add-media img {
         width: 100%;
       }
