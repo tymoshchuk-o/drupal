@@ -1,15 +1,15 @@
-uuid: 2434c301-1b1f-414a-950c-7cbbb883996b
+uuid: 065f76cf-0f4d-4e20-b5f6-6a4689889469
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.top_post
+    - core.entity_view_mode.node.teaser
     - node.type.posts
   module:
     - node
     - user
-id: fixed_top
-label: 'Fixed Top'
+id: test_page
+label: Test-page
 module: views
 description: ''
 tag: ''
@@ -22,7 +22,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Fixed Top'
+      title: Test-page
       fields:
         title:
           id: title
@@ -72,10 +72,23 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: some
+        type: mini
         options:
           offset: 0
-          items_per_page: 4
+          items_per_page: 1
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       exposed_form:
         type: basic
         options:
@@ -95,21 +108,22 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        promote:
-          id: promote
+        created:
+          id: created
           table: node_field_data
-          field: promote
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: promote
-          plugin_id: standard
+          entity_field: created
+          plugin_id: date
           order: DESC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
+          granularity: second
       arguments: {  }
       filters:
         status:
@@ -137,60 +151,12 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        promote:
-          id: promote
-          table: node_field_data
-          field: promote
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: promote
-          plugin_id: boolean
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
       style:
-        type: html_list
-        options:
-          row_class: ''
-          default_row_class: false
-          uses_fields: false
-          type: ul
-          wrapper_class: item-list
-          class: ''
+        type: default
       row:
         type: 'entity:node'
         options:
-          relationship: none
-          view_mode: top_post
+          view_mode: teaser
       query:
         type: views_query
         options:
@@ -200,30 +166,31 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
-      use_ajax: true
       header: {  }
       footer: {  }
-      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
     position: 1
     display_options:
       display_extenders: {  }
+      path: test-page
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
