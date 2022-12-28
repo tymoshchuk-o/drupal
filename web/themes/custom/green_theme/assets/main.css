@@ -1295,7 +1295,7 @@ footer.site-footer {
      object-fit: cover;
 }
 
-.views-element-container.block-views-blockhouse-design-block-1 > h2 {
+.views-element-container.block-views-blockhouse-design-block-1 .content > h2 {
   display: inline-block;
   position: relative;
   color: #fff;
@@ -1307,7 +1307,7 @@ footer.site-footer {
 .views-element-container.block-views-blockhouse-design-block-1 ul {
   padding: 0;
 }
-.views-element-container.block-views-blockhouse-design-block-1 .content {
+.views-element-container.block-views-blockhouse-design-block-1 .content > div {
   border-top: 2px solid rgb(93, 121, 135);
   margin-top: 0;
 }
