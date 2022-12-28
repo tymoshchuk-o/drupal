@@ -31,9 +31,9 @@ content:
     type: text_trimmed
     label: hidden
     settings:
-      trim_length: 400
+      trim_length: 250
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_add_media:
     type: media_thumbnail
@@ -46,10 +46,17 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_post_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   field_add_subtitle: true
   field_comments: true
-  field_post_type: true
   field_social_links: true
   field_tag: true
   links: true
