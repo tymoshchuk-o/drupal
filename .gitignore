@@ -37,10 +37,18 @@ sites/*/services*.yml
 *.code-workspace
 /.editorconfig
 
+/.gitattributes
+
+*.log
+*.map
+
 # Ignore SimpleTest multi-site environment.
 web/sites/simpletest
 web/libraries
 web/modules/contrib
+
+node_modules
+*.map
 
 
 
