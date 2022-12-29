@@ -1363,6 +1363,9 @@ footer.site-footer {
   background-color: #000;
   background-color: var(--color-dark);
 }
+.green-stay-connected .view-content .views-row {
+  display: flex;
+}
 @media all and (max-width: 780px){
   .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid {
     display: flex;
