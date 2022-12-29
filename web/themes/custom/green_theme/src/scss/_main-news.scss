@@ -113,9 +113,10 @@
 
     & .node__meta {
       display: none;
+      color: var(--color-light);
     }
 
-    .node__meta .field--name-uid {
+    .node__meta .field--name-uid a{
       color: var(--color-light);
       font-weight: 700;
       border-bottom: none;

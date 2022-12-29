@@ -1104,8 +1104,10 @@ footer.site-footer {
 }
 .view.view-fixed-top.view-display-id-block_1 article.node--view-mode-fixedtopposts header .node__meta {
   display: none;
+  color: #fff;
+  color: var(--color-light);
 }
-.view.view-fixed-top.view-display-id-block_1 article.node--view-mode-fixedtopposts header .node__meta .field--name-uid {
+.view.view-fixed-top.view-display-id-block_1 article.node--view-mode-fixedtopposts header .node__meta .field--name-uid a {
   color: #fff;
   color: var(--color-light);
   font-weight: 700;
