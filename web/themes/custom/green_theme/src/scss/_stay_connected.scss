@@ -1,0 +1,26 @@
+.green-stay-connected {
+  position: relative;
+
+  .green-label-wrap {
+    border-bottom: 2px solid var(--color-dark);
+    margin-bottom: 26px;
+
+    h2 {
+      display: inline-block;
+      margin-bottom: 0;
+      padding: 10px;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-light);
+      text-transform: uppercase;
+      background-color: var(--color-dark);
+
+    }
+
+    // End h2.
+  }
+
+  // End .green-label-wrap.
+}
+
+// End .green-stay-connected.
