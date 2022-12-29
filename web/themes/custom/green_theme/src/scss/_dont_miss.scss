@@ -1,6 +1,8 @@
 .views-element-container.block-views-blockdon-t-miss-block-1 {
+
   .content {
     position: relative;
+    margin-bottom: 50px;
   }
 
   .content > h2 {
@@ -16,8 +18,15 @@
   }
 
   .content {
-    .form-type-select.form-item-dont-miss-filter .form-select ul {
+    .js-form-item.form-item.js-form-type-select.form-item-dont-miss-filter{
+      margin-bottom: 0;
+    }
+    .form-actions.js-form-wrapper.form-wrapper{
+      margin-top: 0;
+      padding-top: 0;
       border-bottom: 2px solid var(--yellow-color);
+    }
+    .form-type-select.form-item-dont-miss-filter .form-select ul {
       list-style: none;
       display: flex;
       align-items: flex-end;
@@ -40,8 +49,25 @@
     display: flex;
     flex-wrap: wrap;
 
-    & > .views-row:first-child {
+    .field--name-field-post-type.field--type-entity-reference.field__item{
+      display: none;
+    }
 
+    & > .views-row:first-child {
+      .field--name-field-post-type.field--type-entity-reference.field__item{
+        display: block;
+        position: absolute;
+        bottom: 42px;
+        left: 0px;
+        z-index: 50;
+        background-color: var(--color-dark);
+        padding: 0 10px;
+
+        a{
+          color: var(--color-light);
+          border-bottom: none;
+        }
+      }
     }
   }
 
@@ -129,6 +155,7 @@
   .view-content div.views-view-grid .views-row header h2{
     line-height: 1;
   }
+
   .view-content div.views-view-grid .views-row header h2 a {
     color: #111;
     font-size: 1.2rem;
@@ -160,7 +187,7 @@ font-size: 1px;
   color: transparent;
 }
 
-  .node__meta span.field--name-uid.field--type-entity-reference a{
+  .node__meta .field--name-uid.field--type-entity-reference a{
     color: #000;
     font-size: 1.1rem;
     border-bottom: none;
