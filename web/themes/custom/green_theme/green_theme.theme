@@ -28,4 +28,3 @@ function green_theme_theme_suggestions_block_alter(array &$suggestions, array $v
   }
 
 }
-
