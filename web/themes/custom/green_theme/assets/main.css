@@ -1346,6 +1346,7 @@ footer.site-footer {
 .node--view-mode-image-tag-title {
   display: flex;
   flex-direction: column-reverse;
+  margin-bottom: 10px;
 }
 .node--view-mode-image-tag-title:hover .node__title a {
   color: rgb(77, 178, 236);
@@ -1393,6 +1394,37 @@ footer.site-footer {
 }
 .node--view-mode-image-tag-title .node__meta {
   display: none;
+}
+
+.block-views-blockmake-it-modern-block-block-1 .content > h2 {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 10px;
+  text-transform: uppercase;
+  color: #fff;
+  color: var(--color-light);
+  background-color: rgb(17, 17, 17);
+  font-size: 1.4rem;
+}
+.block-views-blockmake-it-modern-block-block-1 .content > .contextual-region {
+  border-top: 2px solid rgb(17, 17, 17);
+}
+.block-views-blockmake-it-modern-block-block-1 .content .views-row.clearfix:after {
+  display: none;
+}
+.block-views-blockmake-it-modern-block-block-1 .content .views-row {
+  display: flex;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2px;
+}
+.block-views-blockmake-it-modern-block-block-1 .content .views-row .views-col {
+  max-width: 48%;
+  margin: 0;
+  padding: 0;
 }
 @media all and (max-width: 780px){
   .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid {
