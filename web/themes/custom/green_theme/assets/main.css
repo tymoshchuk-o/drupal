@@ -1392,6 +1392,27 @@ footer.site-footer {
   color: rgb(118, 118, 118);
   text-align: justify;
 }
+
+.block-views-blockperformance-training-block-1 {
+  max-width: 554px;
+}
+.block-views-blockperformance-training-block-1 .content > h2 {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 10px;
+  background-color: #000;
+  background-color: var(--color-dark);
+  color: #fff;
+  color: var(--color-light);
+}
+.block-views-blockperformance-training-block-1 .content > .contextual-region {
+  border-top: 2px solid #000;
+  border-top: 2px solid var(--color-dark);
+}
+.block-views-blockperformance-training-block-1 .content .views-row {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 @media all and (max-width: 780px){
   .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid {
     display: flex;

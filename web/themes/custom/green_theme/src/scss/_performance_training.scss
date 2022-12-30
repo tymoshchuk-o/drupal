@@ -1,0 +1,28 @@
+.block-views-blockperformance-training-block-1 {
+  max-width: 554px;
+
+  .content {
+    & > h2 {
+      display: inline-block;
+      margin-bottom: 0;
+      padding: 10px;
+      background-color: var(--color-dark);
+      color: var(--color-light);
+    }
+
+    // End h2.
+
+    &>.contextual-region{
+      border-top: 2px solid var(--color-dark);
+    }
+
+    .views-row{
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  // End .content.
+}
+
+// End .block-views-blockperformance-training-block-1.
