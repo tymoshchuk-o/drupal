@@ -1,0 +1,10 @@
+uuid: 245bf436-79c2-4f65-bd8d-c9293b65c36a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.show_all_fields
+label: 'Show All fields'
+targetEntityType: paragraph
+cache: true
