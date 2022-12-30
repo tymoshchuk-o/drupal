@@ -1345,6 +1345,7 @@ footer.site-footer {
 
 .green-stay-connected {
   position: relative;
+  margin-bottom: 47px;
 }
 .green-stay-connected .green-label-wrap {
   border-bottom: 2px solid #000;
@@ -1363,8 +1364,40 @@ footer.site-footer {
   background-color: #000;
   background-color: var(--color-dark);
 }
-.green-stay-connected .view-content .views-row {
+.green-stay-connected .field__item .paragraph--type--follow-us-item-block {
+  margin-bottom: 10px;
+}
+.green-stay-connected .field__item .paragraph--type--follow-us-item-block a {
+  transition: all 0.4s ease-in-out;
   display: flex;
+  border-bottom: none;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  color: var(--color-dark);
+}
+.green-stay-connected .field__item .paragraph--type--follow-us-item-block a:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+.green-stay-connected .field__item .paragraph--type--follow-us-item-block a .field--name-field-icon-image {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+.green-stay-connected .field__item .paragraph--type--follow-us-item-block a .field--name-field-icon-image img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.green-stay-connected .field__item .paragraph--type--follow-us-item-block a .green-ml-a {
+  margin-left: auto;
 }
 @media all and (max-width: 780px){
   .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid {

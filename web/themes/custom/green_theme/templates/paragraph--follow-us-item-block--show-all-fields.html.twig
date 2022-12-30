@@ -51,8 +51,10 @@
         {{ content.field_icon_image }}
         {{ content.field_followers_count }}
         {{ content.field_icon_text }}
-        {{ content.field_icon_link[0]['#title'] }}
+        <span class="green-ml-a">
+          {{ content.field_icon_link[0]['#title'] }}
+         </span>
       </a>
     {% endblock %}
   </div>
-gi{% endblock paragraph %}
+{% endblock paragraph %}

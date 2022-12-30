@@ -1,5 +1,6 @@
 .green-stay-connected {
   position: relative;
+  margin-bottom: 47px;
 
   .green-label-wrap {
     border-bottom: 2px solid var(--color-dark);
@@ -22,11 +23,56 @@
 
   // End .green-label-wrap.
 
-  .view-content{
-    .views-row{
-      display: flex;
+  .field__item {
+    .paragraph--type--follow-us-item-block {
+      margin-bottom: 10px;
+
+      a {
+        @include transition;
+        display: flex;
+        border-bottom: none;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-dark);
+
+        &:hover{
+          color: rgba(0,0,0,.6);
+        }
+
+        .field--name-field-icon-image {
+          display: flex;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+          margin-right: 10px;
+          margin-bottom: 0;
+
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+          }
+        }
+
+        // End .field--name-field-icon-image.
+
+        .green-ml-a{
+          margin-left: auto;
+        }
+
+      }
+
+      // End a.
+
     }
+
+    // End paragraph--type--follow-us-item-block.
   }
+
+  // End .field-connect-item.
 }
 
 // End .green-stay-connected.
