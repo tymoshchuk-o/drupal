@@ -11,8 +11,10 @@ dependencies:
     - field.field.node.posts.field_post_type
     - field.field.node.posts.field_social_links
     - field.field.node.posts.field_tag
+    - image.style.large
     - node.type.posts
   module:
+    - media
     - user
 id: node.posts.without_body
 targetEntityType: node
@@ -20,11 +22,13 @@ bundle: posts
 mode: without_body
 content:
   field_add_media:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: false
+      image_link: content
+      image_style: large
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content
