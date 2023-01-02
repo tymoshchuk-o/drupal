@@ -1,0 +1,157 @@
+.block-views-blockholiday-recipes-block-1 {
+  margin-bottom: 17px;
+
+  h2 {
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: rgb(137, 84, 193);
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--color-light);
+
+    &+.contextual-region{
+      border-top: 2px solid rgb(137, 84, 193);
+      padding-top: 17px;
+    }
+
+  }
+}
+
+// .block-views-blockholiday-recipes-block-1.
+
+
+.recipes {
+  .recipes-list {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      .views-field-title {
+        width: 100%;
+        margin-bottom: 6px;
+
+        a {
+          @include transition;
+          border-bottom: none;
+          font-size: 2.1rem;
+          font-weight: 400;
+          line-height: 1.2;
+          color: rgb(17, 17, 17);
+
+          &:hover {
+            color: rgb(137, 84, 193);
+          }
+        }
+
+      }
+
+      // End .views-field-title.
+
+      .views-field-uid {
+        margin-right: 10px;
+
+        a {
+          color: rgb(17, 17, 17);
+          font-size: 11px;
+          font-weight: 700;
+          line-height: 1;
+          border-bottom: none;
+        }
+
+        // End a.
+      }
+
+      // End .views-field-uid.
+
+      .views-field-created span {
+        font-size: 1.1rem;
+        color: rgb(118, 118, 118);
+        line-height: 1;
+      }
+
+      // End .views-field-created span.
+
+      .views-field-comment-count {
+        position: relative;
+        margin-left: auto;
+        padding: 0px 5px;
+        background-color: var(--color-dark);
+
+        &:before {
+          content: "";
+          border-style: solid;
+          border-width: 0px 10px 10px 0;
+          border-color: transparent var(--color-dark) transparent transparent;
+          position: absolute;
+          left: -2px;
+          bottom: -8px;
+          rotate: -70deg;
+        }
+
+        .field-content {
+          color: var(--color-light);
+        }
+      }
+
+      // End .views-field-comment-count.
+
+      .views-field-field-add-media {
+        margin-top: 17px;
+        margin-bottom: 17px;
+        width: 100%;
+
+        a {
+          border-bottom: none;
+        }
+
+        img {
+          width: 100%;
+          height: 170px;
+          object-fit: cover;
+        }
+      }
+
+      // End .views-field-field-add-media.
+
+      .views-field-field-post-type {
+        @include transition;
+        background-color: rgb(34, 34, 34);
+        padding: 0px 10px;
+        margin-top: -70px;
+
+        &:hover {
+          background-color: rgb(137, 84, 193);
+        }
+
+        a {
+          color: var(--color-light);
+          border-bottom: none;
+          font-size: 1rem;
+        }
+      }
+
+      // End .views-field-field-post-type.
+
+    }
+
+    .views-field-body {
+      margin-bottom: 17px;
+      color: rgb(118, 118, 118);
+      text-align: justify;
+    }
+
+    // End .views-field-body.
+
+    // End li.
+  }
+
+  // End .recipes-list.
+}
+
+// End .recipes.

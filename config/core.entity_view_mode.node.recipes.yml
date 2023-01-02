@@ -1,0 +1,10 @@
+uuid: 67fa9006-8cb7-4103-9b69-cd9711b79ae0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.recipes
+label: Recipes
+targetEntityType: node
+cache: true
