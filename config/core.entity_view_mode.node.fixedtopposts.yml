@@ -1,0 +1,10 @@
+uuid: 4f06e4ce-4d68-40ef-8eed-3cd1131fbdb9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.fixedtopposts
+label: FixedTopPosts
+targetEntityType: node
+cache: true

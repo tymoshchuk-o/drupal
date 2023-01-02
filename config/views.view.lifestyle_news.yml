@@ -6,15 +6,12 @@ dependencies:
     - core.entity_view_mode.node.img_title_author_body_trimed
     - core.entity_view_mode.node.teaser
     - field.storage.node.body
-    - field.storage.node.field_add_media
-    - image.style.large
     - node.type.posts
     - taxonomy.vocabulary.tags
   content:
     - 'taxonomy_term:tags:063e348c-b033-4e23-b2f4-3810137a56f1'
   module:
     - better_exposed_filters
-    - media
     - node
     - taxonomy
     - text
@@ -576,11 +573,12 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_add_media'
   block_1:
     id: block_1
     display_title: 'Lifestyle News Block'
@@ -616,4 +614,3 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_add_media'

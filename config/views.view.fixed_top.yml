@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.top_post
+    - core.entity_view_mode.node.fixedtopposts
     - node.type.posts
   module:
     - node
@@ -190,7 +190,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: top_post
+          view_mode: fixedtopposts
       query:
         type: views_query
         options:
