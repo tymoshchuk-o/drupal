@@ -122,3 +122,28 @@ header#header {
   width: 220px;
 }
 
+.green-banner {
+  position: relative;
+  width: 60%;
+  min-width: 470px;
+  flex-shrink: 1;
+
+  & .green-banner__text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    max-width: 60%;
+  }
+
+  & img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+  }
+}
+
