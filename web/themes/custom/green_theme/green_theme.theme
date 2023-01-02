@@ -1,9 +1,14 @@
 <?php
+
+/**
+ * @file
+ * Provides theme hooks for the green theme.
+ */
+
 /**
  * Implements hook_theme_suggestions_alter().
  */
-function green_theme_theme_suggestions_alter(array &$suggestions, array $variables, $hook)
-{
+function green_theme_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
   if ($hook == 'node') {
     $suggestions[] = 'node_green_theme';
   }
@@ -15,8 +20,7 @@ function green_theme_theme_suggestions_alter(array &$suggestions, array $variabl
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function green_theme_theme_suggestions_block_alter(array &$suggestions, array $variables)
-{
+function green_theme_theme_suggestions_block_alter(array &$suggestions, array $variables){
   if (isset($variables['elements']['content']['#block_content'])) {
     /** @var \Drupal\block_content\Entity\BlockContent $content */
     $content = $variables['elements']['content']['#block_content'];
@@ -26,5 +30,4 @@ function green_theme_theme_suggestions_block_alter(array &$suggestions, array $v
     $suggestions[] = "block__block_content__{$type}__{$view_mode}";
 
   }
-
 }

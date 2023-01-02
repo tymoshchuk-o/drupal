@@ -1,7 +1,8 @@
-header#header{
+header#header {
   background-color: transparent;
   background-image: none;
 }
+
 //==== Header top block ===
 
 .green-top-block {
@@ -14,7 +15,7 @@ header#header{
   color: var(--color-light);
 }
 
-.region-header-top-left{
+.region-header-top-left {
   position: relative;
   padding-left: 20px;
   display: flex;
@@ -22,17 +23,18 @@ header#header{
   align-items: center;
   justify-content: space-around;
 
-  & div{
+  & div {
     margin: 5px;
   }
 }
-#block-green-theme-addweathernewyork{
+
+#block-green-theme-addweathernewyork {
   display: block;
   position: relative;
   font-weight: 700;
 
 
-  &::before{
+  &::before {
     display: block;
     z-index: 100;
     position: absolute;
@@ -43,25 +45,26 @@ header#header{
     overflow: hidden;
   }
 }
-.region-header-top-center{
+
+.region-header-top-center {
   padding: 5px;
 }
 
-.navigation.menu--topnav ul.menu{
+.navigation.menu--topnav ul.menu {
   display: flex;
   gap: 5px;
 
-  & li a{
+  & li a {
     color: var(--color-light);
     transition: all 0.4s ease-in-out;
 
-    &:hover{
+    &:hover {
       color: var(--hover-color);
     }
   }
 }
 
-.region-header-top-right{
+.region-header-top-right {
   max-width: 30%;
   min-width: 200px;
   margin-left: auto;
@@ -71,7 +74,8 @@ header#header{
   align-items: center;
   justify-content: flex-end;
   gap: 5px;
-  & .social-link-item{
+
+  & .social-link-item {
     display: block;
     position: relative;
     height: 20px;
@@ -80,11 +84,12 @@ header#header{
     padding: 0;
     overflow: hidden;
     transition: all 0.4s ease-in-out;
-    &:hover{
+
+    &:hover {
       scale: 1.2;
     }
 
-    & img{
+    & img {
       display: block;
       height: 20px;
       width: 20px;
@@ -93,8 +98,8 @@ header#header{
 
     }
 
-    & .field--name-field-social-link{
-    @include visually-hidden;
+    & .field--name-field-social-link {
+      @include visually-hidden;
 
     }
 
@@ -103,7 +108,7 @@ header#header{
 
 //=== Header content ===
 
-.green-header.region.region-header{
+.green-header.region.region-header {
   @include block;
   display: flex;
   flex-wrap: wrap;
@@ -112,17 +117,18 @@ header#header{
 
 }
 
-.site-branding__logo{
+.site-branding__logo {
   display: block;
- width: 220px;
+  width: 220px;
 }
 
-.green-banner{
+.green-banner {
   position: relative;
   width: 60%;
   min-width: 470px;
   flex-shrink: 1;
-  & .green-banner__text{
+
+  & .green-banner__text {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -131,11 +137,12 @@ header#header{
     font-weight: 600;
     max-width: 60%;
   }
-   & img{
+
+  & img {
     display: block;
     width: 100%;
-     height: auto;
-     object-fit: contain;
+    height: auto;
+    object-fit: contain;
 
   }
 }
