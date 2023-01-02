@@ -1,7 +1,7 @@
 <div class="green-banner">
-  <div class="green-banner__text">{{ content['field_banner_text'] }}</div>
-  <a href="{{ content['field_banner_link'][0]['#url'] }}">
-    {{ content['field_banner_image'] }}
-  </a>
+  {% if content.field_banner_image %}
+    <a href="{{ content.field_banner_link[0]['#url'] }}">
+      {{ content.field_banner_image }}
+    </a>
+  {% endif %}
 </div>
-

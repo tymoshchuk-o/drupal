@@ -473,29 +473,6 @@ header#header {
   width: 220px;
 }
 
-.green-banner {
-  position: relative;
-  width: 60%;
-  min-width: 470px;
-  flex-shrink: 1;
-}
-.green-banner .green-banner__text {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  max-width: 60%;
-}
-.green-banner img {
-  display: block;
-  width: 100%;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
 .header_nav {
   position: relative;
   z-index: 5;
@@ -1063,6 +1040,8 @@ footer.site-footer {
   height: 70px;
   overflow: hidden;
 }
+
+.node__content .layout--onecol .views-element-container.block-views-blocktrending-now-block-1 {
 .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid .views-row:not(:first-child) .field--name-field-add-media image {
   position: absolute;
   left: 0;
@@ -1415,61 +1394,20 @@ footer.site-footer {
   width: 100%;
 }
 
-.green-stay-connected {
+.green-banner {
   position: relative;
-  margin-bottom: 47px;
+  width: 60%;
+  min-width: 300px;
+  flex-shrink: 1;
+  margin-left: auto;
+  margin-right: auto;
 }
-.green-stay-connected .green-label-wrap {
-  border-bottom: 2px solid #000;
-  border-bottom: 2px solid var(--color-dark);
-  margin-bottom: 26px;
-}
-.green-stay-connected .green-label-wrap h2 {
-  display: inline-block;
-  margin-bottom: 0;
-  padding: 10px;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #fff;
-  color: var(--color-light);
-  text-transform: uppercase;
-  background-color: #000;
-  background-color: var(--color-dark);
-}
-.green-stay-connected .field__item .paragraph--type--follow-us-item-block {
-  margin-bottom: 10px;
-}
-.green-stay-connected .field__item .paragraph--type--follow-us-item-block a {
-  transition: all 0.4s ease-in-out;
-  display: flex;
-  border-bottom: none;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 5px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #000;
-  color: var(--color-dark);
-}
-.green-stay-connected .field__item .paragraph--type--follow-us-item-block a:hover {
-  color: rgba(0, 0, 0, 0.6);
-}
-.green-stay-connected .field__item .paragraph--type--follow-us-item-block a .field--name-field-icon-image {
-  display: flex;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  margin-bottom: 0;
-}
-.green-stay-connected .field__item .paragraph--type--follow-us-item-block a .field--name-field-icon-image img {
+.green-banner img {
+  display: block;
   width: 100%;
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
-}
-.green-stay-connected .field__item .paragraph--type--follow-us-item-block a .green-ml-a {
-  margin-left: auto;
 }
 @media all and (max-width: 780px){
   .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid {
