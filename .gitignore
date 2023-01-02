@@ -48,7 +48,8 @@ web/libraries
 web/modules/contrib
 
 node_modules
-*.map
+*.js.map
+*.css.map
 
 
 
