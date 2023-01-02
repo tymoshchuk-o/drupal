@@ -48,7 +48,11 @@ web/libraries
 web/modules/contrib
 
 node_modules
-*.map
+*.js.map
+*.css.map
+
+web/themes/custom/green_theme/assets/main.css.map
+web/themes/custom/green_theme/assets/script.js.map
 
 
 

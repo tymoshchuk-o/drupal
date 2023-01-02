@@ -1,15 +1,15 @@
-uuid: 28650514-b3df-4b2e-8f5a-7149d95dafad
+uuid: c4e553f8-b84e-4cab-b39c-64f32fdd326b
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.stay_connected
-    - field.field.block_content.stay_connected.field_connect_item
+    - field.field.paragraph.stay_connected_wrapper.field_connect_item
+    - paragraphs.paragraphs_type.stay_connected_wrapper
   module:
     - entity_reference_revisions
-id: block_content.stay_connected.default
-targetEntityType: block_content
-bundle: stay_connected
+id: paragraph.stay_connected_wrapper.default
+targetEntityType: paragraph
+bundle: stay_connected_wrapper
 mode: default
 content:
   field_connect_item:
