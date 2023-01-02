@@ -51,6 +51,9 @@ node_modules
 *.js.map
 *.css.map
 
+web/themes/custom/green_theme/assets/main.css.map
+web/themes/custom/green_theme/assets/script.js.map
+
 
 
 # If you prefer to store your .gitignore file in the sites/ folder, comment

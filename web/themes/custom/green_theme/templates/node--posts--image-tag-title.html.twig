@@ -86,19 +86,18 @@
         <a href="{{ url }}" rel="bookmark">{{ label }}</a>
       </h2>
     {% endif %}
-    {{ content.body }}
     {{ title_suffix }}
     {% if display_submitted %}
       <div class="node__meta">
         {{ author_picture }}
         <span{{ author_attributes }}>
-          {% trans %}{{ author_name }} on {{ date }}{% endtrans %}
+          {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         </span>
         {{ metadata }}
       </div>
     {% endif %}
   </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-    {{ content.field_add_media }}
+    {{ content }}
   </div>
 </article>

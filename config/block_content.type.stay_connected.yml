@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: stay_connected
-label: 'Stay Connected'
+label: 'Stay Connected Custom Block'
 revision: 0
 description: ''

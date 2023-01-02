@@ -1,5 +1,5 @@
 .views-element-container.block-views-blockhouse-design-block-1 {
-  & > h2 {
+  .content > h2 {
     display: inline-block;
     position: relative;
     color: var(--color-light);
@@ -12,7 +12,7 @@
     padding: 0;
   }
 
-  .content{
+  .content>div{
     border-top: 2px solid rgb(93, 121, 135);
     margin-top: 0;
   }
