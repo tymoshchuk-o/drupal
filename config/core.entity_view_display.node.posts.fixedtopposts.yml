@@ -1,0 +1,54 @@
+uuid: 4ecfb1eb-7620-4200-a9b0-f2e21b4a4cf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.fixedtopposts
+    - field.field.node.posts.body
+    - field.field.node.posts.field_add_media
+    - field.field.node.posts.field_add_subtitle
+    - field.field.node.posts.field_comments
+    - field.field.node.posts.field_post_type
+    - field.field.node.posts.field_social_links
+    - field.field.node.posts.field_tag
+    - image.style.full_width_image
+    - node.type.posts
+  module:
+    - layout_builder
+    - media
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.posts.fixedtopposts
+targetEntityType: node
+bundle: posts
+mode: fixedtopposts
+content:
+  field_add_media:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: full_width_image
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_post_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_add_subtitle: true
+  field_comments: true
+  field_social_links: true
+  field_tag: true
+  links: true
