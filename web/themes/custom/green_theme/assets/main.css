@@ -1839,6 +1839,62 @@ footer.site-footer {
   line-height: 1.6;
   color: #fff;
 }
+
+div.block.block-views-blockmust-read-block-1 {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+div.block.block-views-blockmust-read-block-1 .content > h2 {
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 0;
+  background-color: #000;
+  background-color: var(--color-dark);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #fff;
+  color: var(--color-light);
+  border: none;
+}
+div.block.block-views-blockmust-read-block-1 .content > h2 + div {
+  position: relative;
+  border-top: 2px solid black;
+}
+
+.must-read {
+  padding-top: 17px;
+}
+.must-read .must-read-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 17px;
+}
+.must-read .views-field-title a {
+  transition: all 0.4s ease-in-out;
+  color: rgb(17, 17, 17);
+  border-bottom: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+.must-read .views-field-title a:hover {
+  color: rgb(77, 178, 236);
+}
+.must-read .views-field-uid {
+  float: left;
+  margin-right: 10px;
+}
+.must-read .views-field-uid span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: black;
+}
+.must-read .views-field-created span {
+  font-size: 1.1rem;
+  line-height: 1;
+  color: rgb(118, 118, 118);
+}
 @media all and (max-width: 780px){
   .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid {
     display: flex;
