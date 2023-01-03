@@ -459,7 +459,14 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: default
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: must-read
+          class: must-read-list
       row:
         type: fields
       query:
@@ -471,6 +478,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -490,6 +498,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      title: 'Must Read'
       fields:
         title:
           id: title
@@ -686,7 +695,27 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 5
+          total_pages: null
+          id: 0
+          tags:
+            next: ›
+            previous: ‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       defaults:
+        title: false
+        pager: false
         fields: false
       display_extenders: {  }
     cache_metadata:
