@@ -52,14 +52,14 @@ nav.navigation.menu--main .menu {
 @media screen and (max-width: 630px) {
 
   .header_nav {
-  box-shadow: none;
+    box-shadow: none;
 
     .menu--main {
       .content .menu-toggle {
         background-color: rgba(0, 0, 0, .8);
         color: #fff;
 
-        &::after{
+        &::after {
           right: 17%;
         }
       }
