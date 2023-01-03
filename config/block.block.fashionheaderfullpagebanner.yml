@@ -1,0 +1,30 @@
+uuid: 2e157dfc-b136-4c99-8188-9ea4d65a1523
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header_full_page_banner:e3ac1bff-c3c8-4d74-9724-7d29b05caf3d'
+  module:
+    - block_content
+    - system
+  theme:
+    - green_theme
+id: fashionheaderfullpagebanner
+theme: green_theme
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:e3ac1bff-c3c8-4d74-9724-7d29b05caf3d'
+settings:
+  id: 'block_content:e3ac1bff-c3c8-4d74-9724-7d29b05caf3d'
+  label: 'Fashion Header Full Page Banner'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /fashion

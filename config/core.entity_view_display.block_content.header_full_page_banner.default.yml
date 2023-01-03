@@ -1,0 +1,24 @@
+uuid: 0ff9a02b-7ad6-429d-a234-b0ed86024e5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.header_full_page_banner
+    - field.field.block_content.header_full_page_banner.field_page_banner
+  module:
+    - entity_reference_revisions
+id: block_content.header_full_page_banner.default
+targetEntityType: block_content
+bundle: header_full_page_banner
+mode: default
+content:
+  field_page_banner:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

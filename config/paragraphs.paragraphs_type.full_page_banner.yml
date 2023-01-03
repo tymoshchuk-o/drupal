@@ -1,0 +1,10 @@
+uuid: e367ec2b-3331-47a2-a912-d1ac67f6a696
+langcode: en
+status: true
+dependencies: {  }
+id: full_page_banner
+label: 'Full Page Banner'
+icon_uuid: null
+icon_default: null
+description: 'Paragraph Full Page Banner'
+behavior_plugins: {  }

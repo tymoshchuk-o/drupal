@@ -1,0 +1,19 @@
+uuid: e0a6b4b4-5704-4966-8c10-c3ed034e0ab0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subtitle
+    - paragraphs.paragraphs_type.full_page_banner
+id: paragraph.full_page_banner.field_subtitle
+field_name: field_subtitle
+entity_type: paragraph
+bundle: full_page_banner
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

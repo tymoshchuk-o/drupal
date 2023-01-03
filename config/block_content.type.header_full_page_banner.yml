@@ -1,0 +1,8 @@
+uuid: 6d18690e-6028-438b-9f56-9303eb6562f5
+langcode: en
+status: true
+dependencies: {  }
+id: header_full_page_banner
+label: 'Header Full Page Banner'
+revision: 0
+description: ''

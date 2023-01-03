@@ -1,0 +1,49 @@
+uuid: c8940d08-1b3e-4127-a6b4-554d3ddbb724
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.header_full_page_banner
+    - field.storage.block_content.field_page_banner
+    - paragraphs.paragraphs_type.full_page_banner
+  module:
+    - entity_reference_revisions
+id: block_content.header_full_page_banner.field_page_banner
+field_name: field_page_banner
+entity_type: block_content
+bundle: header_full_page_banner
+label: 'Page Banner'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      full_page_banner: full_page_banner
+    negate: 0
+    target_bundles_drag_drop:
+      follow_us_icons_wrapper:
+        weight: 8
+        enabled: false
+      follow_us_item_block:
+        weight: 9
+        enabled: false
+      full_page_banner:
+        weight: 10
+        enabled: true
+      stay_connected_wrapper:
+        weight: 11
+        enabled: false
+      taxonomy_color_links:
+        weight: 12
+        enabled: false
+      user_social_icons:
+        weight: 13
+        enabled: false
+      user_social_links_wrap:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

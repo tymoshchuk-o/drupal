@@ -1,0 +1,110 @@
+.paragraph--type--full-page-banner {
+  position: relative;
+  min-width: 100%;
+  height: 445px;
+
+
+  .field--name-field-block-background-image {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    //End img.
+
+    &:after {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .6);
+      content: "";
+
+    }
+  }
+
+  //End .field--name-field-block-background-image.
+
+  .field--name-field-title {
+    position: relative;
+    z-index: 10;
+    top: 30%;
+    left: 5%;
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  //End .field--name-field-title.
+
+  .field--name-field-taxonomy-link {
+    position: relative;
+    top: 35%;
+    left: 5%;
+    z-index: 15;
+    display: flex;
+    gap: 10px;
+
+    .field__item {
+
+      .taxonomy-btn-wrap {
+        padding: 0px 10px;
+
+        .field--name-field-taxonomy-term {
+          margin-bottom: 0;
+
+          a {
+            display: block;
+            border-bottom: none;
+            font-size: 1.1rem;
+            font-weight: 1;
+            color: #fff;
+
+          }
+        }
+
+        //End field--name-field-taxonomy-term.
+      }
+
+      //End .taxonomy-btn-wrap.
+    }
+
+    //End .field__item.
+  }
+
+  //End .field--name-field-taxonomy-link.
+
+  .field--name-field-subtitle {
+    position: relative;
+    z-index: 15;
+    top: 40%;
+    left: 5%;
+    max-width: 60%;
+    font-size: 1.6rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #fff;
+
+
+  }
+
+  //End .field--name-field-subtitle.
+
+}
+
+//End .paragraph--type--full-page-banner.

@@ -38,18 +38,18 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-    'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-    not paragraph.isPublished() ? 'paragraph--unpublished'
-  ]
-%}
+{% set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+] %}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
+  <div {{ attributes.addClass(classes) }}>
     {% block content %}
-      {{ content }}
+      <div class="taxonomy-btn-wrap" style="background-color: {{ content.field_link_background_color[0] }}">
+        {{ content.field_taxonomy_term }}
+      </div>
     {% endblock %}
   </div>
 {% endblock paragraph %}
