@@ -545,7 +545,6 @@ nav.navigation.menu--main .menu .menu-item a:hover::before {
   left: 0;
   right: 0;
 }
-
 .search-block-form.block-search {
   display: block;
   position: relative;
@@ -1894,6 +1893,28 @@ div.block.block-views-blockmust-read-block-1 .content > h2 + div {
   font-size: 1.1rem;
   line-height: 1;
   color: rgb(118, 118, 118);
+}
+@media screen and (max-width: 630px){
+  .header_nav {
+    box-shadow: none;
+  }
+  .header_nav .menu--main .content .menu-toggle {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+  }
+  .header_nav .menu--main .content .menu-toggle::after {
+    right: 17%;
+  }
+  .header_nav .menu--main ul.menu {
+    flex-direction: column;
+    min-width: 90vw;
+  }
+  .search-block-form {
+    display: none;
+  }
+  body:not(:target) .region-primary-menu .menu-toggle-target-show:target ~ .menu-toggle--hide {
+    display: block;
+  }
 }
 @media all and (max-width: 780px){
   .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid {
