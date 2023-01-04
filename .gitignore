@@ -51,8 +51,8 @@ node_modules
 *.js.map
 *.css.map
 
-web/themes/custom/green_theme/assets/main.css.map
-web/themes/custom/green_theme/assets/script.js.map
+/web/themes/custom/green_theme/assets
+/web/themes/custom/green_theme/assets
 
 
 
