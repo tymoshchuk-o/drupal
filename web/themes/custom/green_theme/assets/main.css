@@ -946,11 +946,10 @@ footer.site-footer {
   font-weight: 400;
   color: rgb(118, 118, 118);
 }
-.views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid .views-row:not(:first-child) .field--name-field-add-media {
-  position: relative;
-  width: 100px;
-  height: 70px;
-  overflow: hidden;
+@media all and (max-width: 780px){
+  .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid {
+    display: flex;
+  }
 }
 .views-element-container.block-views-blockdon-t-miss-block-1 .view-content div.views-view-grid .views-row:not(:first-child) .field--name-field-add-media image {
   position: absolute;
@@ -1649,75 +1648,95 @@ footer.site-footer {
   margin-right: 5px;
 }
 
-.block-views-blockholiday-recipes-block-1 {
-  margin-bottom: 17px;
-}
-.block-views-blockholiday-recipes-block-1 h2 {
+.block-views-blocklatest-articles-block-1 h2 {
   display: inline-block;
   padding: 10px;
   margin-bottom: 0;
-  background-color: rgb(137, 84, 193);
+  background-color: #000;
+  background-color: var(--color-dark);
   text-transform: uppercase;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 400;
   color: #fff;
   color: var(--color-light);
 }
-.block-views-blockholiday-recipes-block-1 h2 + .contextual-region {
-  border-top: 2px solid rgb(137, 84, 193);
+.block-views-blocklatest-articles-block-1 h2 + .contextual-region {
+  border-top: 2px solid #000;
+  border-top: 2px solid var(--color-dark);
   padding-top: 17px;
 }
 
-.recipes .recipes-list {
+.latest-news .latest-news-list {
+  padding: 0;
   list-style: none;
-  padding-left: 0;
-}
-.recipes .recipes-list li {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: space-between;
+  gap: 5%;
 }
-.recipes .recipes-list li .views-field-title {
-  width: 100%;
-  margin-bottom: 6px;
+.latest-news .latest-news-list li {
+  width: 45%;
+  min-width: 200px;
+  margin-bottom: 17px;
 }
-.recipes .recipes-list li .views-field-title a {
-  transition: all 0.4s ease-in-out;
+.latest-news .latest-news-list .views-field-field-add-media a {
   border-bottom: none;
-  font-size: 2.1rem;
+}
+.latest-news .latest-news-list .views-field-field-add-media img {
+  width: 100%;
+  height: 170px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.latest-news .latest-news-list .views-field-field-post-type {
+  position: relative;
+  margin-top: -30px;
+  margin-bottom: 17px;
+}
+.latest-news .latest-news-list .views-field-field-post-type a {
+  transition: all 0.4s ease-in-out;
+  padding: 5px 10px;
+  background: black;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  color: var(--color-light);
+  border-bottom: none;
+}
+.latest-news .latest-news-list .views-field-field-post-type a:hover {
+  background-color: #4db2ec;
+}
+.latest-news .views-field-title a {
+  transition: all 0.4s ease-in-out;
+  font-size: 1.7rem;
   font-weight: 400;
   line-height: 1.2;
   color: rgb(17, 17, 17);
-}
-.recipes .recipes-list li .views-field-title a:hover {
-  color: rgb(137, 84, 193);
-}
-.recipes .recipes-list li .views-field-uid {
-  margin-right: 10px;
-}
-.recipes .recipes-list li .views-field-uid a {
-  color: rgb(17, 17, 17);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1;
   border-bottom: none;
 }
-.recipes .recipes-list li .views-field-created span {
-  font-size: 1.1rem;
+.latest-news .views-field-title a:hover {
+  color: #4db2ec;
+}
+.latest-news .views-field-created {
+  display: inline-block;
+}
+.latest-news .views-field-created span {
+  font-size: 11px;
   color: rgb(118, 118, 118);
   line-height: 1;
 }
-.recipes .recipes-list li .views-field-comment-count {
+.latest-news .views-field-comment-count {
+  float: right;
   position: relative;
-  margin-left: auto;
-  padding: 0px 5px;
+  padding: 0 5px;
   background-color: #000;
   background-color: var(--color-dark);
 }
-.recipes .recipes-list li .views-field-comment-count:before {
+.latest-news .views-field-comment-count:before {
   content: "";
   border-style: solid;
-  border-width: 0px 10px 10px 0;
+  border-width: 0 10px 10px 0;
   border-color: transparent #000 transparent transparent;
   border-color: transparent var(--color-dark) transparent transparent;
   position: absolute;
@@ -1725,7 +1744,7 @@ footer.site-footer {
   bottom: -8px;
   rotate: -70deg;
 }
-.recipes .recipes-list li .views-field-comment-count .field-content {
+.latest-news .views-field-comment-count .field-content {
   color: #fff;
   color: var(--color-light);
 }
