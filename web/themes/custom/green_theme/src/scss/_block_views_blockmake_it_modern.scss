@@ -1,0 +1,45 @@
+.block-views-blockmake-it-modern-block-block-1 {
+  .content {
+    & > h2 {
+      display: inline-block;
+      margin-bottom: 0;
+      padding: 10px;
+      text-transform: uppercase;
+      color: var(--color-light);
+      background-color: rgba(17, 17, 17, 1);
+      font-size: 1.4rem;
+    }
+
+    // End h2.
+
+    & > .contextual-region {
+      border-top: 2px solid rgba(17, 17, 17, 1);
+    }
+
+    .views-row.clearfix:after{
+      display: none;
+    }
+
+    .views-row {
+      display: flex;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2px;
+
+      .views-col {
+        max-width: 48%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    // End .views-row
+
+  }
+
+  // End Content.
+}
+

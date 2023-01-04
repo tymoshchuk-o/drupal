@@ -1,0 +1,43 @@
+uuid: 5a231960-94f3-449f-8a50-2d27a39832ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_connect_item
+    - paragraphs.paragraphs_type.follow_us_item_block
+    - paragraphs.paragraphs_type.stay_connected_wrapper
+  module:
+    - entity_reference_revisions
+id: paragraph.stay_connected_wrapper.field_connect_item
+field_name: field_connect_item
+entity_type: paragraph
+bundle: stay_connected_wrapper
+label: 'Connect item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      follow_us_item_block: follow_us_item_block
+    negate: 0
+    target_bundles_drag_drop:
+      follow_us_icons_wrapper:
+        weight: 7
+        enabled: false
+      follow_us_item_block:
+        weight: 8
+        enabled: true
+      stay_connected_wrapper:
+        weight: 6
+        enabled: false
+      user_social_icons:
+        weight: 9
+        enabled: false
+      user_social_links_wrap:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions
