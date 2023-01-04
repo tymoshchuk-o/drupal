@@ -1,0 +1,69 @@
+.block-views-blockrecent-comments-posts-block-1{
+  h2:not(.node__title) {
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: var(--color-dark);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-light);
+
+    &+.contextual-region{
+      border-top: 2px solid var(--color-dark);
+      padding-top: 17px;
+    }
+
+  }
+}
+
+.recent-comment {
+  .recent-comment-list {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      display: block;
+      margin-bottom: 15px;
+
+      .views-field {
+        display: inline;
+
+        a {
+          @include transition;
+          border-bottom: none;
+          color: black;
+          font-size: 1.3rem;
+          font-weight: 600;
+          font-style: italic;
+
+          &:hover {
+            color: rgb(77, 178, 236);
+          }
+        }
+
+        //End a.
+      }
+
+      // End .views-field.
+
+
+      .views-field-last-comment-name a {
+        color: rgb(68, 68, 68);
+        font-weight: 400;
+
+        &:hover{
+          color: rgb(68, 68, 68);
+          pointer-events: none;
+        }
+      }
+
+    }
+
+    // End li
+  }
+
+  //End .recent-comment-list.
+}
+
+// End .recent-comment.
