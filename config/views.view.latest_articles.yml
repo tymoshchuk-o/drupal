@@ -328,17 +328,15 @@ display:
           prefix: ''
           suffix: ''
       pager:
-        type: full
+        type: mini
         options:
           offset: 0
           items_per_page: 8
           total_pages: null
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
-            first: ''
-            last: ''
+            next: ›
+            previous: ‹
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -347,7 +345,6 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 4
       exposed_form:
         type: basic
         options:

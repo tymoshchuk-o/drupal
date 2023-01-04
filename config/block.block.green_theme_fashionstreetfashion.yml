@@ -12,7 +12,7 @@ dependencies:
 id: green_theme_fashionstreetfashion
 theme: green_theme
 region: content_above
-weight: 0
+weight: -18
 provider: null
 plugin: 'block_content:7b55cd15-b2a5-4a01-b37c-7d35396dd8dc'
 settings:

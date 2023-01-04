@@ -9,7 +9,7 @@ _core:
 id: green_theme_page_title
 theme: green_theme
 region: content_above
-weight: -5
+weight: -21
 provider: null
 plugin: page_title_block
 settings:

@@ -11,7 +11,7 @@ _core:
 id: green_theme_content
 theme: green_theme
 region: content
-weight: 0
+weight: -19
 provider: null
 plugin: system_main_block
 settings:
