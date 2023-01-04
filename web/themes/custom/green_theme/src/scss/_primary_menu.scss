@@ -14,7 +14,7 @@
 
 nav.navigation.menu--main .menu {
   width: 70%;
-  min-width: 550px;
+  min-width: 300px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -49,7 +49,7 @@ nav.navigation.menu--main .menu {
   }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 460px) {
 
   .header_nav {
     box-shadow: none;
@@ -62,9 +62,12 @@ nav.navigation.menu--main .menu {
         &::after {
           right: 17%;
         }
+
+
       }
 
       ul.menu {
+        text-align: center;
         flex-direction: column;
         min-width: 90vw;
       }
@@ -80,8 +83,5 @@ nav.navigation.menu--main .menu {
   }
   // End .search-form
 
-  body:not(:target) .region-primary-menu .menu-toggle-target-show:target ~ .menu-toggle--hide {
-    display: block;
-  }
 
 }

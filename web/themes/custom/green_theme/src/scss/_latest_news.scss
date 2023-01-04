@@ -1,0 +1,142 @@
+.block-views-blocklatest-articles-block-1{
+  h2 {
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: var(--color-dark);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-light);
+
+    &+.contextual-region{
+      border-top: 2px solid var(--color-dark);
+      padding-top: 17px;
+    }
+
+  }
+}// End .block-views-blocklatest-articles-block-1.
+
+.latest-news {
+  .latest-news-list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5%;
+
+    li {
+      width: 45%;
+      min-width: 200px;
+      margin-bottom: 17px;
+    }
+
+    // End li.
+
+    .views-field-field-add-media {
+
+      a{
+        border-bottom: none;
+      }
+
+      img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+      }
+
+      // End img.
+    }
+
+    // End .views-field-field-add-media.
+
+    .views-field-field-post-type {
+      position: relative;
+      margin-top: -30px;
+      margin-bottom: 17px;
+
+      a {
+        @include transition;
+        padding: 5px 10px;
+        background: black;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1;
+        color: var(--color-light);
+        border-bottom: none;
+
+        &:hover {
+          background-color: #4db2ec;
+        }
+
+      }
+
+      // end a.
+
+    }
+
+    // End .views-field-field-post-type.
+
+  }
+
+  .views-field-title {
+    a {
+      @include transition;
+      font-size: 1.7rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: rgb(17, 17, 17);
+      border-bottom: none;
+
+      &:hover {
+        color: #4db2ec;
+      }
+    }
+
+    //End a.
+
+  }
+
+  //End .views-field-title.
+
+  .views-field-created {
+    display: inline-block;
+
+    span {
+      font-size: 11px;
+      color: rgb(118, 118, 118);
+      line-height: 1;
+    }
+  }
+
+  //End views-field-created.
+
+  .views-field-comment-count{
+   float: right;
+    position: relative;
+    padding: 0 5px;
+    background-color: var(--color-dark);
+
+    &:before {
+      content: "";
+      border-style: solid;
+      border-width: 0 10px 10px 0;
+      border-color: transparent var(--color-dark) transparent transparent;
+      position: absolute;
+      left: -2px;
+      bottom: -8px;
+      rotate: -70deg;
+    }
+
+    .field-content {
+      color: var(--color-light);
+    }
+
+
+  } // End .views-field-comment-count.
+
+  // End .latest-news-list.
+}
+
+//End .latest-news.
