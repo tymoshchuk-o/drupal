@@ -12,7 +12,7 @@ _core:
   default_config_hash: gmxYWWHmgbe0Pnv8y48ZLSLH5mEHejOjAP6RLxUfdzU
 id: green_theme_account_menu
 theme: green_theme
-region: secondary_menu
+region: header_top_left
 weight: -8
 provider: null
 plugin: 'system_menu_block:account'
