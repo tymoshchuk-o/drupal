@@ -1,0 +1,17 @@
+.content-above{
+  position: relative;
+  width: 100%;
+  min-height: 645px;
+  margin-bottom: 40px;
+
+
+  .paragraph--type--full-page-banner{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 100vw;
+    min-height: 645px;
+    transform: translateX(-50%);
+  }
+
+}
