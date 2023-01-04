@@ -1,0 +1,30 @@
+uuid: 6301dc22-9378-46f4-afa3-94d99bb3f357
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.taxonomy_color_links.field_link_background_color
+    - field.field.paragraph.taxonomy_color_links.field_taxonomy_term
+    - paragraphs.paragraphs_type.taxonomy_color_links
+id: paragraph.taxonomy_color_links.default
+targetEntityType: paragraph
+bundle: taxonomy_color_links
+mode: default
+content:
+  field_link_background_color:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_taxonomy_term:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,87 @@
+div.block.block-views-blockmust-read-block-1 {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  .content {
+    & > h2 {
+      display: inline-block;
+      padding: 10px;
+      margin-bottom: 0;
+      background-color: var(--color-dark);
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-light);
+      border: none;
+    }
+
+    & > h2 + div {
+      position: relative;
+      border-top: 2px solid black;
+    }
+
+    //End h2.
+
+
+  }
+
+  // End .content.
+}
+
+//End block-views-blockmust-read-block-1.
+
+.must-read {
+  padding-top: 17px;
+
+  .must-read-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 17px;
+  }
+
+  //End .must-read-list.
+
+  .views-field-title {
+    a {
+      @include transition;
+      color: rgb(17, 17, 17);
+      border-bottom: none;
+      font-size: 16px;
+      font-weight: 500;
+
+      &:hover {
+        color: rgb(77, 178, 236);
+      }
+    }
+
+    //End a.
+  }
+
+  //End .views-field-title.
+
+  .views-field-uid {
+    float: left;
+    margin-right: 10px;
+
+    span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: black;
+    }
+  }
+
+  //End .views-field-uid.
+
+  .views-field-created {
+    span {
+      font-size: 1.1rem;
+      line-height: 1;
+      color: rgb(118, 118, 118);
+    }
+  }
+
+  //End .views-field-created.
+}
+
+// End .must-read.

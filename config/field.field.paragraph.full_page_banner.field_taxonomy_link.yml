@@ -1,0 +1,49 @@
+uuid: 80fd3188-d84e-4ca0-8dd3-e4514a592454
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_taxonomy_link
+    - paragraphs.paragraphs_type.full_page_banner
+    - paragraphs.paragraphs_type.taxonomy_color_links
+  module:
+    - entity_reference_revisions
+id: paragraph.full_page_banner.field_taxonomy_link
+field_name: field_taxonomy_link
+entity_type: paragraph
+bundle: full_page_banner
+label: 'Taxonomy link'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      taxonomy_color_links: taxonomy_color_links
+    negate: 0
+    target_bundles_drag_drop:
+      follow_us_icons_wrapper:
+        weight: 9
+        enabled: false
+      follow_us_item_block:
+        weight: 10
+        enabled: false
+      full_page_banner:
+        weight: 11
+        enabled: false
+      stay_connected_wrapper:
+        weight: 12
+        enabled: false
+      taxonomy_color_links:
+        weight: 8
+        enabled: true
+      user_social_icons:
+        weight: 13
+        enabled: false
+      user_social_links_wrap:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

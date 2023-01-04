@@ -1,0 +1,21 @@
+uuid: 36922f74-9c5b-4b53-a169-1c6934c3d3e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_background_color
+    - paragraphs.paragraphs_type.taxonomy_color_links
+id: paragraph.taxonomy_color_links.field_link_background_color
+field_name: field_link_background_color
+entity_type: paragraph
+bundle: taxonomy_color_links
+label: 'Link Background Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '#FF5733'
+default_value_callback: ''
+settings: {  }
+field_type: string

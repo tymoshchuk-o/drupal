@@ -1,0 +1,29 @@
+uuid: c9647d4f-a7b5-4725-be6e-eaef128aefe7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_taxonomy_term
+    - paragraphs.paragraphs_type.taxonomy_color_links
+    - taxonomy.vocabulary.tags
+id: paragraph.taxonomy_color_links.field_taxonomy_term
+field_name: field_taxonomy_term
+entity_type: paragraph
+bundle: taxonomy_color_links
+label: 'Taxonomy Term'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

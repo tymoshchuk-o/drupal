@@ -1,0 +1,10 @@
+uuid: e991e4ed-83ed-4d0c-abb3-e69ff06b1224
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_color_links
+label: 'Taxonomy Color Links'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

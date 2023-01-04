@@ -1,0 +1,29 @@
+uuid: 6ec94cb0-7f13-486d-acef-67b8b07e1279
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block_background_image
+    - media.type.image
+    - paragraphs.paragraphs_type.full_page_banner
+id: paragraph.full_page_banner.field_block_background_image
+field_name: field_block_background_image
+entity_type: paragraph
+bundle: full_page_banner
+label: 'Block Background Image'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
