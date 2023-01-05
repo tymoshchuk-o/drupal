@@ -30,7 +30,7 @@ module.exports = {
     new BrowserSyncPlugin({
       host: "localhost",
       port: 3000,
-      proxy: "http://drupal.docker.localhost:8000"
+      proxy: "http://greendddd.docksal/"
     }),
   ],
   module: {

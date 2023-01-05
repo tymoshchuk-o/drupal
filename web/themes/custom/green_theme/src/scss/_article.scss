@@ -1,0 +1,33 @@
+.path-node {
+  .layout-main {
+    display: flex;
+
+    .node {
+      &__category {
+        a {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 400;
+          text-decoration: none;
+          border-bottom: 0;
+          display: inline-block;
+          background: #dd3333;
+          color: #fff;
+          padding: 3px 6px 3px 6px;
+          font-size: 11px;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+
+      &__title {
+        font-size: 38px;
+        line-height: 1.2;
+        font-family: 'Roboto', sans-serif;
+      }
+
+    }
+
+  }
+}
