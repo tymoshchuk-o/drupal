@@ -11,7 +11,7 @@ dependencies:
 id: green_theme_lifestylecategorynavigation
 theme: green_theme
 region: content
-weight: 0
+weight: -20
 provider: null
 plugin: 'system_menu_block:lifestyle-category-navigation'
 settings:

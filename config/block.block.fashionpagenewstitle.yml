@@ -1,9 +1,9 @@
-uuid: 9141b141-047e-4052-bed7-b55541d0e1f0
+uuid: d8a9cc75-c2f5-4947-aed2-55342a6ddcec
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:block_title:430a5d28-00ed-4b5e-b2e9-fa7786a86b26'
+    - 'block_content:block_title:bb08de46-0bc6-46b3-b6d1-b3fd8b1de934'
   module:
     - block_content
     - system
@@ -12,11 +12,11 @@ dependencies:
 id: fashionpagenewstitle
 theme: green_theme
 region: content
-weight: 0
+weight: -19
 provider: null
-plugin: 'block_content:430a5d28-00ed-4b5e-b2e9-fa7786a86b26'
+plugin: 'block_content:bb08de46-0bc6-46b3-b6d1-b3fd8b1de934'
 settings:
-  id: 'block_content:430a5d28-00ed-4b5e-b2e9-fa7786a86b26'
+  id: 'block_content:bb08de46-0bc6-46b3-b6d1-b3fd8b1de934'
   label: 'Fashion Page News Title'
   label_display: '0'
   provider: block_content

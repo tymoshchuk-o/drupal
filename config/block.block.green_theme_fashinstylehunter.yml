@@ -12,7 +12,7 @@ dependencies:
 id: green_theme_fashinstylehunter
 theme: green_theme
 region: content_above
-weight: 0
+weight: -20
 provider: null
 plugin: 'block_content:98bd778d-e9da-4d49-ae15-fc4f98f6c1b9'
 settings:

@@ -12,7 +12,7 @@ dependencies:
 id: green_theme_fashiontopblock
 theme: green_theme
 region: content_above
-weight: 0
+weight: -17
 provider: null
 plugin: 'block_content:db47ea43-df1e-499e-8a05-3243abd1a3f0'
 settings:
