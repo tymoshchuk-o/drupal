@@ -1,0 +1,16 @@
+.layout{
+
+  .layout__region--first{
+    padding: 0 15px 10px 5px;
+  }//End .layout__region
+
+}// End .layout
+
+.page-content-wrap{
+  display: flex;
+}
+@media screen and (max-width: 840px){
+  .page-content-wrap{
+    flex-wrap: wrap;
+  }
+}
