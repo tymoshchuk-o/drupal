@@ -25,7 +25,8 @@
         "drupal/dynamic_breadcrumb": "^1.4",
         "drupal/paragraphs": "^1.15",
         "drupal/pathauto": "^1.11",
-        "drupal/views_bootstrap": "^5.4"
+        "drupal/views_bootstrap": "^5.4",
+        "drupal/views_infinite_scroll": "^2.0"
     },
     "conflict": {
         "drupal/drupal": "*"

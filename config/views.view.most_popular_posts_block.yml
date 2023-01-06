@@ -8,6 +8,7 @@ dependencies:
   module:
     - node
     - user
+    - views_infinite_scroll
 id: most_popular_posts_block
 label: 'Most Popular Posts Block'
 module: views
@@ -91,7 +92,7 @@ display:
         type: mini
         options:
           offset: 0
-          items_per_page: 3
+          items_per_page: 4
           total_pages: null
           id: 0
           tags:
@@ -204,6 +205,9 @@ display:
           query_tags: {  }
       relationships: {  }
       use_ajax: true
+      use_more: false
+      use_more_always: true
+      use_more_text: more
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -222,6 +226,52 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_2:
+    id: block_2
+    display_title: 'Single article'
+    display_plugin: block
+    position: 2
+    display_options:
+      title: 'Most Popular '
+      pager:
+        type: infinite_scroll
+        options:
+          offset: 0
+          items_per_page: 3
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '4'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load More'
+            automatically_load_content: false
+            initially_load_all_pages: false
+      defaults:
+        title: false
+        pager: false
+        use_more: true
+        use_more_always: true
+        use_more_text: true
+      display_description: ''
       display_extenders: {  }
     cache_metadata:
       max-age: -1
