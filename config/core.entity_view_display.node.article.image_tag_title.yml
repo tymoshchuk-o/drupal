@@ -1,9 +1,10 @@
-uuid: 99ac2b63-700e-40fe-a4dc-629494954dd0
+uuid: 7d58c6a7-cd43-4cc8-844b-63ea233db932
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.image_tag_title
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
@@ -13,14 +14,19 @@ dependencies:
   module:
     - comment
     - image
+    - layout_builder
     - text
     - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
 _core:
   default_config_hash: 7fb0j9HnIXfP9ndewzgPPzzeX_SV532wuYpkscrCMCk
-id: node.article.default
+id: node.article.image_tag_title
 targetEntityType: node
 bundle: article
-mode: default
+mode: image_tag_title
 content:
   addtoany:
     settings: {  }

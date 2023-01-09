@@ -68,29 +68,19 @@
  */
 #}
 <article{{ attributes }}>
-
-  {{ title_prefix }}
-   {{ kint(content) }}
   <span class="node__category">{{ content.field_post_type }}</span>
   <h2 class="node__title" {{ title_attributes }}>
     {{ label }}
   </h2>
-  {{ title_suffix }}
-
   {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
+    <div class="node__author">
+      <div class="node__author-image">{{ author_picture }} </div>
+      <div class="node__author-name"> by <strong>{{ author_name }}</strong></div>
+      <div class="node__date">{{ date }}</div>
+    </div>
   {% endif %}
   <div class="wrap-social">
-    <div><a href="https://www.facebook.com/" target="_blank">1<i class="fa-brands fa-facebook-f"></i></a></div>
-    <div><a href="https://www.instagram.com/" target="_blank">2<i class="fa-brands fa-instagram"></i></a></div>
-    <div><a href="https://twitter.com/?lang=en" target="_blank">3<i class="fa-brands fa-twitter"></i></a></div>
-    <div><a href="https://www.pinterest.com/" target="_blank">4<i class="fa-brands fa-pinterest-p"></i></a></div>
+    {{ drupal_block('addtoany_block') }}
   </div>
   <div class="node">
     <div class="node__attachment">
@@ -99,17 +89,12 @@
     <div class="node__content">
       {{ content.body }}
     </div>
-    <div class="node__tags">
-      {{ content.field_tag}}
+    <div class="wrap-social border">
+      {{ drupal_block('addtoany_block') }}
     </div>
-    <div class="wrap-social">
-      <div class="icon"><a href="https://www.facebook.com/" target="_blank">1<i class="fa-brands fa-facebook-f"></i></a></div>
-      <div class="icon"><a href="https://www.instagram.com/" target="_blank">2<i class="fa-brands fa-instagram"></i></a></div>
-      <div class="icon"><a href="https://twitter.com/?lang=en" target="_blank">3<i class="fa-brands fa-twitter"></i></a></div>
-      <div class="icon"><a href="https://www.pinterest.com/" target="_blank">4<i class="fa-brands fa-pinterest-p"></i></a></div>
-    </div>
-    <div class="node__comments">
-      {{ content.field_comments}}
+    <div class="navigation-posts">
+      <span>{{ content.prevnext_previous }}</span>
+      <span>{{ content.prevnext_next }}</span>
     </div>
   </div>
 

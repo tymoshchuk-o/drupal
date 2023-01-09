@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/addtoany": "^1.16",
         "drupal/admin_toolbar": "^3.3",
         "drupal/better_exposed_filters": "^6.0",
         "drupal/core-composer-scaffold": "^9.4",
@@ -25,6 +26,8 @@
         "drupal/dynamic_breadcrumb": "^1.4",
         "drupal/paragraphs": "^1.15",
         "drupal/pathauto": "^1.11",
+        "drupal/prevnext": "^2.0",
+        "drupal/twig_tweak": "^3.2",
         "drupal/views_bootstrap": "^5.4",
         "drupal/views_infinite_scroll": "^2.0"
     },

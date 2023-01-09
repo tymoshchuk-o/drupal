@@ -1,26 +1,25 @@
-uuid: 3e3b6d60-7572-4a19-abc0-a208b7383cca
+uuid: 436a2453-a260-40a0-bbbe-87a0927ea279
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.related_articles
+    - views.view.user_info_single_news_
   module:
     - system
     - views
   theme:
     - green_theme
-id: views_block__related_articles_block_2
+id: views_block__user_info_single_news__block_1
 theme: green_theme
 region: content
-weight: -17
+weight: -19
 provider: null
-plugin: 'views_block:related_articles-block_2'
+plugin: 'views_block:user_info_single_news_-block_1'
 settings:
-  id: 'views_block:related_articles-block_2'
+  id: 'views_block:user_info_single_news_-block_1'
   label: ''
-  label_display: visible
+  label_display: '0'
   provider: views
-  context_mapping: {  }
   views_label: ''
   items_per_page: none
 visibility:
