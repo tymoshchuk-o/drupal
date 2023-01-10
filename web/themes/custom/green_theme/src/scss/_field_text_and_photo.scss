@@ -1,0 +1,28 @@
+.paragraph--type--text-with-image {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  img {
+    display: block;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+  }
+
+
+  .field--name-field-text{
+    width: 60%;
+  }
+}
+
+// End .paragraph--type--text-with-image.image-position--left.
+
+.paragraph--type--text-with-image.image-position--right {
+  flex-direction: row-reverse;
+}
+
+

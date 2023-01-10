@@ -2,8 +2,11 @@
 
 use Drupal\Core\Form\FormStateInterface;
 
-/*
- *
+/**
+ * @param $form
+ * @param FormStateInterface $form_state
+ * @param $form_id
+ * @return void
  */
 function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $vocabulary_id = 'tags';
@@ -14,6 +17,13 @@ function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterf
   $form['lifestyle_filter_id']['#options'] = green_view_getFiltredTags($vocabulary_id, $lifestyle_parent_id);
 }
 
+/**
+ * @param $vocabulary_id
+ * @param $parent_id
+ * @return array
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
 function green_view_getFiltredTags($vocabulary_id, $parent_id) {
 
   $child_terms = \Drupal::entityTypeManager()
