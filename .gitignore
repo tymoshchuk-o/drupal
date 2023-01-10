@@ -38,7 +38,8 @@ sites/*/services*.yml
 /.editorconfig
 
 /.gitattributes
-
+/web/sites/*/settings.php
+/web/sites/*/settings.local.php
 *.log
 *.map
 

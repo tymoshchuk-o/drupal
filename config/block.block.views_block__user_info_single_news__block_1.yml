@@ -1,0 +1,29 @@
+uuid: 436a2453-a260-40a0-bbbe-87a0927ea279
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.user_info_single_news_
+  module:
+    - system
+    - views
+  theme:
+    - green_theme
+id: views_block__user_info_single_news__block_1
+theme: green_theme
+region: content
+weight: -19
+provider: null
+plugin: 'views_block:user_info_single_news_-block_1'
+settings:
+  id: 'views_block:user_info_single_news_-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "<front>\r\n/taxonomy/*"

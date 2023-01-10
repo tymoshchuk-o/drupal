@@ -1,0 +1,21 @@
+uuid: a1f56388-7739-46a9-b24b-a939d0f52033
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_social_icon_html
+  module:
+    - text
+    - user
+id: user.user.field_social_icon_html
+field_name: field_social_icon_html
+entity_type: user
+bundle: user
+label: 'Social icon html'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
