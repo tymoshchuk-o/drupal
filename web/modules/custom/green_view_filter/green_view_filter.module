@@ -32,9 +32,8 @@ function green_view_get_filtred_tags($vocabulary_id, $parent_id) {
     ->getStorage('taxonomy_term')
     ->loadTree($vocabulary_id, $parent_id);
 
-// Next build an options array of the child terms.
   $child_term_options = [];
-// Maybe you want an Any option
+
   foreach ($child_terms as $term) {
     $child_term_options[$term->tid] = $term->name;
   }
