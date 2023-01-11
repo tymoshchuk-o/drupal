@@ -11,6 +11,8 @@ use Drupal\paragraphs\ParagraphInterface;
 use Drupal\paragraphs\ParagraphsBehaviorBase;
 
 /**
+ * Allows to select image size and position.
+ *
  * @ParagraphsBehavior(
  *   id = "green_paragraph_behavior_image_and_text",
  *   label = @Translation("Paragraph Image and Text settings"),
@@ -73,4 +75,5 @@ class ImageAndTextBehavior extends ParagraphsBehaviorBase {
       'right' => $this->t('Right'),
     ];
   }
+
 }

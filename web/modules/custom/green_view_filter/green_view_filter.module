@@ -1,8 +1,13 @@
 <?php
-
+/**
+ * @file
+ * General functions and hook implementations.
+ */
 use Drupal\Core\Form\FormStateInterface;
 
-/** @implements hook_form_views_exposed_form_alter(). */
+/** @implements
+ * hook_form_views_exposed_form_alter().
+ */
 function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $vocabulary_id = 'tags';
   $dont_miss_parent_id = 11;
