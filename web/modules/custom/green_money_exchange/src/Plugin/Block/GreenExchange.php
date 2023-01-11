@@ -1,13 +1,8 @@
 <?php
-/**
- * @file
- * Contains Drupal\green_money_exchange\Plugin\Block\GreenExchange.
- *
- */
+
 namespace Drupal\green_money_exchange\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-
 
 /**
  * Provides a 'GreenExchange' Block.
@@ -23,12 +18,11 @@ class GreenExchange extends BlockBase {
   /**
    * {@inheritdoc}
    */
-  public function build()
-  {
+  public function build() {
 
     $currencsData = $this->getExchange();
 
-    $renderArr =  [
+    $renderArr = [
       '#theme' => 'green_exchange_template',
       '#exchange_var' => $currencsData,
     ];
@@ -36,7 +30,9 @@ class GreenExchange extends BlockBase {
     return $renderArr;
   }
 
-
+  /**
+   * @return mixed
+   */
   public function getExchange() {
     $uri = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json";
     $client = \Drupal::httpClient();
@@ -54,5 +50,3 @@ class GreenExchange extends BlockBase {
   }
 
 }
-
-
