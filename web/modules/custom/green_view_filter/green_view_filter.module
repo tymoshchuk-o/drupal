@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @file
  * General functions and hook implementations.
  */
+
 use Drupal\Core\Form\FormStateInterface;
 
 /** @implements

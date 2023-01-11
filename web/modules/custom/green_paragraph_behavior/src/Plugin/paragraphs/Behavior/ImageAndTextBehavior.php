@@ -74,6 +74,7 @@ class ImageAndTextBehavior extends ParagraphsBehaviorBase {
       'left' => $this->t('Left'),
       'right' => $this->t('Right'),
     ];
+
   }
 
 }
