@@ -8,7 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_form_views_exposed_form_alter()
+ * Implements hook_form_views_exposed_form_alter().
  */
 function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $vocabulary_id = 'tags';
@@ -22,8 +22,8 @@ function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterf
 /**
  * Return an array of the term options.
  *
- * @param integer "$vocabulary_id"
- * @param integer "$parent_id"
+ * @param integer $vocabulary_id
+ * @param integer $parent_id
  *
  * @return array
  *   $child_term_options
