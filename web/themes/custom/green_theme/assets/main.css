@@ -2291,6 +2291,29 @@ div.block.block-views-blockmust-read-block-1 .content > h2 + div {
   transform: rotate(90deg);
 }
 
+.paragraph--type--text-with-image {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.paragraph--type--text-with-image img {
+  display: block;
+  width: 300px;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.paragraph--type--text-with-image .field--name-field-text {
+  width: 60%;
+}
+
+.paragraph--type--text-with-image.image-position--right {
+  flex-direction: row-reverse;
+}
+
 @media screen and (max-width: 460px){
   .header_nav {
     box-shadow: none;
