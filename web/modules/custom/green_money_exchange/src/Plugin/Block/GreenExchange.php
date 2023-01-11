@@ -31,7 +31,7 @@ class GreenExchange extends BlockBase {
   }
 
   /**
-   * @return mixed
+   * Return array of currency exchange.
    */
   public function getExchange() {
     $uri = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchangenew?json";
