@@ -15,18 +15,18 @@ function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterf
   $dont_miss_parent_id = 11;
   $lifestyle_parent_id = 17;
 
-  $form['dont_miss_filter']['#options'] = green_view_getFiltredTags($vocabulary_id, $dont_miss_parent_id);
-  $form['lifestyle_filter_id']['#options'] = green_view_getFiltredTags($vocabulary_id, $lifestyle_parent_id);
+  $form['dont_miss_filter']['#options'] = green_view_get_filtred_tags($vocabulary_id, $dont_miss_parent_id);
+  $form['lifestyle_filter_id']['#options'] = green_view_get_filtred_tags($vocabulary_id, $lifestyle_parent_id);
 }
 
 /**
- * @param $vocabulary_id
- * @param $parent_id
- * @return array
+ * @param integer $vocabulary_id
+ * @param integer $parent_id
+ * @return array $child_term_options
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  */
-function green_view_getFiltredTags($vocabulary_id, $parent_id) {
+function green_view_get_filtred_tags($vocabulary_id, $parent_id) {
 
   $child_terms = \Drupal::entityTypeManager()
     ->getStorage('taxonomy_term')
