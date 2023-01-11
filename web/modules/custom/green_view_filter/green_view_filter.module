@@ -22,10 +22,10 @@ function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterf
 /**
  * Return an array of the term options.
  *
- * @param integer $vocabulary_id
- *    The vocabulary id
- * @param integer $parent_id
- *    The parent id
+ * @param int $vocabulary_id
+ *   The vocabulary id
+ * @param int $parent_id
+ *   The parent id
  *
  * @return array
  *   $child_term_options
@@ -33,7 +33,7 @@ function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterf
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  */
-function green_view_get_filtred_tags($vocabulary_id, $parent_id) {
+function green_view_get_filtred_tags(int $vocabulary_id, int $parent_id) {
 
   $child_terms = \Drupal::entityTypeManager()
     ->getStorage('taxonomy_term')
