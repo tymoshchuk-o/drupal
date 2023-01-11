@@ -24,11 +24,11 @@ function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterf
 /**
  * Return an array of the term options.
  *
- * @param integer $vocabulary_id
- * @param integer $parent_id
+ * @param integer "$vocabulary_id"
+ * @param integer "$parent_id"
  *
  * @return array
- * $child_term_options
+ *   $child_term_options
  *
  * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
