@@ -15,7 +15,7 @@ class CustomConfigForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'green_money_exchange.customconfig',
+      'greez',
     ];
   }
 
@@ -32,15 +32,20 @@ class CustomConfigForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('green_money_exchange.customconfig');
 
-    $form['analytics'] = [
+    $form['settings'] = [
       '#type' => 'details',
       '#title' => $this->t('Money Exchange'),
       '#open' => TRUE,
     ];
+    $form['settings']['request'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Activate request to server'),
+      '#default_value' => $config->get('request') ?? FALSE
+    ];
     $form['settings']['uri'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Enter Money Exchange service URI'),
-      '#default_value' => $config->get('uri'),
+      '#default_value' => $config->get('uri') ?? ' ',
       '#maxlength' => NULL,
     ];
 
@@ -55,6 +60,7 @@ class CustomConfigForm extends ConfigFormBase {
 
     $this->config('green_money_exchange.customconfig')
       ->set('uri', $form_state->getValue('uri'))
+      ->set('request', $form_state->getValue('request'))
       ->save();
   }
 
