@@ -29,7 +29,6 @@ class ImageAndTextBehavior extends ParagraphsBehaviorBase {
 
     return $paragraphs_type->id() == 'text_with_image';
 
-
   }
 
   /**
