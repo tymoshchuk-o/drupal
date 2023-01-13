@@ -40,7 +40,7 @@ class CustomConfigForm extends ConfigFormBase {
     $form['settings']['request'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Activate request to server'),
-      '#default_value' => $config->get('request') ?? FALSE
+      '#default_value' => $config->get('request') ?? FALSE,
     ];
     $form['settings']['uri'] = [
       '#type' => 'textfield',

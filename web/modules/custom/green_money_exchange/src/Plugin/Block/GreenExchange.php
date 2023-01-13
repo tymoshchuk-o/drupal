@@ -19,15 +19,23 @@ use Drupal\green_money_exchange\GreenExchangeService;
 class GreenExchange extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * @var GreenExchangeService $exchangeService
+   * Custom exchange service
+   *
+   * @var Drupal\green_money_exchange\GreenExchangeService $exchangeService
    */
   protected $exchangeService;
 
   /**
+   * Block constructor function
+   *
    * @param array $configuration
+   *   Configuration array
    * @param string $plugin_id
+   *   Plugin id
    * @param mixed $plugin_definition
+   *   Plugin definition
    * @param \Drupal\green_money_exchange\GreenExchangeService $exchangeService
+   *   Exchange service
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, GreenExchangeService $exchangeService) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);

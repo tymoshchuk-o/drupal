@@ -2,10 +2,8 @@
 
 namespace Drupal\green_money_exchange;
 
-
 use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\ClientInterface;
-
 
 /**
  * Class GreenExchange.
@@ -45,7 +43,12 @@ class GreenExchangeService {
     return ['uri' => $config->get('uri'), 'request' => $config->get('request')];
   }
 
-
+  /**
+   * Send GET request to currency server
+   *
+   * @return
+   *   An array with of currency exchange
+   */
   public function getExchange() {
 
     $settings = $this->getExchangeSetting();
@@ -59,7 +62,8 @@ class GreenExchangeService {
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    } catch (RequestException $e) {
+    }
+    catch (RequestException $e) {
       watchdog_exception('green_money_exchange', $e->getMessage());
     }
 
