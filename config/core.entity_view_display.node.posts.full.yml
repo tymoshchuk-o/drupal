@@ -35,18 +35,18 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_add_media:
     type: media_thumbnail
     label: hidden
     settings:
-      image_link: content
+      image_link: ''
       image_style: post_thumbnail
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_add_subtitle:
     type: string
@@ -54,7 +54,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_comments:
     type: comment_default
@@ -63,7 +63,15 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 4
+    weight: 6
+    region: content
+  field_post_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_social_links:
     type: entity_reference_revisions_entity_view
@@ -72,10 +80,16 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 4
+    region: content
+  field_tag:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
     region: content
 hidden:
-  field_post_type: true
-  field_tag: true
   layout_builder__layout: true
   links: true

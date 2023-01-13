@@ -1,6 +1,6 @@
 uuid: 12165d4d-2dd0-4e52-a604-4abf3612bfd8
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.rss
@@ -21,7 +21,18 @@ content:
   links:
     weight: 100
     region: content
+  prevnext_next:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 50
+    region: content
+  prevnext_previous:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 50
+    region: content
 hidden:
+  addtoany: true
   body: true
   comment: true
   field_image: true

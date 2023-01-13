@@ -1,22 +1,22 @@
-uuid: 781de38e-bc11-46a4-968d-547328e94f28
+uuid: 0ddfc9d6-bc03-4d81-a0c5-bd021669f685
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.must_read
+    - views.view.most_popular_posts_block
   module:
     - system
     - views
   theme:
     - green_theme
-id: green_theme_views_block__must_read_block_1
+id: views_block__most_popular_posts_block_block_2
 theme: green_theme
 region: sidebar
-weight: -20
+weight: -19
 provider: null
-plugin: 'views_block:must_read-block_1'
+plugin: 'views_block:most_popular_posts_block-block_2'
 settings:
-  id: 'views_block:must_read-block_1'
+  id: 'views_block:most_popular_posts_block-block_2'
   label: ''
   label_display: visible
   provider: views
@@ -25,5 +25,5 @@ settings:
 visibility:
   request_path:
     id: request_path
-    negate: false
-    pages: /fashion
+    negate: true
+    pages: "<front>\r\n/fashion"
