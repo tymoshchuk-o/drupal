@@ -1,9 +1,10 @@
-uuid: 99ac2b63-700e-40fe-a4dc-629494954dd0
+uuid: 9253603d-ac6e-4ad4-afb2-9fa98e1b370d
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.recipes
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
@@ -13,14 +14,19 @@ dependencies:
   module:
     - comment
     - image
+    - layout_builder
     - text
     - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
 _core:
   default_config_hash: 7fb0j9HnIXfP9ndewzgPPzzeX_SV532wuYpkscrCMCk
-id: node.article.default
+id: node.article.recipes
 targetEntityType: node
 bundle: article
-mode: default
+mode: recipes
 content:
   addtoany:
     settings: {  }
