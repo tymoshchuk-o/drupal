@@ -26,10 +26,10 @@ class ImageAndTextBehavior extends ParagraphsBehaviorBase {
    * {@inheritdoc}
    */
   public static function isApplicable(ParagraphsType $paragraphs_type) {
-    if ($paragraphs_type->id() == 'text_with_image') {
-      return TRUE;
-    }
-    return FALSE;
+
+    return $paragraphs_type->id() == 'text_with_image';
+
+
   }
 
   /**
