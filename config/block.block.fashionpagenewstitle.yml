@@ -1,18 +1,15 @@
-uuid: d8a9cc75-c2f5-4947-aed2-55342a6ddcec
+uuid: 9141b141-047e-4052-bed7-b55541d0e1f0
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:block_title:bb08de46-0bc6-46b3-b6d1-b3fd8b1de934'
   module:
-    - block_content
     - system
   theme:
     - green_theme
 id: fashionpagenewstitle
 theme: green_theme
 region: content
-weight: -19
+weight: -23
 provider: null
 plugin: 'block_content:bb08de46-0bc6-46b3-b6d1-b3fd8b1de934'
 settings:
