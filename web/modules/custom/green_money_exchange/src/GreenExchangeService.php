@@ -2,7 +2,8 @@
 
 namespace Drupal\green_money_exchange;
 
-use Drupal\Core\Config\ConfigFactory;
+
+use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\ClientInterface;
 
 
@@ -21,16 +22,16 @@ class GreenExchangeService {
   protected $httpClient;
 
   /**
-   * Configuration Factory.
+   * The config factory.
    *
-   * @var \Drupal\Core\Config\ConfigFactory
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   protected $configFactory;
 
   /**
    * Constructor.
    */
-  public function __construct(ClientInterface $http_client, ConfigFactoryctory $configFactory) {
+  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory) {
     $this->httpClient = $http_client;
     $this->configFactory = $configFactory;
   }
@@ -48,14 +49,16 @@ class GreenExchangeService {
   public function getExchange() {
 
     $settings = $this->getExchangeSetting();
+    $request = $settings['request'];
+    $uri = $settings['uri'];
 
-    if (!$settings['request'] || !$settings['uri']) {
+    if (!$request || !$uri) {
       return;
     }
 
     try {
-      $response = $this->http_client->get($settings['uri']);
-      $data = json_decode($response->getBody());
+      $response = $this->httpClient->get($uri)->getBody();
+      $data = json_decode($response);
     } catch (RequestException $e) {
       watchdog_exception('green_money_exchange', $e->getMessage());
     }

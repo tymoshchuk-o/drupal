@@ -15,7 +15,7 @@ class CustomConfigForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'greez',
+      'green_money_exchange.customconfig',
     ];
   }
 
@@ -59,7 +59,7 @@ class CustomConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $this->config('green_money_exchange.customconfig')
-      ->set('uri', $form_state->getValue('uri'))
+      ->set('uri', trim($form_state->getValue('uri', ' ')))
       ->set('request', $form_state->getValue('request'))
       ->save();
   }
