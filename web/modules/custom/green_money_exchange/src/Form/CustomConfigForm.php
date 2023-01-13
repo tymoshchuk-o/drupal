@@ -4,11 +4,42 @@ namespace Drupal\green_money_exchange\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\green_money_exchange\GreenExchangeService;
 
 /**
  * Class CustomConfigForm.
  */
 class CustomConfigForm extends ConfigFormBase {
+
+  /**
+   * Custom exchange service.
+   *
+   * @var Drupal\green_money_exchange\GreenExchangeService
+   */
+  protected $exchangeService;
+
+  /**
+   * @param \Drupal\green_money_exchange\Form\ConfigFactoryInterface $config_factory
+   *   Config Factory.
+   * @param \Drupal\green_money_exchange\GreenExchangeService $exchangeService
+   *   Exchange service.
+   */
+  public function __construct(ConfigFactoryInterface $config_factory, GreenExchangeService $exchangeService) {
+    parent::__construct($config_factory);
+    $this->exchangeService = $exchangeService;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('config.factory'),
+      $container->get('green_money_exchange.exchange')
+    );
+  }
+
 
   /**
    * {@inheritdoc}
@@ -31,6 +62,7 @@ class CustomConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('green_money_exchange.customconfig');
+
 
     $form['settings'] = [
       '#type' => 'details',
@@ -59,7 +91,7 @@ class CustomConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $this->config('green_money_exchange.customconfig')
-      ->set('uri', trim($form_state->getValue('uri', ' ')))
+      ->set('uri', trim($form_state->getValue('uri')))
       ->set('request', $form_state->getValue('request'))
       ->save();
   }

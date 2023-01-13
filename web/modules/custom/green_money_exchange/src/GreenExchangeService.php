@@ -13,6 +13,13 @@ use GuzzleHttp\ClientInterface;
 class GreenExchangeService {
 
   /**
+   * The valid keys in HTTP client response.
+   *
+   * @var string
+   */
+  protected $validResponseData = ['txt', 'rate', 'cc'];
+
+  /**
    * The HTTP client to fetch the feed data with.
    *
    * @var \GuzzleHttp\ClientInterface
@@ -46,8 +53,8 @@ class GreenExchangeService {
   /**
    * Send GET request to currency server.
    *
-   * @return array|null
-   *   An array with of currency exchange
+   * @return array
+   *   An array with of currency exchange.
    */
   public function getExchange() {
 
@@ -56,19 +63,59 @@ class GreenExchangeService {
     $uri = $settings['uri'];
 
     if (!$request || !$uri) {
-      return;
+      return [];
     }
 
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    }
-    catch (RequestException $e) {
+    } catch (\Exception $e) {
       watchdog_exception('green_money_exchange', $e->getMessage());
     }
 
     return $data;
 
+  }
+
+  /**
+   * Check is valid URI.
+   *
+   * @return array
+   *   An associative array with two keys isValid:boolean, error:string|null.
+   */
+  public function isValidUri() {
+    $settings = $this->getExchangeSetting();
+
+    $returnArr = [
+      "isValid" => FALSE,
+      "error" => NULL,
+    ];
+
+    if (trim($settings['uri']) == '') {
+      $returnArr["error"] = 'The server URI field is empty.';
+      return $returnArr;
+    }
+
+    try {
+      $exchangeData = $this->getExchange();
+    }
+    catch (\Exception $e) {
+      $returnArr['error'] = 'Server request error.';
+      return $returnArr;
+    }
+
+    foreach ($exchangeData as $item) {
+      foreach ($this->validResponseData as $key) {
+        if (!$item->$key) {
+          $returnArr['error'] = 'Server response data is invalid';
+          return $returnArr;
+        }
+      }
+    }
+
+    $returnArr['isValid'] = TRUE;
+
+    return $returnArr;
   }
 
 }
