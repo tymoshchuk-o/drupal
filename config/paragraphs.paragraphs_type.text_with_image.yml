@@ -1,0 +1,14 @@
+uuid: 2c8f6093-0e20-46d9-acc6-ec0aca21fc29
+langcode: en
+status: true
+dependencies:
+  module:
+    - green_paragraph_behavior
+id: text_with_image
+label: 'Text With Image'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  green_paragraph_behavior_image_and_text:
+    enabled: true
