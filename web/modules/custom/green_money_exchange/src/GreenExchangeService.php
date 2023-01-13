@@ -44,9 +44,9 @@ class GreenExchangeService {
   }
 
   /**
-   * Send GET request to currency server
+   * Send GET request to currency server.
    *
-   * @return
+   * @return array
    *   An array with of currency exchange
    */
   public function getExchange() {
