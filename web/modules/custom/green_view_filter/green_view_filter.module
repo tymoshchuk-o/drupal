@@ -1,28 +1,46 @@
 <?php
 
+/**
+ * @file
+ * General functions and hook implementations.
+ */
+
 use Drupal\Core\Form\FormStateInterface;
 
-/*
- *
+/**
+ * Implements hook_form_views_exposed_form_alter().
  */
 function green_view_filter_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $vocabulary_id = 'tags';
   $dont_miss_parent_id = 11;
   $lifestyle_parent_id = 17;
 
-  $form['dont_miss_filter']['#options'] = green_view_getFiltredTags($vocabulary_id, $dont_miss_parent_id);
-  $form['lifestyle_filter_id']['#options'] = green_view_getFiltredTags($vocabulary_id, $lifestyle_parent_id);
+  $form['dont_miss_filter']['#options'] = green_view_get_filtred_tags($vocabulary_id, $dont_miss_parent_id);
+  $form['lifestyle_filter_id']['#options'] = green_view_get_filtred_tags($vocabulary_id, $lifestyle_parent_id);
 }
 
-function green_view_getFiltredTags($vocabulary_id, $parent_id) {
+/**
+ * Return an array of the term options.
+ *
+ * @param int $vocabulary_id
+ *   The vocabulary id.
+ * @param int $parent_id
+ *   The parent id.
+ *
+ * @return array
+ *   $child_term_options
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function green_view_get_filtred_tags(int $vocabulary_id, int $parent_id) {
 
   $child_terms = \Drupal::entityTypeManager()
     ->getStorage('taxonomy_term')
     ->loadTree($vocabulary_id, $parent_id);
 
-// Next build an options array of the child terms.
   $child_term_options = [];
-// Maybe you want an Any option
+
   foreach ($child_terms as $term) {
     $child_term_options[$term->tid] = $term->name;
   }

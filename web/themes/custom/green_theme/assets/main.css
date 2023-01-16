@@ -2571,6 +2571,30 @@ div.block.block-views-blockmust-read-block-1 .content > h2 + div {
 .path-node .page-content-wrap .node__author-image {
   height: 20px;
 }
+
+.paragraph--type--text-with-image {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.paragraph--type--text-with-image img {
+  display: block;
+  width: 300px;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.paragraph--type--text-with-image .field--name-field-text {
+  width: 60%;
+}
+
+.paragraph--type--text-with-image.image-position--right {
+  flex-direction: row-reverse;
+}
+
 .path-node .page-content-wrap .node__author-image img {
   width: 20px;
   height: 20px;

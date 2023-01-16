@@ -1,0 +1,52 @@
+uuid: b6631226-a14a-4286-8919-c0e1c8dc621a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text_and_photo
+    - node.type.posts
+    - paragraphs.paragraphs_type.text_with_image
+  module:
+    - entity_reference_revisions
+id: node.posts.field_text_and_photo
+field_name: field_text_and_photo
+entity_type: node
+bundle: posts
+label: 'Text With Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text_with_image: text_with_image
+    negate: 0
+    target_bundles_drag_drop:
+      follow_us_icons_wrapper:
+        weight: 9
+        enabled: false
+      follow_us_item_block:
+        weight: 10
+        enabled: false
+      full_page_banner:
+        weight: 11
+        enabled: false
+      stay_connected_wrapper:
+        weight: 12
+        enabled: false
+      taxonomy_color_links:
+        weight: 13
+        enabled: false
+      text_with_image:
+        weight: 14
+        enabled: true
+      user_social_icons:
+        weight: 15
+        enabled: false
+      user_social_links_wrap:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions
