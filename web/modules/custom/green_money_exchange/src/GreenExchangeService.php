@@ -58,11 +58,10 @@ class GreenExchangeService {
   }
 
   /**
-   * Filters the currency array. Returns only active currencies
-   *   in the config form.
+   * Returns only active currencies in the config form.
    *
    * @param array $currencyData
-   *   An array with of currency exchange
+   *   An array with of currency exchange.
    *
    * @return array
    *   A filtered array with of currency exchange.
@@ -75,15 +74,17 @@ class GreenExchangeService {
     });
 
     $returnCurrencyData = array_filter($currencyData, function ($item) use ($filtredActiveCurrency) {
-      foreach ($filtredActiveCurrency as $active){
-        if($item->cc === $active){
+      foreach ($filtredActiveCurrency as $active) {
+        if ($item->cc === $active) {
           return TRUE;
         }
+
       }
 
       return FALSE;
 
-    });
+    }
+    );
 
     return $returnCurrencyData;
 
@@ -100,7 +101,8 @@ class GreenExchangeService {
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       throw  new \Exception('Server not found');
     }
 
@@ -114,7 +116,7 @@ class GreenExchangeService {
    * @return array|null
    *   An array with of currency exchange.
    */
-  public function getExchange() {
+  public function getExchange(): array|null {
 
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
@@ -128,8 +130,7 @@ class GreenExchangeService {
       $data = $this->fetchData($uri);
     }
     catch (\Exception $e) {
-// Add Drupal Error log functionality.
-      return;
+      return [];
     }
 
     return $data;
@@ -178,8 +179,7 @@ class GreenExchangeService {
 
     try {
       $exchangeData = $this->fetchData($uri);
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       $returnArr['error'] = 'Server request error.';
       return $returnArr;
     }
