@@ -76,10 +76,10 @@ class GreenExchangeService {
     $returnCurrencyData = array_filter($currencyData, function ($item) use ($filtredActiveCurrency) {
       foreach ($filtredActiveCurrency as $active){
         if($item->cc === $active){
-          return true;
+          return TRUE;
         }
       }
-      return false;
+      return FALSE;
     });
 
     return $returnCurrencyData;
@@ -107,7 +107,7 @@ class GreenExchangeService {
   /**
    * Send GET request to currency server.
    *
-   * @return array
+   * @return array|null
    *   An array with of currency exchange.
    */
   public function getExchange() {
@@ -122,11 +122,11 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
+//      Add Drupal Error log functionality.
       return;
     }
-
-
 
     return $data;
 
@@ -143,7 +143,7 @@ class GreenExchangeService {
     $currencyList = [];
     if (count($currencyData) > 0) {
       foreach ($currencyData as $item) {
-        $currencyList[$item->cc] = $this->t($item->txt);
+        $currencyList[$item->cc] = $this->t((string) $item->txt);
       }
     }
 
@@ -155,6 +155,7 @@ class GreenExchangeService {
    * Check is valid URI.
    *
    * @param string $uri
+   *   Exchange API URI.
    *
    * @return array
    *   An associative array with two keys isValid:boolean, error:string|null.
@@ -179,6 +180,7 @@ class GreenExchangeService {
     }
 
     if (!$exchangeData) {
+
       $returnArr["error"] = 'The exchange server not found.';
       return $returnArr;
     }
@@ -196,6 +198,5 @@ class GreenExchangeService {
 
     return $returnArr;
   }
-
 
 }

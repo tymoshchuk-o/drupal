@@ -21,6 +21,8 @@ class CustomConfigForm extends ConfigFormBase {
   protected $exchangeService;
 
   /**
+   * Create config form from Green Exchange Block
+   *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   Config Factory.
    * @param \Drupal\green_money_exchange\GreenExchangeService $exchangeService
@@ -40,7 +42,6 @@ class CustomConfigForm extends ConfigFormBase {
       $container->get('green_money_exchange.exchange')
     );
   }
-
 
   /**
    * {@inheritdoc}
@@ -64,7 +65,6 @@ class CustomConfigForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('green_money_exchange.customconfig');
     $currencyList = $this->exchangeService->getCurrencyList();
-
 
     $form['settings'] = [
       '#type' => 'details',
@@ -107,8 +107,6 @@ class CustomConfigForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
-    $ff =$form;
-
     $this->config('green_money_exchange.customconfig')
       ->set('uri', trim($form_state->getValue('uri')))
       ->set('request', $form_state->getValue('request'))
@@ -126,7 +124,7 @@ class CustomConfigForm extends ConfigFormBase {
     if (!$isUriError['isValid']) {
       $form_state
         ->setErrorByName('uri', $this
-          ->t($isUriError['error']));
+          ->t((string) $isUriError['error']));
     }
   }
 
