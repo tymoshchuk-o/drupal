@@ -29,7 +29,7 @@ class GreenExchangeService {
   /**
    * Constructor.
    *
-   * @param \GuzzleHttp\ClientInterface; $http_client
+   * @param \GuzzleHttp\ClientInterface $http_client
    *   The Drupal http client.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The config factory.
