@@ -1,17 +1,16 @@
 {# green_money_exchange/templates/green-exchange-template.html.twig #}
 
-<div class="green-exchange">
-  {% if exchange_var %}
+{% if exchange_var %}
+  <div class="green-exchange">
     <div class="green-exchange-wrap">
       <ul class="green-exchange-list">
         {% for currency in exchange_var %}
           <li class="green-exchange-item">
-            <h3>{{currency.cc}} - {{ currency.txt }}</h3>
+            <h3>{{ currency.cc }} - {{ currency.txt }}</h3>
             <div class="">{{ currency.rate }}</div>
           </li>
         {% endfor %}
       </ul>
     </div>
-  {% endif %}
-
-</div>
+  </div>
+{% endif %}
