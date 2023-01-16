@@ -4,6 +4,8 @@ namespace Drupal\green_money_exchange;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\ClientInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
+
 
 /**
  * Class GreenExchange.
@@ -11,6 +13,8 @@ use GuzzleHttp\ClientInterface;
  * @package Drupal\green_money_exchange
  */
 class GreenExchangeService {
+
+  use StringTranslationTrait;
 
   /**
    * The valid keys in HTTP client response.
@@ -47,7 +51,39 @@ class GreenExchangeService {
   public function getExchangeSetting() {
     $config = $this->configFactory->get('green_money_exchange.customconfig');
 
-    return ['uri' => $config->get('uri'), 'request' => $config->get('request')];
+    return [
+      'uri' => $config->get('uri'),
+      'request' => $config->get('request'),
+      'currency' => $config->get('currency-item'),
+    ];
+  }
+
+  /**
+   * Filters the currency array. Returns only active currencies in the config form.
+   *
+   * @param array $currencyData
+   *
+   * @return array
+   *   An array with of currency exchange.
+   */
+  public function filterCurrency(array $currencyData) {
+    $allCurrency = $this->getExchangeSetting()['currency'];
+
+    $filtredActiveCurrency = array_filter($allCurrency, function ($item) {
+      return $item !== 0;
+    });
+
+    $returnCurrencyData = array_filter($currencyData, function ($item) use ($filtredActiveCurrency) {
+      foreach ($filtredActiveCurrency as $active){
+        if($item->cc === $active){
+          return true;
+        }
+      }
+      return false;
+    });
+
+    return $returnCurrencyData;
+
   }
 
   /**
@@ -56,18 +92,17 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency exchange.
    */
-  public function fetchData($uri){
-   try {
+  public function fetchData($uri) {
+
+    try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    }
-    catch (\Exception $e){
+    } catch (\Exception $e) {
       throw  new \Exception('Server not found');
     }
     return $data;
 
   }
-
 
   /**
    * Send GET request to currency server.
@@ -86,22 +121,45 @@ class GreenExchangeService {
     }
 
     try {
-     $data = $this->fetchData($uri);
+      $data = $this->fetchData($uri);
     } catch (\Exception $e) {
       return;
     }
+
+
 
     return $data;
 
   }
 
   /**
+   * Send GET request to currency server.
+   *
+   * @return array
+   *   An array with of currency name.
+   */
+  public function getCurrencyList() {
+    $currencyData = $this->getExchange();
+    $currencyList = [];
+    if (count($currencyData) > 0) {
+      foreach ($currencyData as $item) {
+        $currencyList[$item->cc] = $this->t($item->txt);
+      }
+    }
+
+    return $currencyList;
+
+  }
+
+  /**
    * Check is valid URI.
+   *
+   * @param string $uri
    *
    * @return array
    *   An associative array with two keys isValid:boolean, error:string|null.
    */
-  public function isValidUri($uri) {
+  public function isValidUri(string $uri) {
 
     $returnArr = [
       "isValid" => FALSE,
@@ -138,5 +196,6 @@ class GreenExchangeService {
 
     return $returnArr;
   }
+
 
 }

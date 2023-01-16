@@ -63,6 +63,7 @@ class CustomConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('green_money_exchange.customconfig');
+    $currencyList = $this->exchangeService->getCurrencyList();
 
 
     $form['settings'] = [
@@ -82,6 +83,21 @@ class CustomConfigForm extends ConfigFormBase {
       '#maxlength' => NULL,
     ];
 
+    if (count($currencyList)) {
+      $form['currency-list'] = [
+        '#type' => 'details',
+        '#title' => $this->t('Select currencies to display'),
+        '#open' => TRUE,
+      ];
+      $form['currency-list']['currency-item'] = [
+        '#type' => 'checkboxes',
+        '#options' => $currencyList,
+        '#title' => $this->t('What standardized tests did you take?'),
+        '#default_value' => $config->get('currency-item') ?? [],
+      ];
+
+    }
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -91,9 +107,12 @@ class CustomConfigForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
+    $ff =$form;
+
     $this->config('green_money_exchange.customconfig')
       ->set('uri', trim($form_state->getValue('uri')))
       ->set('request', $form_state->getValue('request'))
+      ->set('currency-item', $form_state->getValue('currency-item'))
       ->save();
   }
 

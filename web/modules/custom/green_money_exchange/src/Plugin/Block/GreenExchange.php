@@ -59,11 +59,12 @@ class GreenExchange extends BlockBase implements ContainerFactoryPluginInterface
    */
   public function build() {
 
-    $currencsData = $this->exchangeService->getExchange();
+    $currencyData = $this->exchangeService->getExchange();
+    $activeCurrency = $this->exchangeService->filterCurrency($currencyData);
 
     $renderArr = [
       '#theme' => 'green_exchange_template',
-      '#exchange_var' => $currencsData,
+      '#exchange_var' => $activeCurrency,
     ];
 
     return $renderArr;
