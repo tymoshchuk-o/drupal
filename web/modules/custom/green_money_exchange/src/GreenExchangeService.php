@@ -56,6 +56,25 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency exchange.
    */
+  public function fetchData($uri){
+   try {
+      $response = $this->httpClient->get($uri)->getBody();
+      $data = json_decode($response);
+    }
+    catch (\Exception $e){
+      throw  new \Exception('Server not found');
+    }
+    return $data;
+
+  }
+
+
+  /**
+   * Send GET request to currency server.
+   *
+   * @return array
+   *   An array with of currency exchange.
+   */
   public function getExchange() {
 
     $settings = $this->getExchangeSetting();
@@ -67,10 +86,9 @@ class GreenExchangeService {
     }
 
     try {
-      $response = $this->httpClient->get($uri)->getBody();
-      $data = json_decode($response);
+     $data = $this->fetchData($uri);
     } catch (\Exception $e) {
-      watchdog_exception('green_money_exchange', $e->getMessage());
+      return;
     }
 
     return $data;
@@ -83,24 +101,27 @@ class GreenExchangeService {
    * @return array
    *   An associative array with two keys isValid:boolean, error:string|null.
    */
-  public function isValidUri() {
-    $settings = $this->getExchangeSetting();
+  public function isValidUri($uri) {
 
     $returnArr = [
       "isValid" => FALSE,
       "error" => NULL,
     ];
 
-    if (trim($settings['uri']) == '') {
+    if (trim($uri) == '') {
       $returnArr["error"] = 'The server URI field is empty.';
       return $returnArr;
     }
 
     try {
-      $exchangeData = $this->getExchange();
-    }
-    catch (\Exception $e) {
+      $exchangeData = $this->fetchData($uri);
+    } catch (\Exception $e) {
       $returnArr['error'] = 'Server request error.';
+      return $returnArr;
+    }
+
+    if (!$exchangeData) {
+      $returnArr["error"] = 'The exchange server not found.';
       return $returnArr;
     }
 

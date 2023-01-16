@@ -2,6 +2,7 @@
 
 namespace Drupal\green_money_exchange\Form;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -20,7 +21,7 @@ class CustomConfigForm extends ConfigFormBase {
   protected $exchangeService;
 
   /**
-   * @param \Drupal\green_money_exchange\Form\ConfigFactoryInterface $config_factory
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   Config Factory.
    * @param \Drupal\green_money_exchange\GreenExchangeService $exchangeService
    *   Exchange service.
@@ -94,6 +95,20 @@ class CustomConfigForm extends ConfigFormBase {
       ->set('uri', trim($form_state->getValue('uri')))
       ->set('request', $form_state->getValue('request'))
       ->save();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+
+    $isUriError = $this->exchangeService->isValidUri($form_state->getValue('uri'));
+
+    if (!$isUriError['isValid']) {
+      $form_state
+        ->setErrorByName('uri', $this
+          ->t($isUriError['error']));
+    }
   }
 
 }
