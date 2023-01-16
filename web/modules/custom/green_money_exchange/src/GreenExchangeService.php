@@ -116,7 +116,7 @@ class GreenExchangeService {
    * @return array|NULL
    *   An array with of currency exchange.
    */
-  public function getExchange():array|NULL {
+  public function getExchange() :array|NULL {
 
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
