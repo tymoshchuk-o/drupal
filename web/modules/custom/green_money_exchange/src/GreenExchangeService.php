@@ -6,7 +6,6 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
-
 /**
  * Class GreenExchange.
  *
@@ -59,12 +58,14 @@ class GreenExchangeService {
   }
 
   /**
-   * Filters the currency array. Returns only active currencies in the config form.
+   * Filters the currency array. Returns only active currencies
+   *   in the config form.
    *
    * @param array $currencyData
+   *   An array with of currency exchange
    *
    * @return array
-   *   An array with of currency exchange.
+   *   A filtered array with of currency exchange.
    */
   public function filterCurrency(array $currencyData) {
     $allCurrency = $this->getExchangeSetting()['currency'];
@@ -79,7 +80,9 @@ class GreenExchangeService {
           return TRUE;
         }
       }
+
       return FALSE;
+
     });
 
     return $returnCurrencyData;
@@ -100,6 +103,7 @@ class GreenExchangeService {
     } catch (\Exception $e) {
       throw  new \Exception('Server not found');
     }
+
     return $data;
 
   }
@@ -124,7 +128,7 @@ class GreenExchangeService {
       $data = $this->fetchData($uri);
     }
     catch (\Exception $e) {
-//      Add Drupal Error log functionality.
+// Add Drupal Error log functionality.
       return;
     }
 
@@ -174,13 +178,13 @@ class GreenExchangeService {
 
     try {
       $exchangeData = $this->fetchData($uri);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       $returnArr['error'] = 'Server request error.';
       return $returnArr;
     }
 
     if (!$exchangeData) {
-
       $returnArr["error"] = 'The exchange server not found.';
       return $returnArr;
     }

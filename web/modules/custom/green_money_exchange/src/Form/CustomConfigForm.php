@@ -21,7 +21,7 @@ class CustomConfigForm extends ConfigFormBase {
   protected $exchangeService;
 
   /**
-   * Create config form from Green Exchange Block
+   * Create config form from Green Exchange Block.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   Config Factory.
