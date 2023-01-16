@@ -6,7 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class CustomConfigForm.
+ * Creates a configuration form for a GreenExchange block.
  */
 class CustomConfigForm extends ConfigFormBase {
 
@@ -15,7 +15,7 @@ class CustomConfigForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'greez',
+      'green_money_exchange.customconfig',
     ];
   }
 
