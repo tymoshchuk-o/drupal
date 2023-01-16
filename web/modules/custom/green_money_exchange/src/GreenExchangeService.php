@@ -113,10 +113,10 @@ class GreenExchangeService {
   /**
    * Send GET request to currency server.
    *
-   * @return array|null
+   * @return array|NULL
    *   An array with of currency exchange.
    */
-  public function getExchange(): array|null {
+  public function getExchange():array|NULL {
 
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
