@@ -14,3 +14,6 @@
     </div>
   </div>
 {% endif %}
+{% if not exchange_var|length > 0 %}
+  <h1>{{ "Currency not found"|t }}</h1>
+{% endif %}

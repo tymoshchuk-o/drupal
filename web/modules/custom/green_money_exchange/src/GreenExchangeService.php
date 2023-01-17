@@ -3,6 +3,7 @@
 namespace Drupal\green_money_exchange;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
@@ -37,11 +38,43 @@ class GreenExchangeService {
   protected $configFactory;
 
   /**
+   * The config factory.
+   *
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
+   */
+  protected $errorLog;
+
+  /**
    * Constructor.
    */
-  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory) {
+  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog) {
     $this->httpClient = $http_client;
     $this->configFactory = $configFactory;
+    $this->errorLog = $errorLog;
+  }
+
+  /**
+   * Log error.
+   *
+   * @param string $message
+   *   Error Message
+   *
+   * @return void
+   */
+  public function logError(string $message): void {
+    $this->errorLog->get('green_exchange')->error($this->t($message));
+  }
+
+  /**
+   * Log notice.
+   *
+   * @param string $message
+   *   Error Message.
+   *
+   * @return void
+   */
+  public function logNotice(string $message): void {
+    $this->errorLog->get('green_exchange')->notice($this->t($message));
   }
 
   /**
@@ -58,6 +91,61 @@ class GreenExchangeService {
   }
 
   /**
+   * Returns only active currencies..
+   *
+   * @return array
+   *   An active currency.
+   */
+  public function activeCurrency(): array {
+    $allCurrency = $this->getExchangeSetting()['currency'];
+    if ($allCurrency && count($allCurrency) > 0) {
+      $filteredActiveCurrency = array_filter($allCurrency, function ($item) {
+        return $item !== 0;
+      });
+    }
+    else {
+      return [];
+    }
+
+    return $filteredActiveCurrency;
+  }
+
+  /**
+   * If currency list changed Returns an array of deleted currencies.
+   *
+   * @return array
+   *   An associative array with deleted or added currency.
+   */
+  public function checkCurrencyList(): array {
+    $logMessage = 'There are no currency data on the server: ';
+    $filteredActiveCurrency = $this->activeCurrency();
+    $serverCurrency = $this->getCurrencyList();
+
+    $returnArr = array_filter($filteredActiveCurrency, function ($item) use ($serverCurrency) {
+      foreach ($serverCurrency as $currency => $value) {
+        if ($currency == $item) {
+          return FALSE;
+        }
+      }
+
+      return TRUE;
+    }
+    );
+
+    if (count($returnArr) > 0) {
+      foreach ($returnArr as $currency) {
+        $logMessage .= $currency . '; ';
+      }
+
+      $this->logError($this->t($logMessage));
+
+    }
+
+    return $returnArr;
+
+  }
+
+  /**
    * Returns only active currencies in the config form.
    *
    * @param array $currencyData
@@ -66,25 +154,27 @@ class GreenExchangeService {
    * @return array
    *   A filtered array with of currency exchange.
    */
-  public function filterCurrency(array $currencyData) {
-    $allCurrency = $this->getExchangeSetting()['currency'];
+  public function filterCurrency(array $currencyData): array {
 
-    $filtredActiveCurrency = array_filter($allCurrency, function ($item) {
-      return $item !== 0;
-    });
+    $filteredActiveCurrency = $this->activeCurrency();
 
-    $returnCurrencyData = array_filter($currencyData, function ($item) use ($filtredActiveCurrency) {
-      foreach ($filtredActiveCurrency as $active) {
-        if ($item->cc === $active) {
-          return TRUE;
+    if ($currencyData && count($currencyData) > 0) {
+      $returnCurrencyData = array_filter($currencyData, function ($item) use ($filteredActiveCurrency) {
+        foreach ($filteredActiveCurrency as $active) {
+          if ($item->cc === $active) {
+            return TRUE;
+          }
+
         }
 
+        return FALSE;
+
       }
-
-      return FALSE;
-
+      );
     }
-    );
+    else {
+      return [];
+    }
 
     return $returnCurrencyData;
 
@@ -101,8 +191,7 @@ class GreenExchangeService {
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       throw  new \Exception('Server not found');
     }
 
@@ -116,7 +205,7 @@ class GreenExchangeService {
    * @return array|NULL
    *   An array with of currency exchange.
    */
-  public function getExchange() :array|NULL {
+  public function getExchange(): array|null {
 
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
@@ -128,8 +217,8 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
+      $this->logError($e->getMessage());
       return [];
     }
 
@@ -146,7 +235,7 @@ class GreenExchangeService {
   public function getCurrencyList() {
     $currencyData = $this->getExchange();
     $currencyList = [];
-    if (count($currencyData) > 0) {
+    if ($currencyData && count($currencyData) > 0) {
       foreach ($currencyData as $item) {
         $currencyList[$item->cc] = $this->t((string) $item->txt);
       }
@@ -174,26 +263,30 @@ class GreenExchangeService {
 
     if (trim($uri) == '') {
       $returnArr["error"] = 'The server URI field is empty.';
-      return $returnArr;
+      $this->logNotice($returnArr["error"]);
     }
+    if (trim($uri) !== '') {
+      try {
+        $exchangeData = $this->fetchData($uri);
+      } catch (\Exception $e) {
+        $returnArr['error'] = 'Server request error.';
+        $this->logError($returnArr["error"]);
+        return $returnArr;
+      }
 
-    try {
-      $exchangeData = $this->fetchData($uri);
-    } catch (\Exception $e) {
-      $returnArr['error'] = 'Server request error.';
-      return $returnArr;
-    }
+      if (!$exchangeData) {
+        $returnArr["error"] = 'The exchange server not found.';
+        $this->logError($returnArr["error"]);
+        return $returnArr;
+      }
 
-    if (!$exchangeData) {
-      $returnArr["error"] = 'The exchange server not found.';
-      return $returnArr;
-    }
-
-    foreach ($exchangeData as $item) {
-      foreach ($this->validResponseData as $key) {
-        if (!$item->$key) {
-          $returnArr['error'] = 'Server response data is invalid';
-          return $returnArr;
+      foreach ($exchangeData as $item) {
+        foreach ($this->validResponseData as $key) {
+          if (!$item->$key) {
+            $returnArr['error'] = 'Server response data is invalid';
+            $this->logError($returnArr["error"]);
+            return $returnArr;
+          }
         }
       }
     }

@@ -107,11 +107,20 @@ class CustomConfigForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
+    $isRemovedCurrency = $this->exchangeService->checkCurrencyList();
+
     $this->config('green_money_exchange.customconfig')
       ->set('uri', trim($form_state->getValue('uri')))
       ->set('request', $form_state->getValue('request'))
       ->set('currency-item', $form_state->getValue('currency-item'))
       ->save();
+
+    if (count($isRemovedCurrency) > 0) {
+      foreach ($isRemovedCurrency as $deletedCurrency) {
+        $this->messenger->addWarning('Currency is deleted ' . $deletedCurrency);
+      }
+    }
+
   }
 
   /**
