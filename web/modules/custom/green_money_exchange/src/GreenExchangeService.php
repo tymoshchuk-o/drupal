@@ -8,7 +8,7 @@ use GuzzleHttp\ClientInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
- * Class GreenExchange.
+ * Class GreenExchangeService.
  *
  * @package Drupal\green_money_exchange
  */
