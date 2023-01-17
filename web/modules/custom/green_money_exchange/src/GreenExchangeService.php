@@ -38,7 +38,7 @@ class GreenExchangeService {
   protected $configFactory;
 
   /**
-   * The config factory.
+   * The LoggerChannelFactoryInterface.
    *
    * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
    */
@@ -57,9 +57,7 @@ class GreenExchangeService {
    * Log error.
    *
    * @param string $message
-   *   Error Message
-   *
-   * @return void
+   *   Error Message.
    */
   public function logError(string $message): void {
     $this->errorLog->get('green_exchange')->error($this->t($message));
@@ -70,8 +68,6 @@ class GreenExchangeService {
    *
    * @param string $message
    *   Error Message.
-   *
-   * @return void
    */
   public function logNotice(string $message): void {
     $this->errorLog->get('green_exchange')->notice($this->t($message));
@@ -191,7 +187,8 @@ class GreenExchangeService {
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       throw  new \Exception('Server not found');
     }
 
@@ -202,10 +199,10 @@ class GreenExchangeService {
   /**
    * Send GET request to currency server.
    *
-   * @return array|NULL
+   * @return array
    *   An array with of currency exchange.
    */
-  public function getExchange(): array|null {
+  public function getExchange(): array {
 
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
@@ -217,7 +214,8 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       $this->logError($e->getMessage());
       return [];
     }
@@ -268,7 +266,8 @@ class GreenExchangeService {
     if (trim($uri) !== '') {
       try {
         $exchangeData = $this->fetchData($uri);
-      } catch (\Exception $e) {
+      }
+      catch (\Exception $e) {
         $returnArr['error'] = 'Server request error.';
         $this->logError($returnArr["error"]);
         return $returnArr;
