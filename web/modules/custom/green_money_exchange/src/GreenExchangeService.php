@@ -113,10 +113,10 @@ class GreenExchangeService {
   /**
    * Send GET request to currency server.
    *
-   * @return array|NULL
+   * @return array
    *   An array with of currency exchange.
    */
-  public function getExchange() :array|NULL {
+  public function getExchange(): array {
 
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
@@ -179,7 +179,8 @@ class GreenExchangeService {
 
     try {
       $exchangeData = $this->fetchData($uri);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       $returnArr['error'] = 'Server request error.';
       return $returnArr;
     }
