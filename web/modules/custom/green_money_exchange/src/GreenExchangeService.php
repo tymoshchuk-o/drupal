@@ -199,7 +199,8 @@ class GreenExchangeService {
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       throw new \Exception('Server not found');
     }
 
@@ -225,7 +226,8 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       $this->logError($e->getMessage());
       return [];
     }
@@ -276,7 +278,8 @@ class GreenExchangeService {
     if (trim($uri) !== '') {
       try {
         $exchangeData = $this->fetchData($uri);
-      } catch (\Exception $e) {
+      }
+      catch (\Exception $e) {
         $returnArr['error'] = 'Server request error.';
         $this->logError($returnArr["error"]);
         return $returnArr;
