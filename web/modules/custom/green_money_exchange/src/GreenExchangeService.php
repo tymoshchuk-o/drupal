@@ -220,7 +220,7 @@ class GreenExchangeService {
       return [];
     }
 
-    return $data;
+    return $data ?? [];
 
   }
 

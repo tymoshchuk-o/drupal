@@ -76,6 +76,11 @@ class CustomConfigForm extends ConfigFormBase {
       '#title' => $this->t('Activate request to server'),
       '#default_value' => $config->get('request') ?? FALSE,
     ];
+    $form['settings']['range'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Exchange rate for the period in days'),
+      '#default_value' => $config->get('range') ?? 1,
+    ];
     $form['settings']['uri'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Enter Money Exchange service URI'),
@@ -110,8 +115,9 @@ class CustomConfigForm extends ConfigFormBase {
     $isRemovedCurrency = $this->exchangeService->checkCurrencyList();
 
     $this->config('green_money_exchange.customconfig')
-      ->set('uri', trim($form_state->getValue('uri')))
       ->set('request', $form_state->getValue('request'))
+      ->set('range', $form_state->getValue('range'))
+      ->set('uri', trim($form_state->getValue('uri')))
       ->set('currency-item', $form_state->getValue('currency-item'))
       ->save();
 
@@ -135,6 +141,13 @@ class CustomConfigForm extends ConfigFormBase {
         ->setErrorByName('uri', $this
           ->t((string) $isUriError['error']));
     }
+
+    if($form_state->getValue('range') < 1){
+      $form_state->setErrorByName('range', $this
+        ->t('Exchange rate for the period in
+        days must be greater than or equal to 1'));
+    }
   }
+
 
 }
