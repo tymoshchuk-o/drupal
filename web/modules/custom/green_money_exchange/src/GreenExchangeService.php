@@ -80,14 +80,15 @@ class GreenExchangeService {
     $config = $this->configFactory->get('green_money_exchange.customconfig');
 
     return [
-      'uri' => $config->get('uri'),
       'request' => $config->get('request'),
+      'range' => $config->get('range'),
+      'uri' => $config->get('uri'),
       'currency' => $config->get('currency-item'),
     ];
   }
 
   /**
-   * Returns only active currencies..
+   * Returns only active currencies.
    *
    * @return array
    *   An active currency.
@@ -183,13 +184,23 @@ class GreenExchangeService {
    *   An array with of currency exchange.
    */
   public function fetchData($uri) {
+    $uriTail = '&sort=exchangedate&order=desc&json';
+    $range = $this->getExchangeSetting()['range'] ?? 0;
+    $dateFormat = 'Ymd';
+    $today = date($dateFormat);
+    $startDate = date($dateFormat, strtotime("-{$range} days"));
+
+    if ($range && $range > 0) {
+      $uriTail = "start=" . $startDate . "&end=" . $today . $uriTail;
+    }
+
+    $uri .= "?" . $uriTail;
 
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    }
-    catch (\Exception $e) {
-      throw  new \Exception('Server not found');
+    } catch (\Exception $e) {
+      throw new \Exception('Server not found');
     }
 
     return $data;
@@ -214,8 +225,7 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       $this->logError($e->getMessage());
       return [];
     }
@@ -266,8 +276,7 @@ class GreenExchangeService {
     if (trim($uri) !== '') {
       try {
         $exchangeData = $this->fetchData($uri);
-      }
-      catch (\Exception $e) {
+      } catch (\Exception $e) {
         $returnArr['error'] = 'Server request error.';
         $this->logError($returnArr["error"]);
         return $returnArr;

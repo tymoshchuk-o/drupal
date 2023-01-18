@@ -142,7 +142,7 @@ class CustomConfigForm extends ConfigFormBase {
           ->t((string) $isUriError['error']));
     }
 
-    if($form_state->getValue('range') < 1){
+    if($form_state->getValue('range') < 0){
       $form_state->setErrorByName('range', $this
         ->t('Exchange rate for the period in
         days must be greater than or equal to 1'));
