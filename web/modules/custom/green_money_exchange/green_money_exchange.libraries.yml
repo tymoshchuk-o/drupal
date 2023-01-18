@@ -1,0 +1,5 @@
+green_money_exchange_cart:
+  version: 1.x
+  js:
+    /libraries/chart.js/dist/chart.umd.js: { }
+    js/exchange.js: {}

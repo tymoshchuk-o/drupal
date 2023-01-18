@@ -2,6 +2,9 @@
 
 {% if exchange_var %}
   <div class="green-exchange">
+    <div>
+      <canvas id="greenChart"></canvas>
+    </div>
     <div class="green-exchange-wrap">
       <ul class="green-exchange-list">
         {% for currency in exchange_var %}
