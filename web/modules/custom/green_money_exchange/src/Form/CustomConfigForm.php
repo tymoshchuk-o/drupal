@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\green_money_exchange\GreenExchangeService;
 
 /**
- * Class CustomConfigForm.
+ * Creates a configuration form for a GreenExchange block.
  */
 class CustomConfigForm extends ConfigFormBase {
 

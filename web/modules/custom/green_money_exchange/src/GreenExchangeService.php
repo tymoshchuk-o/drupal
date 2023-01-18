@@ -8,7 +8,7 @@ use GuzzleHttp\ClientInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
- * Class GreenExchangeService.
+ * Receives exchange rate data from Rest API.
  *
  * @package Drupal\green_money_exchange
  */
@@ -46,6 +46,11 @@ class GreenExchangeService {
 
   /**
    * Constructor.
+   *
+   * @param \GuzzleHttp\ClientInterface $http_client
+   *   The Drupal http client.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
+   *   The config factory.
    */
   public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog) {
     $this->httpClient = $http_client;
