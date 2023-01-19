@@ -67,7 +67,13 @@ class GreenExchange extends BlockBase implements ContainerFactoryPluginInterface
       '#exchange_var' => $activeCurrency,
       '#attached' => [
         'library' => [
-          'green_money_exchange/green_money_exchange_cart'
+          'green_money_exchange/green_money_exchange_chart',
+        ],
+        'drupalSettings' => [
+          'green_money_exchange' => [
+            'title' => $this->t('Currency Exchange Charge'),
+            'currencyData' => $activeCurrency,
+          ],
         ],
       ],
     ];
