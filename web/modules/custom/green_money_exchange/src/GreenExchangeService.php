@@ -6,6 +6,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 /**
  * Receives exchange rate data from Rest API.
@@ -45,6 +46,13 @@ class GreenExchangeService {
   protected $errorLog;
 
   /**
+   * Entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * Constructor.
    *
    * @param \GuzzleHttp\ClientInterface $http_client
@@ -52,10 +60,11 @@ class GreenExchangeService {
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The config factory.
    */
-  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog) {
+  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog, EntityTypeManagerInterface $entity_type_manager) {
     $this->httpClient = $http_client;
     $this->configFactory = $configFactory;
     $this->errorLog = $errorLog;
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
@@ -78,10 +87,20 @@ class GreenExchangeService {
     $this->errorLog->get('green_exchange')->notice($this->t($message));
   }
 
+
+  public function getEntity() {
+    $currency = $this->entityTypeManager->getStorage('green_exchange_currency');
+
+    return $currency;
+  }
+
+
   /**
    * Gets exchange setting.
    */
   public function getExchangeSetting() {
+    $this->getEntity();
+
     $config = $this->configFactory->get('green_money_exchange.customconfig');
 
     return [
@@ -204,8 +223,7 @@ class GreenExchangeService {
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       throw new \Exception('Server not found');
     }
 
@@ -231,8 +249,7 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
-    }
-    catch (\Exception $e) {
+    } catch (\Exception $e) {
       $this->logError($e->getMessage());
       return [];
     }
@@ -283,8 +300,7 @@ class GreenExchangeService {
     if (trim($uri) !== '') {
       try {
         $exchangeData = $this->fetchData($uri);
-      }
-      catch (\Exception $e) {
+      } catch (\Exception $e) {
         $returnArr['error'] = 'Server request error.';
         $this->logError($returnArr["error"]);
         return $returnArr;
