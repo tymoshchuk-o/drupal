@@ -23,11 +23,6 @@ use Drupal\Core\Entity\EntityChangedTrait;
  * @ContentEntityType(
  * id = "green_exchange_currency",
  * label = @Translation("Currency entity"),
- * handlers = {
- * "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- * "list_builder" = "Drupal\dictionary\Entity\Controller\TermListBuilder",
- * },
- * list_cache_contexts = { "user" },
  * base_table = "currency_state",
  * admin_permission = "administer currency_state entity",
  * entity_keys = {

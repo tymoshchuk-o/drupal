@@ -87,19 +87,97 @@ class GreenExchangeService {
     $this->errorLog->get('green_exchange')->notice($this->t($message));
   }
 
+  /**
+   * Return EntityStorageInterface
+   *
+   * @return \Drupal\Core\Entity\EntityStorageInterface
+   *   A currency entity storage.
+   */
+  public function getStorage() {
+    $currencyStorage = $this->entityTypeManager->getStorage('green_exchange_currency');
 
-  public function getEntity() {
-    $currency = $this->entityTypeManager->getStorage('green_exchange_currency');
+    return $currencyStorage;
 
-    return $currency;
   }
 
+  /**
+   * Selects currency data from currency entity type.
+   *
+   * @return array
+   *   An array with of currency exchange.
+   */
+  public function getCurrencyByRange() {
+    $range = $this->getExchangeSetting()['range'] ?? 0;
+    $currencyStorage = $this->getStorage();
+    $dateFormat = 'd.m.Y';
+    $today = date($dateFormat);
+    $startDate = date($dateFormat, strtotime("-{$range} days"));
+
+    $query = $currencyStorage->getQuery();
+
+    $query->condition('exchangedate', $today, '<');
+    $query->condition('exchangedate', $startDate, '>');
+    $data = $query->execute();
+    $cr = $currencyStorage->loadMultiple($data);
+
+    return $data;
+
+  }
+
+  /**
+   * Save currency to Currency entity.
+   *
+   * @param array $currencyData
+   *   An array with of currency exchange.
+   */
+  public function setCurrencyEntity($currencyData) {
+    $currencyStorage = $this->getStorage();
+    if ($currencyData && $currencyStorage) {
+      foreach ($currencyData as $item) {
+        $currency = $currencyStorage->create([
+          "exchangedate" => $item->exchangedate,
+          "cc" => $item->cc,
+          "txt" => $item->txt,
+          "rate" => $item->rate,
+        ]);
+        $currency->save();
+      }
+    }
+  }
+
+  /**
+   * Сhecks for the availability of saved exchange rates for the given date.
+   *
+   * @param string $date
+   *   A currency exchange date.
+   *
+   * @return bool
+   *   True if data is found in currency entity type for a given date false.
+   */
+  public function checkCurrencyStorage(string $date): bool{
+    $check = false;
+
+    $currencyStorage = $this->getStorage();
+    $dateFormat = 'd.m.Y';
+    $day = date($dateFormat, strtotime($date));
+
+    $query = $currencyStorage->getQuery();
+
+    $query->condition('exchangedate', $day);
+    $data = $query->execute();
+    $cr = $currencyStorage->loadMultiple($data);
+
+    if(count($cr) > 0){
+      $check = TRUE;
+    }
+
+    return $check;
+  }
 
   /**
    * Gets exchange setting.
    */
   public function getExchangeSetting() {
-    $this->getEntity();
 
     $config = $this->configFactory->get('green_money_exchange.customconfig');
 
