@@ -7,6 +7,7 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\State\StateInterface;
 
 /**
  * Receives exchange rate data from Rest API.
@@ -53,6 +54,13 @@ class GreenExchangeService {
   protected $entityTypeManager;
 
   /**
+   * The state service.
+   *
+   * @var \Drupal\Core\State\StateInterface
+   */
+  protected $state;
+
+  /**
    * Constructor.
    *
    * @param \GuzzleHttp\ClientInterface $http_client
@@ -60,11 +68,12 @@ class GreenExchangeService {
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The config factory.
    */
-  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog, EntityTypeManagerInterface $entity_type_manager, StateInterface $state) {
     $this->httpClient = $http_client;
     $this->configFactory = $configFactory;
     $this->errorLog = $errorLog;
     $this->entityTypeManager = $entity_type_manager;
+    $this->state = $state;
   }
 
   /**
@@ -88,6 +97,13 @@ class GreenExchangeService {
   }
 
   /**
+   * Clear currency entity state.
+   */
+  public function clearCurrencyState(){
+    $this->state->delete('green_exchange_date');
+  }
+
+  /**
    * Return EntityStorageInterface
    *
    * @return \Drupal\Core\Entity\EntityStorageInterface
@@ -107,36 +123,48 @@ class GreenExchangeService {
    *   An array with of currency exchange.
    */
   public function getCurrencyByRange() {
+    $currencyArr = [];
     $range = $this->getExchangeSetting()['range'] ?? 0;
     $currencyStorage = $this->getStorage();
     $dateFormat = 'd.m.Y';
-    $today = date($dateFormat);
-    $startDate = date($dateFormat, strtotime("-{$range} days"));
+    $days = 0;
+    $requestTime = $this->state->get('green_exchange_date');
 
-    $query = $currencyStorage->getQuery();
+    if(!$requestTime || $requestTime < strtotime("-4 hours")){
+      $this->setCurrencyEntity();
+      $this->state->set('green_exchange_date', date($dateFormat));
+    }
 
-    $query->condition('exchangedate', $today, '<');
-    $query->condition('exchangedate', $startDate, '>');
-    $data = $query->execute();
-    $cr = $currencyStorage->loadMultiple($data);
+    while (!($days > $range)) {
+      $query = $currencyStorage->getQuery();
+      $day = date($dateFormat, strtotime("-{$days} days"));
+      $query->condition('exchangedate', $day);
+      $data = $query->execute();
+      $currencyList = $currencyStorage->loadMultiple($data);
 
-    return $data;
+      foreach ($currencyList as $item) {
+        $currencyArr[] = [
+          'exchangedate' => $item->get('exchangedate')->getValue()[0]['value'],
+          'cc' => $item->get('cc')->getValue()[0]['value'],
+          'txt' => $item->get('txt')->getValue()[0]['value'],
+          'rate' => $item->get('rate')->getValue()[0]['value'],
+        ];
+      }
+      $days++;
+    }
+
+    return $currencyArr;
 
   }
 
   /**
    * Save currency to Currency entity.
-   *
-   * @param array $currencyData
-   *   An array with of currency exchange.
    */
-  public function setCurrencyEntity($currencyData) {
+  public function setCurrencyEntity() {
     $currencyStorage = $this->getStorage();
+    $currencyData = $this->getExchange();
     if ($currencyData && $currencyStorage) {
       foreach ($currencyData as $item) {
-
-        $isInEnt = $this->checkCurrencyStorage($item->exchangedate, $item->cc);
-
         if (!$this->checkCurrencyStorage($item->exchangedate, $item->cc)) {
           $currency = $currencyStorage->create([
             "exchangedate" => $item->exchangedate,
@@ -163,19 +191,17 @@ class GreenExchangeService {
    */
   public function checkCurrencyStorage(string $date, string $cc): bool {
     $check = FALSE;
-
     $currencyStorage = $this->getStorage();
     $dateFormat = 'd.m.Y';
     $day = date($dateFormat, strtotime($date));
 
     $query = $currencyStorage->getQuery();
-
     $query->condition('exchangedate', $day);
     $data = $query->execute();
     $currencyList = $currencyStorage->loadMultiple($data);
 
-//    Delete all entity
-//    $currencyStorage->delete($currencyList);
+    //    Delete all entity
+    //    $currencyStorage->delete($currencyList);
 
 
     if (count($currencyList) > 0) {
@@ -279,7 +305,7 @@ class GreenExchangeService {
     if ($currencyData && count($currencyData) > 0) {
       $returnCurrencyData = array_filter($currencyData, function ($item) use ($filteredActiveCurrency) {
         foreach ($filteredActiveCurrency as $active) {
-          if ($item->cc === $active) {
+          if ($item['cc'] === $active) {
             return TRUE;
           }
 
@@ -335,7 +361,6 @@ class GreenExchangeService {
    *   An array with of currency exchange.
    */
   public function getExchange(): array {
-
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
     $uri = $settings['uri'];
@@ -346,7 +371,6 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
-      $this->setCurrencyEntity($data);
     } catch (\Exception $e) {
       $this->logError($e->getMessage());
       return [];

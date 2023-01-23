@@ -121,6 +121,8 @@ class CustomConfigForm extends ConfigFormBase {
       ->set('currency-item', $form_state->getValue('currency-item'))
       ->save();
 
+    $this->exchangeService->clearCurrencyState();
+
     if (count($isRemovedCurrency) > 0) {
       foreach ($isRemovedCurrency as $deletedCurrency) {
         $this->messenger->addWarning('Currency is deleted ' . $deletedCurrency);

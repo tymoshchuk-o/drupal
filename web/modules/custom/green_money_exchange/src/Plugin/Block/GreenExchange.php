@@ -58,8 +58,8 @@ class GreenExchange extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function build() {
-
-    $currencyData = $this->exchangeService->getExchange() ?? [];
+    $this->exchangeService->setCurrencyEntity();
+    $currencyData = $this->exchangeService->getCurrencyByRange() ?? [];
     $activeCurrency = $this->exchangeService->filterCurrency($currencyData);
 
     $renderArr = [
