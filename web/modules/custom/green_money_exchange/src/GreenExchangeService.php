@@ -134,13 +134,18 @@ class GreenExchangeService {
     $currencyStorage = $this->getStorage();
     if ($currencyData && $currencyStorage) {
       foreach ($currencyData as $item) {
-        $currency = $currencyStorage->create([
-          "exchangedate" => $item->exchangedate,
-          "cc" => $item->cc,
-          "txt" => $item->txt,
-          "rate" => $item->rate,
-        ]);
-        $currency->save();
+
+        $isInEnt = $this->checkCurrencyStorage($item->exchangedate, $item->cc);
+
+        if (!$this->checkCurrencyStorage($item->exchangedate, $item->cc)) {
+          $currency = $currencyStorage->create([
+            "exchangedate" => $item->exchangedate,
+            "cc" => $item->cc,
+            "txt" => $item->txt,
+            "rate" => $item->rate,
+          ]);
+          $currency->save();
+        }
       }
     }
   }
@@ -150,12 +155,14 @@ class GreenExchangeService {
    *
    * @param string $date
    *   A currency exchange date.
+   * @param string $cc
+   *   A currency cc field.
    *
    * @return bool
    *   True if data is found in currency entity type for a given date false.
    */
-  public function checkCurrencyStorage(string $date): bool{
-    $check = false;
+  public function checkCurrencyStorage(string $date, string $cc): bool {
+    $check = FALSE;
 
     $currencyStorage = $this->getStorage();
     $dateFormat = 'd.m.Y';
@@ -165,10 +172,22 @@ class GreenExchangeService {
 
     $query->condition('exchangedate', $day);
     $data = $query->execute();
-    $cr = $currencyStorage->loadMultiple($data);
+    $currencyList = $currencyStorage->loadMultiple($data);
 
-    if(count($cr) > 0){
-      $check = TRUE;
+//    Delete all entity
+//    $currencyStorage->delete($currencyList);
+
+
+    if (count($currencyList) > 0) {
+      foreach ($currencyList as $cr) {
+        $ccValue = $cr->get('cc')->getValue()[0]['value'];
+        if ($ccValue == $cc) {
+          $check = TRUE;
+
+          return $check;
+        }
+
+      }
     }
 
     return $check;
@@ -327,10 +346,12 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
+      $this->setCurrencyEntity($data);
     } catch (\Exception $e) {
       $this->logError($e->getMessage());
       return [];
     }
+
 
     return $data ?? [];
 
