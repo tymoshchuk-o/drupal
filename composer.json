@@ -34,6 +34,7 @@
         "drupal/twig_tweak": "^3.2",
         "drupal/views_bootstrap": "^5.4",
         "drupal/views_infinite_scroll": "^2.0",
+        "drush/drush": "^11.4",
         "npm-asset/chart.js": "^4.1",
         "oomphinc/composer-installers-extender": "^2.0"
     },
