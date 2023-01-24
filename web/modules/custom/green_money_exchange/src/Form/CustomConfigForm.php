@@ -2,9 +2,11 @@
 
 namespace Drupal\green_money_exchange\Form;
 
+use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Ajax\AjaxResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\green_money_exchange\GreenExchangeService;
 
@@ -16,7 +18,7 @@ class CustomConfigForm extends ConfigFormBase {
   /**
    * Custom exchange service.
    *
-   * @var Drupal\green_money_exchange\GreenExchangeService
+   * @var \Drupal\green_money_exchange\GreenExchangeService
    */
   protected $exchangeService;
 
@@ -66,6 +68,9 @@ class CustomConfigForm extends ConfigFormBase {
     $config = $this->config('green_money_exchange.customconfig');
     $currencyList = $this->exchangeService->getCurrencyList();
 
+    $form['api_messages'] = [
+      '#markup' => '<pre id="form-api-messages"></pre>',
+    ];
     $form['settings'] = [
       '#type' => 'details',
       '#title' => $this->t('Money Exchange'),
@@ -87,6 +92,17 @@ class CustomConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('uri') ?? ' ',
       '#maxlength' => NULL,
     ];
+    $form['check_button'] = array(
+      '#type' => 'button',
+      '#value' => t('Check API'),
+      '#ajax' => [
+        'callback' => '::ajaxCheckApi',
+        'event' => 'click',
+        'progress' => [
+          'type' => 'throbber',
+        ],
+      ],
+    );
 
     if (count($currencyList)) {
       $form['currency-list'] = [
@@ -104,6 +120,28 @@ class CustomConfigForm extends ConfigFormBase {
     }
 
     return parent::buildForm($form, $form_state);
+  }
+
+
+  public function ajaxCheckApi(array &$form, FormStateInterface $form_state) {
+    $ajax_response = new AjaxResponse();
+
+    $data = $this->exchangeService->fetchData(trim($form_state->getValue('uri')));
+    $showData = '';
+
+    foreach ($data as $item){
+      $str = '';
+      foreach ($item as $property => $value){
+        $str .= "<b>" . $property.":" . "</b> "  . $value. "; ";
+      }
+
+      $showData .= "<div>" . "{ " . $str . " }," . "</div>";
+    }
+
+
+    $ajax_response->addCommand(new HtmlCommand('#form-api-messages', $showData));
+
+    return $ajax_response;
   }
 
   /**
