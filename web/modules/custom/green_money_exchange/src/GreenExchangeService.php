@@ -67,6 +67,12 @@ class GreenExchangeService {
    *   The Drupal http client.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The config factory.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $errorLog
+   *   The Logger interface.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The Entity type manager.
+   * @param \Drupal\Core\State\StateInterface $state
+   *   The Drupal state.
    */
   public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog, EntityTypeManagerInterface $entity_type_manager, StateInterface $state) {
     $this->httpClient = $http_client;
@@ -99,12 +105,12 @@ class GreenExchangeService {
   /**
    * Clear currency entity state.
    */
-  public function clearCurrencyState(){
+  public function clearCurrencyState() {
     $this->state->delete('green_exchange_date');
   }
 
   /**
-   * Return EntityStorageInterface
+   * Return EntityStorageInterface.
    *
    * @return \Drupal\Core\Entity\EntityStorageInterface
    *   A currency entity storage.
@@ -131,7 +137,7 @@ class GreenExchangeService {
 
     $requestTime = $this->state->get('green_exchange_date');
 
-    if(!$requestTime || $requestTime < strtotime("-4 hours")){
+    if (!$requestTime || $requestTime < strtotime("-4 hours")) {
       $this->setCurrencyEntity();
       $this->state->set('green_exchange_date', date('Y-m-d H:i:s'));
     }
@@ -200,10 +206,6 @@ class GreenExchangeService {
     $query->condition('exchangedate', $day);
     $data = $query->execute();
     $currencyList = $currencyStorage->loadMultiple($data);
-
-    //    Delete all entity
-    //    $currencyStorage->delete($currencyList);
-
 
     if (count($currencyList) > 0) {
       foreach ($currencyList as $cr) {
@@ -347,7 +349,8 @@ class GreenExchangeService {
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       throw new \Exception('Server not found');
     }
 
@@ -372,12 +375,11 @@ class GreenExchangeService {
 
     try {
       $data = $this->fetchData($uri);
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       $this->logError($e->getMessage());
       return [];
     }
-
-
     return $data ?? [];
 
   }
@@ -424,7 +426,8 @@ class GreenExchangeService {
     if (trim($uri) !== '') {
       try {
         $exchangeData = $this->fetchData($uri);
-      } catch (\Exception $e) {
+      }
+      catch (\Exception $e) {
         $returnArr['error'] = 'Server request error.';
         $this->logError($returnArr["error"]);
         return $returnArr;

@@ -57,7 +57,7 @@
         // Returns an array of the given currencies to display in the chart
         function getChartData(obj) {
 
-          if(!obj){
+          if (!obj) {
             return [];
           }
 
@@ -71,7 +71,9 @@
               borderColor: getRandomColor()
             };
             item['label'] = key;
-            value.reverse().forEach(el=>{item.data.push(el.rate)});
+            value.reverse().forEach(el => {
+              item.data.push(el.rate)
+            });
 
             returnData.push(item);
 

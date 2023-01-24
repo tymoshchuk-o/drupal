@@ -1,24 +1,16 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\green_money_exchange\Entity\Currency.
- */
-
 namespace Drupal\green_money_exchange\Entity;
 
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\user\UserInterface;
 use Drupal\Core\Entity\EntityChangedTrait;
 
 /**
  * Defines the Currency entity.
  *
  * @ingroup currency
- *
  *
  * @ContentEntityType(
  * id = "green_exchange_currency",
@@ -77,7 +69,6 @@ class Currency extends ContentEntityBase {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    //Field CC
     $fields['cc'] = BaseFieldDefinition::create('string')
       ->setLabel(t('cc'))
       ->setDescription(t('Currency short name'))
@@ -98,7 +89,6 @@ class Currency extends ContentEntityBase {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    //Field txt
     $fields['txt'] = BaseFieldDefinition::create('string')
       ->setLabel(t('txt'))
       ->setDescription(t('Currency long name'))
@@ -119,7 +109,6 @@ class Currency extends ContentEntityBase {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    //Field rate
     $fields['rate'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('rate'))
       ->setDescription(t('Currency current rate'))
