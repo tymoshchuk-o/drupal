@@ -128,11 +128,12 @@ class GreenExchangeService {
     $currencyStorage = $this->getStorage();
     $dateFormat = 'd.m.Y';
     $days = 0;
+
     $requestTime = $this->state->get('green_exchange_date');
 
     if(!$requestTime || $requestTime < strtotime("-4 hours")){
       $this->setCurrencyEntity();
-      $this->state->set('green_exchange_date', date($dateFormat));
+      $this->state->set('green_exchange_date', date('Y-m-d H:i:s'));
     }
 
     while (!($days > $range)) {
