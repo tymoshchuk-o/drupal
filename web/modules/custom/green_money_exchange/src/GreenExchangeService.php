@@ -363,11 +363,12 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency exchange.
    */
-  public function getExchange(): array {
+  public function getExchange(string $apiUri = NULL): array {
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
-    $uri = $settings['uri'];
+    $uri = $apiUri ? $apiUri : $settings['uri'];
     $range = $settings['range'] ?? 0;
+
 
 
     if (!$request || !$uri) {
@@ -391,8 +392,8 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency name.
    */
-  public function getCurrencyList() {
-    $currencyData = $this->getExchange();
+  public function getCurrencyList(string $uri = null) {
+    $currencyData = $this->getExchange($uri);
     $currencyList = [];
     if ($currencyData && count($currencyData) > 0) {
       foreach ($currencyData as $item) {
