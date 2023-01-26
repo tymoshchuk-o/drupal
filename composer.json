@@ -12,10 +12,16 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/addtoany": "^1.16",
+        "drupal/admin_toolbar": "^3.3",
         "drupal/better_exposed_filters": "^6.0",
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
@@ -24,7 +30,13 @@
         "drupal/dynamic_breadcrumb": "^1.4",
         "drupal/paragraphs": "^1.15",
         "drupal/pathauto": "^1.11",
-        "drupal/views_bootstrap": "^5.4"
+        "drupal/prevnext": "^2.0",
+        "drupal/twig_tweak": "^3.2",
+        "drupal/views_bootstrap": "^5.4",
+        "drupal/views_infinite_scroll": "^2.0",
+        "drush/drush": "^11.4",
+        "npm-asset/chart.js": "^4.1",
+        "oomphinc/composer-installers-extender": "^2.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -36,7 +48,8 @@
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "oomphinc/composer-installers-extender": true
         },
         "sort-packages": true
     },
@@ -46,12 +59,18 @@
                 "web-root": "web/"
             }
         },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
             ],
             "web/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
             ],
             "web/modules/contrib/{$name}": [
                 "type:drupal-module"

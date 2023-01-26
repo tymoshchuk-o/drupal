@@ -58,13 +58,24 @@ class GreenExchange extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function build() {
-
-    $currencyData = $this->exchangeService->getExchange();
+    $this->exchangeService->setCurrencyEntity();
+    $currencyData = $this->exchangeService->getCurrencyByRange() ?? [];
     $activeCurrency = $this->exchangeService->filterCurrency($currencyData);
 
     $renderArr = [
       '#theme' => 'green_exchange_template',
       '#exchange_var' => $activeCurrency,
+      '#attached' => [
+        'library' => [
+          'green_money_exchange/green_money_exchange_chart',
+        ],
+        'drupalSettings' => [
+          'green_money_exchange' => [
+            'title' => $this->t('Currency Exchange Charge'),
+            'currencyData' => $activeCurrency,
+          ],
+        ],
+      ],
     ];
 
     return $renderArr;
