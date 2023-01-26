@@ -173,7 +173,7 @@ class GreenExchangeService {
     ];
 
     if (trim($uri) == '') {
-      $returnArr["error"] = 'The server URI field is empty.';
+      $returnArr["error"] = $this->t('The server URI field is empty.');
       return $returnArr;
     }
 
@@ -181,19 +181,19 @@ class GreenExchangeService {
       $exchangeData = $this->fetchData($uri);
     }
     catch (\Exception $e) {
-      $returnArr['error'] = 'Server request error.';
+      $returnArr['error'] = $this->t('Server request error.');
       return $returnArr;
     }
 
     if (!$exchangeData) {
-      $returnArr["error"] = 'The exchange server not found.';
+      $returnArr["error"] = $this->t('The exchange server not found.');
       return $returnArr;
     }
 
     foreach ($exchangeData as $item) {
       foreach ($this->validResponseData as $key) {
         if (!$item->$key) {
-          $returnArr['error'] = 'Server response data is invalid';
+          $returnArr['error'] = $this->t('Server response data is invalid');
           return $returnArr;
         }
       }
