@@ -287,7 +287,6 @@ class GreenExchangeService {
       $this->logError($this->t($logMessage));
 
     }
-
     return $returnArr;
 
   }
@@ -333,15 +332,14 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency exchange.
    */
-  public function fetchData($uri) {
-    $uriTail = '&sort=exchangedate&order=desc&json';
-    $range = $this->getExchangeSetting()['range'] ?? 0;
+  public function fetchData($uri, ?int $range = 0) {
+    $uriTail = 'sort=exchangedate&order=desc&json';
     $dateFormat = 'Ymd';
     $today = date($dateFormat);
     $startDate = date($dateFormat, strtotime("-{$range} days"));
 
     if ($range && $range > 0) {
-      $uriTail = "start=" . $startDate . "&end=" . $today . $uriTail;
+      $uriTail = "start=" . $startDate . "&end=" . $today . "&" . $uriTail;
     }
 
     $uri .= "?" . $uriTail;
@@ -364,17 +362,18 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency exchange.
    */
-  public function getExchange(): array {
+  public function getExchange(string $apiUri = NULL): array {
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
-    $uri = $settings['uri'];
+    $uri = $apiUri ? $apiUri : $settings['uri'];
+    $range = $settings['range'] ?? 0;
 
     if (!$request || !$uri) {
       return [];
     }
 
     try {
-      $data = $this->fetchData($uri);
+      $data = $this->fetchData($uri, $range);
     }
     catch (\Exception $e) {
       $this->logError($e->getMessage());
@@ -390,8 +389,8 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency name.
    */
-  public function getCurrencyList() {
-    $currencyData = $this->getExchange();
+  public function getCurrencyList(string $uri = NULL) {
+    $currencyData = $this->getExchange($uri);
     $currencyList = [];
     if ($currencyData && count($currencyData) > 0) {
       foreach ($currencyData as $item) {
