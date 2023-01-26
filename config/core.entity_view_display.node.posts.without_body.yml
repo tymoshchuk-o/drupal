@@ -11,10 +11,9 @@ dependencies:
     - field.field.node.posts.field_post_type
     - field.field.node.posts.field_social_links
     - field.field.node.posts.field_tag
-    - image.style.large
+    - field.field.node.posts.field_text_and_photo
     - node.type.posts
   module:
-    - media
     - user
 id: node.posts.without_body
 targetEntityType: node
@@ -22,13 +21,11 @@ bundle: posts
 mode: without_body
 content:
   field_add_media:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     label: hidden
     settings:
-      image_link: content
-      image_style: large
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 0
     region: content
@@ -39,4 +36,5 @@ hidden:
   field_post_type: true
   field_social_links: true
   field_tag: true
+  field_text_and_photo: true
   links: true

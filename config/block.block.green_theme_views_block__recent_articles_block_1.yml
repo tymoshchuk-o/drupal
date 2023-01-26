@@ -12,7 +12,7 @@ dependencies:
 id: green_theme_views_block__recent_articles_block_1
 theme: green_theme
 region: sidebar
-weight: -23
+weight: -21
 provider: null
 plugin: 'views_block:recent_articles-block_1'
 settings:

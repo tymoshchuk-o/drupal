@@ -1,0 +1,20 @@
+uuid: de018031-8188-4c00-9d13-3c3a64655eb5
+langcode: en
+status: true
+dependencies:
+  module:
+    - green_money_exchange
+  theme:
+    - green_theme
+id: greenexcangeblock
+theme: green_theme
+region: content
+weight: -21
+provider: null
+plugin: green_exchange_block
+settings:
+  id: green_exchange_block
+  label: 'Green Excange block'
+  label_display: visible
+  provider: green_money_exchange
+visibility: {  }

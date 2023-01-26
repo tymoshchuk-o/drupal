@@ -2,8 +2,6 @@ uuid: 99d68b64-99a3-4a62-ba6d-06a43a999e4d
 langcode: en
 status: false
 dependencies:
-  module:
-    - system
   theme:
     - green_theme
 _core:
@@ -11,7 +9,7 @@ _core:
 id: green_theme_page_title
 theme: green_theme
 region: content_above
-weight: -21
+weight: -5
 provider: null
 plugin: page_title_block
 settings:
@@ -19,8 +17,4 @@ settings:
   label: 'Page title'
   label_display: '0'
   provider: core
-visibility:
-  request_path:
-    id: request_path
-    negate: false
-    pages: '/node/*'
+visibility: {  }

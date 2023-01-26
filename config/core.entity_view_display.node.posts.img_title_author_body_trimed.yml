@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.posts.field_post_type
     - field.field.node.posts.field_social_links
     - field.field.node.posts.field_tag
+    - field.field.node.posts.field_text_and_photo
     - image.style.large
     - node.type.posts
   module:
@@ -59,4 +60,5 @@ hidden:
   field_comments: true
   field_social_links: true
   field_tag: true
+  field_text_and_photo: true
   links: true

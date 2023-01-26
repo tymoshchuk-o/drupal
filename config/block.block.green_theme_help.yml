@@ -11,7 +11,7 @@ _core:
 id: green_theme_help
 theme: green_theme
 region: content_above
-weight: -15
+weight: 0
 provider: null
 plugin: help_block
 settings:

@@ -12,7 +12,7 @@ dependencies:
 id: green_theme_fashionvogue
 theme: green_theme
 region: content_above
-weight: -16
+weight: 0
 provider: null
 plugin: 'block_content:89830647-85fa-4ec9-996c-f3482c1d3ea9'
 settings:
