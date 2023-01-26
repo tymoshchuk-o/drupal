@@ -2,7 +2,6 @@
 
 namespace Drupal\green_money_exchange\Form;
 
-use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\MessageCommand;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
@@ -69,7 +68,6 @@ class CustomConfigForm extends ConfigFormBase {
     $config = $this->config('green_money_exchange.customconfig');
     $currencyList = $this->exchangeService->getCurrencyList($form_state->getValue('uri'));
 
-
     $form['api_messages'] = [
       '#markup' => '<div id="form-api-messages"></div>',
     ];
@@ -103,7 +101,7 @@ class CustomConfigForm extends ConfigFormBase {
     ];
     $form['check_button'] = [
       '#type' => 'button',
-      '#value' => t('Check API'),
+      '#value' => $this->t('Check API'),
       '#ajax' => [
         'callback' => '::ajaxCheckApi',
         'event' => 'click',
@@ -115,7 +113,7 @@ class CustomConfigForm extends ConfigFormBase {
 
     $form['get_checkboxes_api'] = [
       '#type' => 'button',
-      '#value' => t('Get Currency'),
+      '#value' => $this->t('Get Currency'),
       '#ajax' => [
         'callback' => '::ajaxGetCurrency',
         'wrapper' => 'cur-list',
@@ -131,7 +129,7 @@ class CustomConfigForm extends ConfigFormBase {
       '#title' => $this->t('Select currencies to display'),
       '#open' => TRUE,
       '#attributes' => [
-        'id' => 'cur-list'
+        'id' => 'cur-list',
       ],
 
     ];
@@ -142,16 +140,19 @@ class CustomConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('currency-item') ?? [],
     ];
 
-
-
     return parent::buildForm($form, $form_state);
   }
 
   /**
+   * Show server returned data in MessageCommand.
+   *
    * @param array $form
+   *   Form array.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state.
    *
    * @return \Drupal\Core\Ajax\AjaxResponse
+   *   Show API data thet server return.
    * @throws \Exception
    */
   public function ajaxCheckApi(array &$form, FormStateInterface $form_state) {
@@ -163,12 +164,11 @@ class CustomConfigForm extends ConfigFormBase {
     foreach ($data as $item) {
       $str = '';
       foreach ($item as $property => $value) {
-        $str .= "<b>" . $property . ":" . "</b> " . $value . "; ";
+        $str .= "<b>{$property} : </b>{$value}; ";
       }
 
       $showData .= "<div>" . "{ " . $str . " }," . "</div>";
     }
-
 
     $ajax_response->addCommand(new MessageCommand($showData));
 
@@ -176,17 +176,22 @@ class CustomConfigForm extends ConfigFormBase {
   }
 
   /**
+   * Show message is URI valid.
+   *
    * @param array $form
+   *   Form array.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state.
    *
    * @return \Drupal\Core\Ajax\AjaxResponse
+   *   Return Ajax MessageCommand.
    */
   public function ajaxCheckUri(array &$form, FormStateInterface $form_state) {
     $ajax_response = new AjaxResponse();
     $uri = trim($form_state->getValue('uri'));
 
     if ($uri == '') {
-      return;
+      return $ajax_response;
     }
 
     try {
@@ -195,25 +200,26 @@ class CustomConfigForm extends ConfigFormBase {
         $ajax_response->addCommand(new MessageCommand($this->t("API uri is valid.")));
       }
 
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       $ajax_response->addCommand(new MessageCommand($this->t('Exchange service is ERROR!!!'), NULL, ['type' => 'error']));
 
     }
     return $ajax_response;
   }
 
-
-  public function ajaxGetCurrency(array &$form, FormStateInterface $form_state) {
-    return $form['currency-list'];
-  }
-
   /**
+   * Rerender checkboxes ajax.
+   *
    * @param array $form
+   *   Form array.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state.
    *
    * @return \Drupal\Core\Ajax\AjaxResponse
+   *   Return $form['currency-list'].
    */
-  public function ajaxCheckboxes(array &$form, FormStateInterface $form_state) {
+  public function ajaxGetCurrency(array &$form, FormStateInterface $form_state) {
     return $form['currency-list'];
   }
 

@@ -287,7 +287,7 @@ class GreenExchangeService {
       $this->logError($this->t($logMessage));
 
     }
-
+``
     return $returnArr;
 
   }
@@ -369,8 +369,6 @@ class GreenExchangeService {
     $uri = $apiUri ? $apiUri : $settings['uri'];
     $range = $settings['range'] ?? 0;
 
-
-
     if (!$request || !$uri) {
       return [];
     }
@@ -392,7 +390,7 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency name.
    */
-  public function getCurrencyList(string $uri = null) {
+  public function getCurrencyList(string $uri = NULL) {
     $currencyData = $this->getExchange($uri);
     $currencyList = [];
     if ($currencyData && count($currencyData) > 0) {
