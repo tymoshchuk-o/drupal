@@ -268,14 +268,18 @@ class GreenExchangeService {
     $filteredActiveCurrency = $this->activeCurrency();
     $serverCurrency = $this->getCurrencyList();
 
+    if(!count($filteredActiveCurrency) || !count($serverCurrency)) {
+      return [];
+    }
+
     $returnArr = array_filter($filteredActiveCurrency, function ($item) use ($serverCurrency) {
       foreach ($serverCurrency as $currency => $value) {
         if ($currency == $item) {
           return FALSE;
         }
       }
-
       return TRUE;
+
     }
     );
 
@@ -365,7 +369,7 @@ class GreenExchangeService {
   public function getExchange(string $apiUri = NULL): array {
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
-    $uri = $apiUri ? $apiUri : $settings['uri'];
+    $uri = $apiUri && !$settings['uri'] ? $apiUri : $settings['uri'];
     $range = $settings['range'] ?? 0;
 
     if (!$request || !$uri) {
