@@ -287,7 +287,6 @@ class GreenExchangeService {
       $this->logError($this->t($logMessage));
 
     }
-``
     return $returnArr;
 
   }

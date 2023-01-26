@@ -153,6 +153,7 @@ class CustomConfigForm extends ConfigFormBase {
    *
    * @return \Drupal\Core\Ajax\AjaxResponse
    *   Show API data thet server return.
+   *
    * @throws \Exception
    */
   public function ajaxCheckApi(array &$form, FormStateInterface $form_state) {
