@@ -232,14 +232,7 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       style:
-        type: html_list
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          type: ul
-          wrapper_class: recent-comment
-          class: recent-comment-list
+        type: default
       row:
         type: fields
       query:

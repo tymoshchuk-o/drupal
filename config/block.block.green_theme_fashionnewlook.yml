@@ -12,7 +12,7 @@ dependencies:
 id: green_theme_fashionnewlook
 theme: green_theme
 region: content_above
-weight: -19
+weight: 0
 provider: null
 plugin: 'block_content:2ea22234-1fec-4839-9066-1e11bf9259db'
 settings:

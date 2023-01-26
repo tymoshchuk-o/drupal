@@ -1,8 +1,0 @@
-uuid: d3a75699-62b5-4730-8c7a-27d7416b51fe
-langcode: en
-status: true
-dependencies: {  }
-id: block_title
-label: 'Block Title'
-revision: 0
-description: 'Plain text title to block'

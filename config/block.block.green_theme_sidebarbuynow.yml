@@ -12,7 +12,7 @@ dependencies:
 id: green_theme_sidebarbuynow
 theme: green_theme
 region: sidebar
-weight: -22
+weight: -20
 provider: null
 plugin: 'block_content:9712a40c-5316-49a1-a375-43f1440d21f7'
 settings:

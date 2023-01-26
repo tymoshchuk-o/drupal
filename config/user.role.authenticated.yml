@@ -11,7 +11,6 @@ dependencies:
     - media
     - search
     - shortcut
-    - statistics
     - system
 _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
@@ -24,10 +23,8 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
-  - 'administer statistics'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
   - 'view media'
-  - 'view post access counter'

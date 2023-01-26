@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.posts.field_post_type
     - field.field.node.posts.field_social_links
     - field.field.node.posts.field_tag
+    - field.field.node.posts.field_text_and_photo
     - node.type.posts
   module:
     - comment
@@ -53,7 +54,7 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
   field_post_type:
     type: entity_reference_label
@@ -61,7 +62,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 7
     region: content
   field_social_links:
     type: entity_reference_revisions_entity_view
@@ -70,7 +71,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   field_tag:
     type: entity_reference_label
@@ -79,6 +80,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_text_and_photo:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
     region: content
   links:
     settings: {  }

@@ -12,7 +12,7 @@ dependencies:
 id: green_theme_followusparagraph
 theme: green_theme
 region: sidebar
-weight: -21
+weight: -19
 provider: null
 plugin: 'block_content:72c743f4-3bf1-43a1-a33a-9a8ef12b7c58'
 settings:
@@ -27,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: "/news\r\n/fashion\r\n/node/*"
+    pages: "/news\r\n/fashion"

@@ -12,7 +12,7 @@ dependencies:
 id: fashionheaderfullpagebanner
 theme: green_theme
 region: content
-weight: -24
+weight: -20
 provider: null
 plugin: 'block_content:e3ac1bff-c3c8-4d74-9724-7d29b05caf3d'
 settings:
