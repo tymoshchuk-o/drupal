@@ -215,7 +215,6 @@ class GreenExchangeService {
       $data = $this->fetchData($uri);
     }
     catch (\Exception $e) {
-      $this->logError($e->getMessage());
       return [];
     }
 
@@ -259,7 +258,7 @@ class GreenExchangeService {
     ];
 
     if (trim($uri) == '') {
-      $returnArr["error"] = 'The server URI field is empty.';
+      $returnArr["error"] = $this->t('The server URI field is empty.');
       $this->logNotice($returnArr["error"]);
     }
     if (trim($uri) !== '') {
