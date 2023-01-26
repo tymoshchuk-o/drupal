@@ -117,7 +117,7 @@ class CustomConfigForm extends ConfigFormBase {
 
     if (count($isRemovedCurrency) > 0) {
       foreach ($isRemovedCurrency as $deletedCurrency) {
-        $this->messenger->addWarning('Currency is deleted ' . $deletedCurrency);
+        $this->messenger->addWarning("Currency is deleted {$deletedCurrency}");
       }
     }
 
