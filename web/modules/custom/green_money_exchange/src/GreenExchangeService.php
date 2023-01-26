@@ -268,7 +268,7 @@ class GreenExchangeService {
     $filteredActiveCurrency = $this->activeCurrency();
     $serverCurrency = $this->getCurrencyList();
 
-    if(!count($filteredActiveCurrency) || !count($serverCurrency)) {
+    if (!count($filteredActiveCurrency) || !count($serverCurrency)) {
       return [];
     }
 
