@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_about_user
     - field.field.user.user.field_link_to_account
+    - field.field.user.user.field_social_icon_html
     - field.field.user.user.field_social_links
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -33,5 +34,6 @@ content:
 hidden:
   field_about_user: true
   field_link_to_account: true
+  field_social_icon_html: true
   field_social_links: true
   member_for: true

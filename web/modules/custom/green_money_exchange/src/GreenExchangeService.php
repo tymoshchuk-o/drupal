@@ -6,9 +6,11 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\State\StateInterface;
 
 /**
- * Class GreenExchangeService.
+ * Receives exchange rate data from Rest API.
  *
  * @package Drupal\green_money_exchange
  */
@@ -45,12 +47,39 @@ class GreenExchangeService {
   protected $errorLog;
 
   /**
-   * Constructor.
+   * Entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog) {
+  protected $entityTypeManager;
+
+  /**
+   * The state service.
+   *
+   * @var \Drupal\Core\State\StateInterface
+   */
+  protected $state;
+
+  /**
+   * Constructor.
+   *
+   * @param \GuzzleHttp\ClientInterface $http_client
+   *   The Drupal http client.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
+   *   The config factory.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $errorLog
+   *   The Logger interface.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The Entity type manager.
+   * @param \Drupal\Core\State\StateInterface $state
+   *   The Drupal state.
+   */
+  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog, EntityTypeManagerInterface $entity_type_manager, StateInterface $state) {
     $this->httpClient = $http_client;
     $this->configFactory = $configFactory;
     $this->errorLog = $errorLog;
+    $this->entityTypeManager = $entity_type_manager;
+    $this->state = $state;
   }
 
   /**
@@ -74,20 +103,142 @@ class GreenExchangeService {
   }
 
   /**
+   * Clear currency entity state.
+   */
+  public function clearCurrencyState() {
+    $this->state->delete('green_exchange_date');
+  }
+
+  /**
+   * Return EntityStorageInterface.
+   *
+   * @return \Drupal\Core\Entity\EntityStorageInterface
+   *   A currency entity storage.
+   */
+  public function getStorage() {
+    $currencyStorage = $this->entityTypeManager->getStorage('green_exchange_currency');
+
+    return $currencyStorage;
+
+  }
+
+  /**
+   * Selects currency data from currency entity type.
+   *
+   * @return array
+   *   An array with of currency exchange.
+   */
+  public function getCurrencyByRange() {
+    $currencyArr = [];
+    $range = $this->getExchangeSetting()['range'] ?? 0;
+    $currencyStorage = $this->getStorage();
+    $dateFormat = 'd.m.Y';
+    $days = 0;
+
+    $requestTime = $this->state->get('green_exchange_date');
+
+    if (!$requestTime || $requestTime < strtotime("-4 hours")) {
+      $this->setCurrencyEntity();
+      $this->state->set('green_exchange_date', date('Y-m-d H:i:s'));
+    }
+
+    while (!($days > $range)) {
+      $query = $currencyStorage->getQuery();
+      $day = date($dateFormat, strtotime("-{$days} days"));
+      $query->condition('exchangedate', $day);
+      $data = $query->execute();
+      $currencyList = $currencyStorage->loadMultiple($data);
+
+      foreach ($currencyList as $item) {
+        $currencyArr[] = [
+          'exchangedate' => $item->get('exchangedate')->getValue()[0]['value'],
+          'cc' => $item->get('cc')->getValue()[0]['value'],
+          'txt' => $item->get('txt')->getValue()[0]['value'],
+          'rate' => $item->get('rate')->getValue()[0]['value'],
+        ];
+      }
+      $days++;
+    }
+
+    return $currencyArr;
+
+  }
+
+  /**
+   * Save currency to Currency entity.
+   */
+  public function setCurrencyEntity() {
+    $currencyStorage = $this->getStorage();
+    $currencyData = $this->getExchange();
+    if ($currencyData && $currencyStorage) {
+      foreach ($currencyData as $item) {
+        if (!$this->checkCurrencyStorage($item->exchangedate, $item->cc)) {
+          $currency = $currencyStorage->create([
+            "exchangedate" => $item->exchangedate,
+            "cc" => $item->cc,
+            "txt" => $item->txt,
+            "rate" => $item->rate,
+          ]);
+          $currency->save();
+        }
+      }
+    }
+  }
+
+  /**
+   * Сhecks for the availability of saved exchange rates for the given date.
+   *
+   * @param string $date
+   *   A currency exchange date.
+   * @param string $cc
+   *   A currency cc field.
+   *
+   * @return bool
+   *   True if data is found in currency entity type for a given date false.
+   */
+  public function checkCurrencyStorage(string $date, string $cc): bool {
+    $check = FALSE;
+    $currencyStorage = $this->getStorage();
+    $dateFormat = 'd.m.Y';
+    $day = date($dateFormat, strtotime($date));
+
+    $query = $currencyStorage->getQuery();
+    $query->condition('exchangedate', $day);
+    $data = $query->execute();
+    $currencyList = $currencyStorage->loadMultiple($data);
+
+    if (count($currencyList) > 0) {
+      foreach ($currencyList as $cr) {
+        $ccValue = $cr->get('cc')->getValue()[0]['value'];
+        if ($ccValue == $cc) {
+          $check = TRUE;
+
+          return $check;
+        }
+
+      }
+    }
+
+    return $check;
+  }
+
+  /**
    * Gets exchange setting.
    */
   public function getExchangeSetting() {
+
     $config = $this->configFactory->get('green_money_exchange.customconfig');
 
     return [
-      'uri' => $config->get('uri'),
       'request' => $config->get('request'),
+      'range' => $config->get('range'),
+      'uri' => $config->get('uri'),
       'currency' => $config->get('currency-item'),
     ];
   }
 
   /**
-   * Returns only active currencies..
+   * Returns only active currencies.
    *
    * @return array
    *   An active currency.
@@ -156,7 +307,7 @@ class GreenExchangeService {
     if ($currencyData && count($currencyData) > 0) {
       $returnCurrencyData = array_filter($currencyData, function ($item) use ($filteredActiveCurrency) {
         foreach ($filteredActiveCurrency as $active) {
-          if ($item->cc === $active) {
+          if ($item['cc'] === $active) {
             return TRUE;
           }
 
@@ -181,14 +332,24 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency exchange.
    */
-  public function fetchData($uri) {
+  public function fetchData($uri, ?int $range = 0) {
+    $uriTail = 'sort=exchangedate&order=desc&json';
+    $dateFormat = 'Ymd';
+    $today = date($dateFormat);
+    $startDate = date($dateFormat, strtotime("-{$range} days"));
+
+    if ($range && $range > 0) {
+      $uriTail = "start=" . $startDate . "&end=" . $today . "&" . $uriTail;
+    }
+
+    $uri .= "?" . $uriTail;
 
     try {
       $response = $this->httpClient->get($uri)->getBody();
       $data = json_decode($response);
     }
     catch (\Exception $e) {
-      throw  new \Exception('Server not found');
+      throw new \Exception('Server not found');
     }
 
     return $data;
@@ -201,24 +362,23 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency exchange.
    */
-  public function getExchange(): array {
-
+  public function getExchange(string $apiUri = NULL): array {
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
-    $uri = $settings['uri'];
+    $uri = $apiUri ? $apiUri : $settings['uri'];
+    $range = $settings['range'] ?? 0;
 
     if (!$request || !$uri) {
       return [];
     }
 
     try {
-      $data = $this->fetchData($uri);
+      $data = $this->fetchData($uri, $range);
     }
     catch (\Exception $e) {
       return [];
     }
-
-    return $data;
+    return $data ?? [];
 
   }
 
@@ -228,8 +388,8 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency name.
    */
-  public function getCurrencyList() {
-    $currencyData = $this->getExchange();
+  public function getCurrencyList(string $uri = NULL) {
+    $currencyData = $this->getExchange($uri);
     $currencyList = [];
     if ($currencyData && count($currencyData) > 0) {
       foreach ($currencyData as $item) {

@@ -41,7 +41,7 @@
   {% block content %}
     <div{{ content_attributes.addClass('content') }}>
       {% if label %}
-        <h2{{ title_attributes }}>{{ label }}</h2>
+        <h2 class="title" {{ title_attributes }}><span>{{ label }}</span></h2>
       {% endif %}
       {{ content }}
     </div>

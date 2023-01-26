@@ -2,21 +2,23 @@
 
 namespace Drupal\green_money_exchange\Form;
 
+use Drupal\Core\Ajax\MessageCommand;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Ajax\AjaxResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\green_money_exchange\GreenExchangeService;
 
 /**
- * Class CustomConfigForm.
+ * Creates a configuration form for a GreenExchange block.
  */
 class CustomConfigForm extends ConfigFormBase {
 
   /**
    * Custom exchange service.
    *
-   * @var Drupal\green_money_exchange\GreenExchangeService
+   * @var \Drupal\green_money_exchange\GreenExchangeService
    */
   protected $exchangeService;
 
@@ -64,8 +66,11 @@ class CustomConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('green_money_exchange.customconfig');
-    $currencyList = $this->exchangeService->getCurrencyList();
+    $currencyList = $this->exchangeService->getCurrencyList($form_state->getValue('uri'));
 
+    $form['api_messages'] = [
+      '#markup' => '<div id="form-api-messages"></div>',
+    ];
     $form['settings'] = [
       '#type' => 'details',
       '#title' => $this->t('Money Exchange'),
@@ -76,29 +81,147 @@ class CustomConfigForm extends ConfigFormBase {
       '#title' => $this->t('Activate request to server'),
       '#default_value' => $config->get('request') ?? FALSE,
     ];
+    $form['settings']['range'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Exchange rate for the period in days'),
+      '#default_value' => $config->get('range') ?? 1,
+    ];
     $form['settings']['uri'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Enter Money Exchange service URI'),
       '#default_value' => $config->get('uri') ?? ' ',
+      '#ajax' => [
+        'callback' => '::ajaxCheckUri',
+        'event' => 'change',
+        'progress' => [
+          'type' => 'throbber',
+        ],
+      ],
       '#maxlength' => NULL,
     ];
+    $form['check_button'] = [
+      '#type' => 'button',
+      '#value' => $this->t('Check API'),
+      '#ajax' => [
+        'callback' => '::ajaxCheckApi',
+        'event' => 'click',
+        'progress' => [
+          'type' => 'throbber',
+        ],
+      ],
+    ];
 
-    if (count($currencyList)) {
-      $form['currency-list'] = [
-        '#type' => 'details',
-        '#title' => $this->t('Select currencies to display'),
-        '#open' => TRUE,
-      ];
-      $form['currency-list']['currency-item'] = [
-        '#type' => 'checkboxes',
-        '#options' => $currencyList,
-        '#title' => $this->t('What standardized tests did you take?'),
-        '#default_value' => $config->get('currency-item') ?? [],
-      ];
+    $form['get_checkboxes_api'] = [
+      '#type' => 'button',
+      '#value' => $this->t('Get Currency'),
+      '#ajax' => [
+        'callback' => '::ajaxGetCurrency',
+        'wrapper' => 'cur-list',
+        'event' => 'click',
+        'progress' => [
+          'type' => 'throbber',
+        ],
+      ],
+    ];
 
-    }
+    $form['currency-list'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Select currencies to display'),
+      '#open' => TRUE,
+      '#attributes' => [
+        'id' => 'cur-list',
+      ],
+
+    ];
+    $form['currency-list']['currency-item'] = [
+      '#type' => 'checkboxes',
+      '#options' => $currencyList,
+      '#title' => $this->t('The list of currencies is not available'),
+      '#default_value' => $config->get('currency-item') ?? [],
+    ];
 
     return parent::buildForm($form, $form_state);
+  }
+
+  /**
+   * Show server returned data in MessageCommand.
+   *
+   * @param array $form
+   *   Form array.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   Show API data thet server return.
+   *
+   * @throws \Exception
+   */
+  public function ajaxCheckApi(array &$form, FormStateInterface $form_state) {
+    $ajax_response = new AjaxResponse();
+
+    $data = $this->exchangeService->fetchData(trim($form_state->getValue('uri')));
+    $showData = '';
+
+    foreach ($data as $item) {
+      $str = '';
+      foreach ($item as $property => $value) {
+        $str .= "<b>{$property} : </b>{$value}; ";
+      }
+
+      $showData .= "<div>" . "{ " . $str . " }," . "</div>";
+    }
+
+    $ajax_response->addCommand(new MessageCommand($showData));
+
+    return $ajax_response;
+  }
+
+  /**
+   * Show message is URI valid.
+   *
+   * @param array $form
+   *   Form array.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   Return Ajax MessageCommand.
+   */
+  public function ajaxCheckUri(array &$form, FormStateInterface $form_state) {
+    $ajax_response = new AjaxResponse();
+    $uri = trim($form_state->getValue('uri'));
+
+    if ($uri == '') {
+      return $ajax_response;
+    }
+
+    try {
+      $data = $this->exchangeService->fetchData(trim($form_state->getValue('uri')));
+      if (count($data) > 0) {
+        $ajax_response->addCommand(new MessageCommand($this->t("API uri is valid.")));
+      }
+
+    }
+    catch (\Exception $e) {
+      $ajax_response->addCommand(new MessageCommand($this->t('Exchange service is ERROR!!!'), NULL, ['type' => 'error']));
+
+    }
+    return $ajax_response;
+  }
+
+  /**
+   * Rerender checkboxes ajax.
+   *
+   * @param array $form
+   *   Form array.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   Return $form['currency-list'].
+   */
+  public function ajaxGetCurrency(array &$form, FormStateInterface $form_state) {
+    return $form['currency-list'];
   }
 
   /**
@@ -110,10 +233,13 @@ class CustomConfigForm extends ConfigFormBase {
     $isRemovedCurrency = $this->exchangeService->checkCurrencyList();
 
     $this->config('green_money_exchange.customconfig')
-      ->set('uri', trim($form_state->getValue('uri')))
       ->set('request', $form_state->getValue('request'))
+      ->set('range', $form_state->getValue('range'))
+      ->set('uri', trim($form_state->getValue('uri')))
       ->set('currency-item', $form_state->getValue('currency-item'))
       ->save();
+
+    $this->exchangeService->clearCurrencyState();
 
     if (count($isRemovedCurrency) > 0) {
       foreach ($isRemovedCurrency as $deletedCurrency) {
@@ -134,6 +260,12 @@ class CustomConfigForm extends ConfigFormBase {
       $form_state
         ->setErrorByName('uri', $this
           ->t((string) $isUriError['error']));
+    }
+
+    if ($form_state->getValue('range') < 0) {
+      $form_state->setErrorByName('range', $this
+        ->t('Exchange rate for the period in
+        days must be greater than or equal to 1'));
     }
   }
 

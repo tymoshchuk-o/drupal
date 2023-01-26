@@ -10,6 +10,7 @@ dependencies:
     - filter
     - media
     - search
+    - statistics
     - system
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
@@ -21,6 +22,9 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'administer statistics'
+  - 'post comments'
   - 'search content'
   - 'use text format restricted_html'
   - 'view media'
+  - 'view post access counter'
