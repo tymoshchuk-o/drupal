@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Primary module hooks for Green Hide Title module.
+ */
+
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -18,16 +23,16 @@ function green_hide_title_form_alter(&$form, FormStateInterface $form_state, $fo
 }
 
 /**
- * @param $entity_type
+ * Auto create article title.
+ *
+ * @param string $entity_type
  *   Entity type.
  * @param \Drupal\node\NodeInterface $node
  *   NodeInterface.
- * @param $form
+ * @param array $form
  *   Form.
  * @param \Drupal\Core\Form\FormStateInterface $form_state
- *  Form state.
- *
- * @return void
+ *   Form state.
  */
 function green_hide_title_node_builder($entity_type, NodeInterface $node, &$form, FormStateInterface $form_state) {
 
