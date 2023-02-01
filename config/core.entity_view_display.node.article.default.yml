@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
     - field.field.node.article.field_image
+    - field.field.node.article.field_seo_title
     - field.field.node.article.field_tags
     - image.style.wide
     - node.type.article
@@ -22,12 +23,17 @@ targetEntityType: node
 bundle: article
 mode: default
 content:
+  addtoany:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
   body:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 2
     region: content
   comment:
     type: comment_default
@@ -36,18 +42,26 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 110
+    weight: 6
     region: content
   field_image:
     type: image
     label: hidden
     settings:
-      image_style: wide
       image_link: ''
+      image_style: wide
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: -1
+    weight: 1
+    region: content
+  field_seo_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_tags:
     type: entity_reference_label
@@ -55,11 +69,11 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 4
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 5
     region: content
 hidden: {  }
