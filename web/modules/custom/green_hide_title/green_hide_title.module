@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Green Hide Title module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_form_alter().
+ */
+function green_hide_title_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Adding custom validation for the welcome page type field.
+  if ($form_id == 'node_article_edit_form' || $form_id == 'node_article_form') {
+    $form['title']['#access'] = FALSE;
+    $form['#entity_builders'][] = 'green_hide_title_node_builder';
+  }
+}
+
+/**
+ * Auto create article title.
+ *
+ * @param string $entity_type
+ *   Entity type.
+ * @param \Drupal\node\NodeInterface $node
+ *   NodeInterface.
+ * @param array $form
+ *   Form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state.
+ */
+function green_hide_title_node_builder($entity_type, NodeInterface $node, array &$form, FormStateInterface $form_state) {
+
+  if ($entity_type == 'node') {
+
+    $nodeCreatedTime = $node->getCreatedTime();
+
+    $dateStamp = DrupalDateTime::createFromTimestamp($nodeCreatedTime);
+    $fDate = $dateStamp->format('d.m.Y');
+    $entitiesRefs = $node->referencedEntities();
+    $taxonomy = '';
+
+    foreach ($entitiesRefs as $item) {
+      $taxonomy = $item instanceof Term ? $item->getName() : '';
+    }
+
+    $node->set('title', "{$fDate} - {$taxonomy}");
+
+  }
+
+}

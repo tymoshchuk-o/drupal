@@ -1,0 +1,5 @@
+name: Green Hide Title
+description: Hide post title in page. ADD SEO title.
+package: Custom
+type: module
+core_version_requirement: ^9 || ^10
