@@ -45,8 +45,8 @@ function green_hide_title_node_builder($entity_type, NodeInterface $node, array 
     $taxonomy = '';
 
     if(!$taxonomyDada->isEmpty()){
-      $taxonomyId = $taxonomyDada->getValue()[0]['target_id'];
-      $taxonomy = $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($taxonomyId)->label();
+      $taxonomyList = $taxonomyDada->referencedEntities();
+      $taxonomy = array_shift($taxonomyList)->label();
     }
 
     $node->set('title', "{$fDate} - {$taxonomy}");
