@@ -8,6 +8,7 @@ use GuzzleHttp\ClientInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\State\StateInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 
 /**
  * Receives exchange rate data from Rest API.
@@ -61,6 +62,13 @@ class GreenExchangeService {
   protected $state;
 
   /**
+   * Account proxy.
+   *
+   * @var \Drupal\Core\Session\AccountProxyInterface
+   */
+  protected $accountProxy;
+
+  /**
    * Constructor.
    *
    * @param \GuzzleHttp\ClientInterface $http_client
@@ -73,13 +81,16 @@ class GreenExchangeService {
    *   The Entity type manager.
    * @param \Drupal\Core\State\StateInterface $state
    *   The Drupal state.
+   * @param \Drupal\Core\Session\AccountProxyInterface $account_proxy
+   *   Account proxy.
    */
-  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog, EntityTypeManagerInterface $entity_type_manager, StateInterface $state) {
+  public function __construct(ClientInterface $http_client, ConfigFactoryInterface $configFactory, LoggerChannelFactoryInterface $errorLog, EntityTypeManagerInterface $entity_type_manager, StateInterface $state, AccountProxyInterface $account_proxy) {
     $this->httpClient = $http_client;
     $this->configFactory = $configFactory;
     $this->errorLog = $errorLog;
     $this->entityTypeManager = $entity_type_manager;
     $this->state = $state;
+    $this->accountProxy = $account_proxy;
   }
 
   /**
@@ -100,6 +111,16 @@ class GreenExchangeService {
    */
   public function logNotice(string $message): void {
     $this->errorLog->get('green_exchange')->notice($this->t($message));
+  }
+
+  /**
+   * Checks if the user hase the role wide_possibilities.
+   *
+   * @return bool
+   */
+  public function isWideUser(){
+   $haseRole = in_array("wide_possibilities",$this->accountProxy->getRoles());
+   return $haseRole;
   }
 
   /**
@@ -130,7 +151,10 @@ class GreenExchangeService {
    */
   public function getCurrencyByRange() {
     $currencyArr = [];
-    $range = $this->getExchangeSetting()['range'] ?? 0;
+    $settings = $this->getExchangeSetting();
+    $wideUser = $this->isWideUser();
+    $range = $wideUser ?  $settings['wide_range'] ?? 0
+      : $settings['range'] ?? 0;
     $currencyStorage = $this->getStorage();
     $dateFormat = 'd.m.Y';
     $days = 0;
@@ -232,6 +256,7 @@ class GreenExchangeService {
     return [
       'request' => $config->get('request'),
       'range' => $config->get('range'),
+      'wide_range' => $config->get('wide_range'),
       'uri' => $config->get('uri'),
       'currency' => $config->get('currency-item'),
     ];
@@ -332,7 +357,7 @@ class GreenExchangeService {
    * @return array
    *   An array with of currency exchange.
    */
-  public function fetchData($uri, ?int $range = 0) {
+  public function fetchData($uri, int $range = 0) {
     $uriTail = 'sort=exchangedate&order=desc&json';
     $dateFormat = 'Ymd';
     $today = date($dateFormat);
@@ -366,8 +391,9 @@ class GreenExchangeService {
     $settings = $this->getExchangeSetting();
     $request = $settings['request'];
     $uri = $apiUri ? $apiUri : $settings['uri'];
-    $range = $settings['range'] ?? 0;
-
+    $wideUser = $this->isWideUser();
+    $range = $wideUser ?  $settings['wide_range'] ?? 0
+      : $settings['range'] ?? 0;
     if (!$request || !$uri) {
       return [];
     }
