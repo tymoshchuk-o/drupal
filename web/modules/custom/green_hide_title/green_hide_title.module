@@ -8,7 +8,6 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_form_alter().
@@ -42,11 +41,12 @@ function green_hide_title_node_builder($entity_type, NodeInterface $node, array 
 
     $dateStamp = DrupalDateTime::createFromTimestamp($nodeCreatedTime);
     $fDate = $dateStamp->format('d.m.Y');
-    $entitiesRefs = $node->referencedEntities();
+    $taxonomyDada = $node->get('field_tags');
     $taxonomy = '';
 
-    foreach ($entitiesRefs as $item) {
-      $taxonomy = $item instanceof Term ? $item->getName() : '';
+    if(!$taxonomyDada->isEmpty()){
+      $taxonomyId = $taxonomyDada->getValue()[0]['target_id'];
+      $taxonomy = $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($taxonomyId)->label();
     }
 
     $node->set('title', "{$fDate} - {$taxonomy}");
