@@ -117,10 +117,12 @@ class GreenExchangeService {
    * Checks if the user hase the role wide_possibilities.
    *
    * @return bool
+   *   Is user hase role wide_possibilities.
    */
-  public function isWideUser(){
-   $haseRole = in_array("wide_possibilities",$this->accountProxy->getRoles());
-   return $haseRole;
+  public function isWideUser() {
+    $haseRole = in_array("wide_possibilities", $this->accountProxy->getRoles());
+
+    return $haseRole;
   }
 
   /**
@@ -153,8 +155,7 @@ class GreenExchangeService {
     $currencyArr = [];
     $settings = $this->getExchangeSetting();
     $wideUser = $this->isWideUser();
-    $range = $wideUser ?  $settings['wide_range'] ?? 0
-      : $settings['range'] ?? 0;
+    $range = $wideUser ? $settings['wide_range'] ?? 0 : $settings['range'] ?? 0;
     $currencyStorage = $this->getStorage();
     $dateFormat = 'd.m.Y';
     $days = 0;
@@ -392,8 +393,7 @@ class GreenExchangeService {
     $request = $settings['request'];
     $uri = $apiUri ? $apiUri : $settings['uri'];
     $wideUser = $this->isWideUser();
-    $range = $wideUser ?  $settings['wide_range'] ?? 0
-      : $settings['range'] ?? 0;
+    $range = $wideUser ? $settings['wide_range'] ?? 0 : $settings['range'] ?? 0;
     if (!$request || !$uri) {
       return [];
     }
