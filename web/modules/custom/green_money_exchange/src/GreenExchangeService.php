@@ -121,8 +121,10 @@ class GreenExchangeService {
    */
   public function isWideUser() {
     $haseRole = in_array("wide_possibilities", $this->accountProxy->getRoles());
+    $hasePermission = $this->accountProxy->hasPermission('show wide exchange');
+    $wider = $haseRole || $hasePermission;
 
-    return $haseRole;
+    return $wider;
   }
 
   /**
@@ -155,7 +157,10 @@ class GreenExchangeService {
     $currencyArr = [];
     $settings = $this->getExchangeSetting();
     $wideUser = $this->isWideUser();
-    $range = $wideUser ? $settings['wide_range'] ?? 0 : $settings['range'] ?? 0;
+    $wideRange = $settings['wide_range'] ?? 0;
+    $userRange = $settings['range'] ?? 0;
+
+    $range = $wideUser ? $wideRange : $userRange;
     $currencyStorage = $this->getStorage();
     $dateFormat = 'd.m.Y';
     $days = 0;
@@ -393,7 +398,10 @@ class GreenExchangeService {
     $request = $settings['request'];
     $uri = $apiUri ? $apiUri : $settings['uri'];
     $wideUser = $this->isWideUser();
-    $range = $wideUser ? $settings['wide_range'] ?? 0 : $settings['range'] ?? 0;
+    $wideRange = $settings['wide_range'] ?? 0;
+    $userRange = $settings['range'] ?? 0;
+
+    $range = $wideUser ? $wideRange ?? 0 : $userRange;
     if (!$request || !$uri) {
       return [];
     }
