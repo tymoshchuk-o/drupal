@@ -65,6 +65,12 @@ class GreenExchange extends BlockBase implements ContainerFactoryPluginInterface
     $renderArr = [
       '#theme' => 'green_exchange_template',
       '#exchange_var' => $activeCurrency,
+      '#cache' => [
+        'max-age' => 43198,
+        'contexts' => [
+          'user',
+        ],
+      ],
       '#attached' => [
         'library' => [
           'green_money_exchange/green_money_exchange_chart',
