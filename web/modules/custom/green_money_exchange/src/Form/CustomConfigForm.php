@@ -86,6 +86,13 @@ class CustomConfigForm extends ConfigFormBase {
       '#title' => $this->t('Exchange rate for the period in days'),
       '#default_value' => $config->get('range') ?? 1,
     ];
+
+    $form['settings']['wide_range'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Exchange rate for the period in days. For Wide possibilities users.'),
+      '#default_value' => $config->get('wide_range') ?? 1,
+    ];
+
     $form['settings']['uri'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Enter Money Exchange service URI'),
@@ -235,10 +242,10 @@ class CustomConfigForm extends ConfigFormBase {
     $this->config('green_money_exchange.customconfig')
       ->set('request', $form_state->getValue('request'))
       ->set('range', $form_state->getValue('range'))
+      ->set('wide_range', $form_state->getValue('wide_range'))
       ->set('uri', trim($form_state->getValue('uri')))
       ->set('currency-item', $form_state->getValue('currency-item'))
       ->save();
-
     $this->exchangeService->clearCurrencyState();
 
     if (count($isRemovedCurrency) > 0) {
@@ -267,6 +274,13 @@ class CustomConfigForm extends ConfigFormBase {
         ->t('Exchange rate for the period in
         days must be greater than or equal to 1'));
     }
+
+    if ($form_state->getValue('wide_range') < 0) {
+      $form_state->setErrorByName('wide_range', $this
+        ->t('Exchange rate for the period in
+        days must be greater than or equal to 1'));
+    }
+
   }
 
 }
