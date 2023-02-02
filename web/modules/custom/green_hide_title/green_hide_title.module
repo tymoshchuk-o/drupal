@@ -44,7 +44,7 @@ function green_hide_title_node_builder($entity_type, NodeInterface $node, array 
     $taxonomyDada = $node->get('field_tags');
     $taxonomy = '';
 
-    if(!$taxonomyDada->isEmpty()){
+    if (!$taxonomyDada->isEmpty()) {
       $taxonomyList = $taxonomyDada->referencedEntities();
       $taxonomy = array_shift($taxonomyList)->label();
     }

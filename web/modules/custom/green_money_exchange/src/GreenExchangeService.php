@@ -401,7 +401,7 @@ class GreenExchangeService {
     $wideRange = $settings['wide_range'] ?? 0;
     $userRange = $settings['range'] ?? 0;
 
-    $range = $wideUser ? $settings['wide_range'] ?? 0 : $settings['range'] ?? 0;
+    $range = $wideUser ? $wideRange ?? 0 : $userRange;
     if (!$request || !$uri) {
       return [];
     }
